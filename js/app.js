@@ -1,4 +1,4 @@
-// 上海自由行 — 主程式：載入資料、tab 切換、時間軸渲染、當前景點高亮
+// 釜山自由行 — 主程式：載入資料、tab 切換、時間軸渲染、當前景點高亮
 
 const APP = { data: null, state: null, activeDay: 0, refreshTimer: null };
 
@@ -356,11 +356,11 @@ function renderInfo() {
       <ul class="checklist">${checklist}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">🚕 滴滴叫車・使用指南</h3>
+      <h3 class="info-h">🚕 Kakao Taxi・叫車指南</h3>
       <ul class="bullet">${didi}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">☀️ 7 月上海注意事項</h3>
+      <h3 class="info-h">☀️ 釜山旅遊注意事項</h3>
       <ul class="bullet">${notes}</ul>
     </section>
     <section class="info-block">
