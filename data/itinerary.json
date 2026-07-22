@@ -1,98 +1,334 @@
 {
   "meta": {
     "title": "釜山 4박5일 · 自由行",
-    "subtitle": "（副標待補）",
-    "dateRange": "待定",
+    "subtitle": "南浦・海雲台・影島 5 天 4 夜",
+    "dateRange": "2026.08.02 – 08.06",
     "people": 4,
     "hotel": "（住宿待補）",
     "timezone": "+09:00"
   },
   "coords": {
-    "_comment": "地標座標『經度,緯度』，用來啟用精準標點與路線規劃。為地標近似位置，可自行校正；刪掉某筆則該地點退回關鍵字搜尋。（韓國建議改用 Naver/Kakao 地圖，詳見 CLAUDE.md）"
+    "_comment": "地標座標『經度,緯度』（WGS-84），用來啟用精準標點與路線規劃。為地標近似位置，可自行校正；刪掉某筆則該地點退回關鍵字搜尋。",
+    "金海國際機場": "128.9425,35.1795",
+    "南浦洞商圈": "129.0264,35.0983",
+    "BIFF 廣場": "129.0263,35.0987",
+    "札嘎其市場": "129.0305,35.0966",
+    "海雲台海水浴場": "129.1586,35.1587",
+    "海雲台藍線公園（尾浦站）": "129.1699,35.1556",
+    "青沙浦天空膠囊列車": "129.1999,35.1610",
+    "青沙浦踏石展望台": "129.2010,35.1626",
+    "Skyline Luge Busan": "129.2222,35.2443",
+    "新世界 Centum City": "129.1289,35.1690",
+    "Spa Land 汗蒸幕": "129.1289,35.1690",
+    "白淺灘文化村": "129.0575,35.0782",
+    "松島海上纜車": "129.0185,35.0745",
+    "松島天空步道": "129.0232,35.0736",
+    "MIDAM 醫美診所": "129.1289,35.1700",
+    "ARTE Museum Busan": "129.1620,35.1725"
   },
   "days": [
     {
       "day": 1,
-      "date": "2026-10-01",
-      "weekday": "四",
-      "title": "抵達（標題待補）",
+      "date": "2026-08-02",
+      "weekday": "日",
+      "title": "抵達釜山・南浦洞美食巡禮",
       "items": [
         {
           "type": "spot",
-          "time": "13:00",
-          "name": "（景點待補）",
-          "image": null,
-          "intro": "（簡介待補）"
+          "time": "14:00",
+          "name": "金海國際機場 抵達",
+          "image": "images/gimhae-airport.jpg",
+          "intro": "落地釜山！領完行李、辦好交通卡（可用 Cashbee／T-money），從機場搭輕軌轉地鐵進市區。第一站直奔南浦洞。",
+          "map": { "keyword": "金海國際機場" }
+        },
+        {
+          "type": "transit",
+          "mode": "metro",
+          "desc": "金海機場輕軌 → 沙上站轉 2 號線 → 南浦站，約 50 分鐘",
+          "to": { "keyword": "南浦洞商圈" }
+        },
+        {
+          "type": "spot",
+          "time": "15:30",
+          "name": "南浦洞商圈",
+          "image": "images/nampo-dong.jpg",
+          "intro": "釜山最熱鬧的購物與美食街區，光復路時尚街、彩妝藥妝、街頭小吃聚集，適合邊逛邊吃暖身。",
+          "map": { "keyword": "南浦洞商圈" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "步行約 3 分鐘",
+          "to": { "keyword": "BIFF 廣場" }
+        },
+        {
+          "type": "spot",
+          "time": "16:00",
+          "name": "BIFF 廣場",
+          "image": "images/biff-square.jpg",
+          "intro": "釜山國際電影節發源地，地上有名導手印。必吃招牌『씨앗호떡』糖餅——外酥內爆堅果與黑糖漿，來釜山第一口甜。",
+          "map": { "keyword": "BIFF 廣場" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "步行約 5 分鐘",
+          "to": { "keyword": "札嘎其市場" }
+        },
+        {
+          "type": "spot",
+          "time": "17:30",
+          "name": "札嘎其市場（晚餐・海鮮）",
+          "image": "images/jagalchi-market.jpg",
+          "intro": "韓國最大海鮮市場，一樓挑生猛海鮮、二樓現場代客料理。生魚片、烤貝、鹽烤魚，配燒酒，釜山第一晚就要吃海味。",
+          "map": { "keyword": "札嘎其市場" }
         }
       ]
     },
     {
       "day": 2,
-      "date": "2026-10-02",
-      "weekday": "五",
-      "title": "（標題待補）",
+      "date": "2026-08-03",
+      "weekday": "一",
+      "title": "海雲台・藍線公園・機張滑車",
       "items": [
         {
           "type": "spot",
-          "time": "10:00",
-          "name": "（景點待補）",
-          "image": null,
-          "intro": "（簡介待補）"
+          "time": "09:30",
+          "name": "海雲台海水浴場",
+          "image": "images/haeundae-beach.jpg",
+          "intro": "釜山最具代表性的白沙灣，1.5 公里海岸線。清晨人少好拍，沿灘散步後前往尾浦搭天空膠囊。",
+          "map": { "keyword": "海雲台海水浴場" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "沿海岸步行至尾浦站，約 15 分鐘",
+          "to": { "keyword": "海雲台藍線公園（尾浦站）" }
+        },
+        {
+          "type": "spot",
+          "time": "10:30",
+          "name": "海雲台藍線公園・天空膠囊列車",
+          "image": "images/blueline-sky-capsule.jpg",
+          "intro": "★ 需提前線上預約！四人座彩色膠囊車廂沿舊東海南部線緩行，一側是湛藍海景。尾浦↔青沙浦，釜山必體驗招牌。",
+          "map": { "keyword": "青沙浦天空膠囊列車" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "天空膠囊抵達青沙浦，沿海景步道步行",
+          "to": { "keyword": "青沙浦踏石展望台" }
+        },
+        {
+          "type": "spot",
+          "time": "12:00",
+          "name": "青沙浦踏石展望台（海景步道）",
+          "image": "images/cheongsapo-daritdol.jpg",
+          "intro": "玻璃地板海上觀景台，腳下就是碧海礁岩。周邊青沙浦漁村可吃烤貝午餐，紅白雙燈塔是熱門打卡點。",
+          "map": { "keyword": "青沙浦踏石展望台" }
+        },
+        {
+          "type": "transit",
+          "mode": "taxi",
+          "desc": "計程車前往機張，約 20 分鐘",
+          "to": { "keyword": "Skyline Luge Busan" }
+        },
+        {
+          "type": "spot",
+          "time": "14:30",
+          "name": "Skyline Luge Busan（斜坡滑車）",
+          "image": "images/skyline-luge-busan.jpg",
+          "intro": "機張人氣戶外滑車，搭吊椅上山、駕重力滑車俯衝下坡，可自控速度，大人小孩都瘋。建議留 1.5～2 小時。",
+          "map": { "keyword": "Skyline Luge Busan" }
+        },
+        {
+          "type": "transit",
+          "mode": "taxi",
+          "desc": "計程車前往 Centum City，約 25 分鐘",
+          "to": { "keyword": "Spa Land 汗蒸幕" }
+        },
+        {
+          "type": "spot",
+          "time": "18:00",
+          "name": "Spa Land（新世界 Centum City）",
+          "image": "images/spa-land.jpg",
+          "intro": "新世界百貨內的高級汗蒸幕，22 種溫泉浴池與多國主題汗蒸房。玩了一整天，泡湯放鬆收尾最爽。",
+          "map": { "keyword": "Spa Land 汗蒸幕" }
         }
       ]
     },
     {
       "day": 3,
-      "date": "2026-10-03",
-      "weekday": "六",
-      "title": "（標題待補）",
+      "date": "2026-08-04",
+      "weekday": "二",
+      "title": "影島白淺灘・松島海空雙景",
       "items": [
         {
           "type": "spot",
           "time": "10:00",
-          "name": "（景點待補）",
-          "image": null,
-          "intro": "（簡介待補）"
+          "name": "白淺灘文化村",
+          "image": "images/huinyeoul-village.jpg",
+          "intro": "影島懸崖上的白色小村，依海而建的窄巷與階梯，電影《辯護人》取景地。海景咖啡廳林立，慢步拍照超好看。",
+          "map": { "keyword": "白淺灘文化村" }
+        },
+        {
+          "type": "transit",
+          "mode": "taxi",
+          "desc": "計程車前往松島，約 15 分鐘",
+          "to": { "keyword": "松島海上纜車" }
+        },
+        {
+          "type": "spot",
+          "time": "12:30",
+          "name": "松島海上纜車",
+          "image": "images/songdo-cable-car.jpg",
+          "intro": "橫跨松島灣的跨海纜車，水晶車廂腳下透明看海。可選 Air Cruise 透明廂，山海全景盡收眼底。",
+          "map": { "keyword": "松島海上纜車" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "步行至海岸雲端散步路，約 8 分鐘",
+          "to": { "keyword": "松島天空步道" }
+        },
+        {
+          "type": "spot",
+          "time": "13:30",
+          "name": "松島天空步道（雲端散步路）",
+          "image": "images/songdo-skywalk.jpg",
+          "intro": "延伸入海的環形空中步道，走在海面上聽浪拍礁石。與纜車、海水浴場串成松島半日遊。",
+          "map": { "keyword": "松島天空步道" }
+        },
+        {
+          "type": "spot",
+          "time": "18:30",
+          "name": "晚餐・韓式韓牛燒肉",
+          "image": "images/hanwoo-bbq.jpg",
+          "intro": "犒賞自己一頓韓牛燒肉！炭火現烤霜降韓牛、五花肉，包生菜蘸醬，配大醬湯與燒酒，經典韓式吃法。",
+          "map": null
         }
       ]
     },
     {
       "day": 4,
-      "date": "2026-10-04",
-      "weekday": "日",
-      "title": "（標題待補）",
+      "date": "2026-08-05",
+      "weekday": "三",
+      "title": "Centum City・醫美與百貨慢日",
       "items": [
         {
           "type": "spot",
           "time": "10:00",
-          "name": "（景點待補）",
+          "name": "MIDAM 醫美診所",
           "image": null,
-          "intro": "（簡介待補）"
+          "intro": "Centum City 附近的醫美診所，預約做基礎保養／療程。★ 記得提前預約並確認營業時間與所需空檔。",
+          "map": { "keyword": "MIDAM 醫美診所" }
+        },
+        {
+          "type": "transit",
+          "mode": "walk",
+          "desc": "步行前往新世界百貨，約 10 分鐘",
+          "to": { "keyword": "新世界 Centum City" }
+        },
+        {
+          "type": "spot",
+          "time": "13:00",
+          "name": "新世界百貨 Centum City",
+          "image": "images/shinsegae-centum.jpg",
+          "intro": "金氏世界紀錄認證全球最大百貨。精品、美食街、Spa Land、書店應有盡有，逛街購物一次滿足。",
+          "map": { "keyword": "新世界 Centum City" }
+        },
+        {
+          "type": "spot",
+          "time": "15:30",
+          "name": "咖啡廳休息",
+          "image": "images/busan-cafe.jpg",
+          "intro": "找間質感咖啡廳坐下歇腳，來塊甜點配咖啡。釜山咖啡文化興盛，Centum／海雲台一帶選擇很多。",
+          "map": null
+        },
+        {
+          "type": "spot",
+          "time": "18:30",
+          "name": "晚餐・豬肉湯飯（돼지국밥）",
+          "image": "images/dwaeji-gukbap.jpg",
+          "intro": "釜山靈魂美食！乳白豬骨湯泡飯，加蝦醬、韭菜、辣醬調味，暖胃又平價，來釜山一定要吃一碗。",
+          "map": null
         }
       ]
     },
     {
       "day": 5,
-      "date": "2026-10-05",
-      "weekday": "一",
-      "title": "返程（標題待補）",
+      "date": "2026-08-06",
+      "weekday": "四",
+      "title": "ARTE 光影藝術・金海機場返台",
       "items": [
         {
           "type": "spot",
           "time": "10:00",
-          "name": "（景點待補）",
+          "name": "退房・寄放行李",
           "image": null,
-          "intro": "（簡介待補）"
+          "intro": "飯店退房，把行李寄放在櫃檯或寄物櫃，輕裝出門把最後半天玩好玩滿。",
+          "map": null
+        },
+        {
+          "type": "spot",
+          "time": "10:30",
+          "name": "ARTE Museum Busan",
+          "image": "images/arte-museum-busan.jpg",
+          "intro": "沉浸式光影藝術展，巨型投影＋音樂＋香氛打造夢幻空間，每個展廳都是拍照聖地，最後半天的視覺盛宴。",
+          "map": { "keyword": "ARTE Museum Busan" }
+        },
+        {
+          "type": "transit",
+          "mode": "taxi",
+          "desc": "回飯店拿行李後前往金海機場，約 45～60 分鐘",
+          "to": { "keyword": "金海國際機場" }
+        },
+        {
+          "type": "spot",
+          "time": "18:00",
+          "name": "金海國際機場（濟州航空 7C6153）",
+          "image": "images/gimhae-airport.jpg",
+          "intro": "抵達機場辦理登機、退稅、逛免稅。搭乘濟州航空 7C6153 晚班機返台，結束 5 天 4 夜釜山之旅。",
+          "map": { "keyword": "金海國際機場" }
         }
       ]
     }
   ],
   "info": {
-    "transportTable": [],
-    "budget": [],
-    "checklist": [],
-    "didiGuide": [],
-    "notes": [],
-    "apps": []
+    "transportTable": [
+      { "route": "機場 → 市區", "method": "釜金輕軌轉地鐵 2 號線", "note": "沙上站轉乘；或計程車約 40 分鐘" },
+      { "route": "市區移動", "method": "地鐵 1／2 號線為主", "note": "Cashbee／T-money 交通卡可搭地鐵、公車、計程車" },
+      { "route": "海雲台一帶", "method": "地鐵 2 號線＋計程車", "note": "藍線公園、機張需搭計程車接駁" }
+    ],
+    "budget": [
+      { "item": "天空膠囊列車", "amount": "₩30,000～44,000／車廂", "note": "四人座，務必線上預約" },
+      { "item": "Skyline Luge", "amount": "₩約 25,000／人（多趟套票）", "note": "價格依趟數" },
+      { "item": "Spa Land", "amount": "₩約 20,000／人（4 小時）", "note": "新世界 Centum City 內" },
+      { "item": "松島海上纜車", "amount": "₩約 15,000／人（一般廂來回）", "note": "水晶廂另計" }
+    ],
+    "checklist": [
+      "護照、電子機票、住宿訂房確認",
+      "Cashbee／T-money 交通卡",
+      "天空膠囊列車預約憑證",
+      "MIDAM 醫美診所預約確認",
+      "轉接頭（韓國為圓形雙孔 220V）",
+      "網路：eSIM 或 WiFi 分享器"
+    ],
+    "didiGuide": [
+      "釜山叫車用 Kakao T（韓國版），需綁定信用卡或現金付",
+      "地圖導航用 Naver Map／Kakao Map，Google Map 在韓國步行導航較弱"
+    ],
+    "notes": [
+      "天空膠囊、Skyline Luge 建議先線上預約避免排隊",
+      "MIDAM 醫美療程需預留恢復時間，安排在返台前一天要留意",
+      "8 月釜山炎熱多雨，備防曬、雨具與輕便衣物",
+      "海鮮市場代客料理與部分景點僅收現金，備足韓元"
+    ],
+    "apps": [
+      { "name": "Naver Map", "desc": "韓國最準的地圖與導航" },
+      { "name": "Kakao T", "desc": "叫計程車必備" },
+      { "name": "Papago", "desc": "韓中翻譯，菜單掃描超好用" },
+      { "name": "Klook／KKday", "desc": "天空膠囊、纜車、Luge 預約與電子票" }
+    ]
   }
 }
