@@ -32,7 +32,7 @@
 // 交通串接（夾在兩景點之間）
 {
   "type": "transit",
-  "mode": "metro",                 // walk / taxi / metro / maglev
+  "mode": "metro",                 // walk / taxi / metro / bus
   "desc": "地鐵 3 號線約 20 分鐘",
   "to": { "keyword": "景福宮", "city": "首爾" }
 }
@@ -45,12 +45,13 @@
 
 ### 校正景點座標
 
-景點與交通的精準度由 `data/itinerary.json` 最上方的 `coords` 表決定（`"經度,緯度"`）：
+景點與交通的精準度由 `data/itinerary.json` 最上方的 `coords` 表決定（`"經度,緯度"`，**WGS-84 世界座標系**）：
 
 - 有座標 → 精準標點與路線規劃。
 - 移除某筆 → 該地點退回關鍵字搜尋。
 
-> ⚠️ **地圖整合待調整**：本專案的導航（`js/amap.js`）沿用自上海版本，走的是**高德地圖**深連結，在韓國覆蓋不佳。若要落地，建議改接 **Naver Map / Kakao Map** 深連結，座標系統與 URL scheme 也需一併調整。
+> 🗺️ **地圖：Naver Map**。導航層 `js/naver.js` 走 Naver Map 深連結：手機優先喚起 `nmap://` App（未安裝則彈窗引導安裝或改用網頁版），桌機開 `map.naver.com`。座標為 **WGS-84**（`"經度,緯度"`）。<br>
+> `mode` 對應 Naver 路線類型：`walk`→步行、`taxi`→駕車、`metro`/`bus`→大眾運輸。
 
 ## 本地預覽
 

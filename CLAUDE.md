@@ -5,25 +5,25 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## 專案本質
 
 手機優先的**單頁靜態網站**：韓國 5 天 4 夜自由行行程表，部署於 GitHub Pages。
-**無建置步驟、無框架、無 npm 依賴**——純 HTML/CSS/原生 JS。三支 JS 以 `<script>` 依序載入（`amap.js` → `now.js` → `app.js`），彼此用**全域函式**呼叫，沒有 import/export 模組系統。
+**無建置步驟、無框架、無 npm 依賴**——純 HTML/CSS/原生 JS。三支 JS 以 `<script>` 依序載入（`naver.js` → `now.js` → `app.js`），彼此用**全域函式**呼叫，沒有 import/export 模組系統。
 
-> 本專案由 `china_trip`（上海）fork 而來，保留整體架構與設計語言，行程內容已清空為韓國空白範本。**時區為 KST（`+09:00`）。** 導航層 `js/amap.js` 仍沿用高德地圖深連結（中國專用），在韓國覆蓋不佳，落地時建議改接 Naver Map / Kakao Map。
+> 本專案由 `china_trip`（上海）fork 而來，保留整體架構與設計語言，行程內容已清空為韓國空白範本。**時區為 KST（`+09:00`）。** 導航層已由高德改接 **Naver Map**（`js/naver.js`），座標系改為 **WGS-84**。
 
 ## 核心架構：資料與呈現分離
 
 所有行程內容都在 `data/itinerary.json`，程式碼只負責讀取與渲染。**改行程＝只編輯這個 JSON，不要動 JS。**
 
 - `meta`：標題、日期區間、`timezone`（韓國 `+09:00`，當前景點判斷的時區依據）。
-- `coords`：`地點關鍵字 → "經度,緯度"`（高德 GCJ-02）查表。`app.js` 的 `enrichCoords()` 在載入時依 `keyword` 把座標補進各 `map`/`to`，因此座標集中在此一處維護。刪掉某筆 → 該地點退回關鍵字搜尋。
+- `coords`：`地點關鍵字 → "經度,緯度"`（**WGS-84** 世界座標系）查表。`app.js` 的 `enrichCoords()` 在載入時依 `keyword` 把座標補進各 `map`/`to`，因此座標集中在此一處維護。刪掉某筆 → 該地點退回關鍵字搜尋。
 - `days[].items[]`：兩種交錯節點
   - `spot`（景點卡片）：`time`(HH:mm)、`name`、`image`(null→漸層佔位／URL／`images/` 路徑)、`intro`、`map`（**選填**，有才顯示導航鈕）。
-  - `transit`（交通串接）：`mode`(`walk`/`taxi`/`metro`/`maglev`)、`desc`、`to`（目的地，點擊跳高德）。
+  - `transit`（交通串接）：`mode`(`walk`/`taxi`/`metro`/`bus`)、`desc`、`to`（目的地，點擊跳 Naver Map）。
 - `info`：資訊分頁資料（交通總覽、費用、行李、滴滴指南、注意事項、App）。
 
 ## 三支 JS 的職責
 
 - `js/now.js`：時間與「目前該在哪個景點」。`shanghaiNow()` **一律換算 UTC+8**（取 UTC 瞬間 +8h 再讀 UTC 欄位，與裝置時區無關），並支援 `?now=YYYY-MM-DDTHH:mm` 覆寫。`resolveState()` 是純函式，回傳 `{mode: before|during|after|none, dayIndex, currentItemIndex, nextItemIndex}`。
-- `js/amap.js`：高德 deeplink。`amapSearchUrl`/`amapNavUrl` 產生網頁版 `uri.amap.com` 連結（fallback）；`amapNativeUrl` 依平台產生 App scheme（iOS `iosamap://`、Android `intent://...package=com.autonavi.minimap`）。座標格式是 `"lng,lat"`，但 scheme 參數要 `lat`/`lon` 分開且 `dev=0`(GCJ-02)。
+- `js/naver.js`：Naver Map deeplink。`naverSearchUrl`/`naverNavUrl` 產生網頁版 `map.naver.com/p/search/{query}` 連結（fallback）；`naverNativeUrl` 依平台產生 App scheme：iOS 直接回 `nmap://`（`place`/`route/{car|walk|public|bicycle}`），Android 回 `intent://...scheme=nmap;package=com.nhn.android.nmap` 並帶 `browser_fallback_url` 退回網頁版。**`nmap://` 強制帶 `appname` 參數**（`NAVER_APPNAME`）。座標存 `"lng,lat"`（WGS-84），scheme 參數為 `lat`/`lng` 分開。mode 對應：`walk`→walk、`taxi`→car、`metro`/`bus`→public。
 - `js/app.js`：載入 JSON、tab 切換、時間軸 spine 渲染、三態高亮、「回到現在」、資訊分頁、`renderUpdatedAt()`、入場翻牌時鐘。`attachMapHandler()` 用事件委派：手機點 `a[data-map]` 時先試 App scheme，iOS 1.5 秒逾時 fallback 網頁，Android 由 intent 的 `browser_fallback_url` 處理。`fillIntroClock()`／`playIntro()`／`hideIntro()` 控制入場：`fillIntroClock()` 依 `shanghaiNow().label` 填翻牌四位數（與「現在」連動）；`playIntro()` 一次性播放時間軸卡片依序浮現後淡出 loader（`prefers-reduced-motion` 或載入失敗皆直接 `hideIntro()`）。
 
 ## 當前景點高亮（招牌功能）
@@ -53,9 +53,9 @@ gh run list --workflow=deploy.yml --limit 1
 ## 驗證手法（無測試框架）
 
 - 語法：`node --check js/*.js`
-- 邏輯：用 node `vm` 沙箱載入 `now.js`/`amap.js`（stub `location`/`navigator`/`URLSearchParams`），對 `resolveState` 與 deeplink 組裝做斷言。
+- 邏輯：用 node `vm` 沙箱載入 `now.js`/`naver.js`（stub `location`/`navigator`/`URLSearchParams`），對 `resolveState` 與 deeplink 組裝做斷言。
 - 視覺：headless Chrome `--screenshot` 搭配 `?now=` 驗證前/中/後三種狀態與當前高亮。
-- 高德 App **喚起行為無法在此環境驗證**，需在 iOS/Android 真機各測一次。
+- Naver Map App **喚起行為無法在此環境驗證**，需在 iOS/Android 真機各測一次。
 
 ## 設計語言（老上海 Art Deco・月份牌）
 
