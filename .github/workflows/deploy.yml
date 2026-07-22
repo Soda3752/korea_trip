@@ -1,0 +1,53 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Stamp build version & bust caches
+        run: |
+          VERSION="${GITHUB_SHA::8}"
+          BUILT_AT="$(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
+          # build-info.json：前端以 no-store 抓取，version 用於偵測新版、builtAt 顯示「最後更新」
+          echo "{\"builtAt\":\"$BUILT_AT\",\"version\":\"$VERSION\"}" > build-info.json
+          cat build-info.json
+          # 將 index.html 的 __BUILD_VERSION__ 佔位換成本次部署版本（css/js 的 ?v= 與 window.__BUILD__ 的值）
+          sed -i "s/__BUILD_VERSION__/$VERSION/g" index.html
+          if grep -q '__BUILD_VERSION__' index.html; then
+            echo "ERROR: __BUILD_VERSION__ 佔位未被完全替換"; exit 1
+          fi
+          grep -nE "v=$VERSION|window\.__BUILD__ = " index.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

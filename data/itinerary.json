@@ -1,0 +1,98 @@
+{
+  "meta": {
+    "title": "韓國 5天4夜 · 自由行",
+    "subtitle": "（副標待補）",
+    "dateRange": "待定",
+    "people": 4,
+    "hotel": "（住宿待補）",
+    "timezone": "+09:00"
+  },
+  "coords": {
+    "_comment": "地標座標『經度,緯度』，用來啟用精準標點與路線規劃。為地標近似位置，可自行校正；刪掉某筆則該地點退回關鍵字搜尋。（韓國建議改用 Naver/Kakao 地圖，詳見 CLAUDE.md）"
+  },
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-10-01",
+      "weekday": "四",
+      "title": "抵達（標題待補）",
+      "items": [
+        {
+          "type": "spot",
+          "time": "13:00",
+          "name": "（景點待補）",
+          "image": null,
+          "intro": "（簡介待補）"
+        }
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-10-02",
+      "weekday": "五",
+      "title": "（標題待補）",
+      "items": [
+        {
+          "type": "spot",
+          "time": "10:00",
+          "name": "（景點待補）",
+          "image": null,
+          "intro": "（簡介待補）"
+        }
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-10-03",
+      "weekday": "六",
+      "title": "（標題待補）",
+      "items": [
+        {
+          "type": "spot",
+          "time": "10:00",
+          "name": "（景點待補）",
+          "image": null,
+          "intro": "（簡介待補）"
+        }
+      ]
+    },
+    {
+      "day": 4,
+      "date": "2026-10-04",
+      "weekday": "日",
+      "title": "（標題待補）",
+      "items": [
+        {
+          "type": "spot",
+          "time": "10:00",
+          "name": "（景點待補）",
+          "image": null,
+          "intro": "（簡介待補）"
+        }
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-10-05",
+      "weekday": "一",
+      "title": "返程（標題待補）",
+      "items": [
+        {
+          "type": "spot",
+          "time": "10:00",
+          "name": "（景點待補）",
+          "image": null,
+          "intro": "（簡介待補）"
+        }
+      ]
+    }
+  ],
+  "info": {
+    "transportTable": [],
+    "budget": [],
+    "checklist": [],
+    "didiGuide": [],
+    "notes": [],
+    "apps": []
+  }
+}
