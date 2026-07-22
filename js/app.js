@@ -305,10 +305,10 @@ function mediaHTML(it) {
   if (it.image) {
     return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.name)}" loading="lazy">`;
   }
-  // 漸層佔位圖：依名稱取色相，固定落在藍～靛範圍以維持藍白主調
-  const hue = 200 + (hashStr(it.name) % 60);
-  const style = `background:linear-gradient(135deg,hsl(${hue} 55% 42%),hsl(${hue + 25} 60% 30%))`;
-  return `<div class="media-ph" style="${style}">
+  // 甘川洞彩層佔位圖：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊
+  const PH_PALETTE = ['#2FA6A0', '#F27C63', '#E8B84B', '#8E7CC3', '#5B9BD5', '#EE8A6F', '#79B8A8', '#F2B84B'];
+  const c = PH_PALETTE[hashStr(it.name) % PH_PALETTE.length];
+  return `<div class="media-ph" style="--ph:${c}">
       <span class="media-ph-name">${esc(it.name)}</span>
       <span class="media-ph-hint">📷 待補圖</span>
     </div>`;
