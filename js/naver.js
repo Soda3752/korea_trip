@@ -26,22 +26,24 @@ function naverRouteType(mode) {
   return 'public'; // metro / bus / 其他大眾運輸
 }
 
-// 網頁版查詢字串：優先關鍵字，退而用座標
-function naverWebQuery(place) {
-  if (place.keyword) return place.keyword;
-  if (place.coord) {
-    const [lon, lat] = place.coord.split(',').map((s) => s.trim());
-    return `${lat},${lon}`;
-  }
-  return '';
+// 解析 "lng,lat" 座標字串；缺逗號或缺值視為無效座標，回傳 null
+function parseCoord(coord) {
+  if (!coord) return null;
+  const [lon, lat] = coord.split(',').map((s) => s.trim());
+  return lon && lat ? { lon, lat } : null;
 }
 
-// 景點導航（網頁 fallback）：一律開 map.naver.com 搜尋（帶入關鍵字或座標）
+// 景點導航（網頁 fallback）：有座標→直接以經緯度定位（繁中關鍵字丟進 Naver 全文搜尋常常「沒有搜尋結果」）；
+// 無座標→退回關鍵字文字搜尋。座標定位格式為 Naver 官方支援的 lng/lat/title 參數。
 function naverSearchUrl(place) {
   if (!place) return null;
-  const q = naverWebQuery(place);
-  if (!q) return null;
-  return `https://map.naver.com/p/search/${encodeURIComponent(q)}`;
+  const c = parseCoord(place.coord);
+  if (c) {
+    const title = encodeURIComponent(place.keyword || '');
+    return `https://map.naver.com/?lng=${c.lon}&lat=${c.lat}&title=${title}`;
+  }
+  if (place.keyword) return `https://map.naver.com/p/search/${encodeURIComponent(place.keyword)}`;
+  return null;
 }
 
 // 交通串接（網頁 fallback）：Naver 網頁路線規劃參數複雜，這裡退回「開啟目的地搜尋」
@@ -64,8 +66,9 @@ function naverPlatform() {
 
 // 組出 nmap:// 的 actionPath?query（不含 scheme 前綴，供 iOS 直接接、Android 包進 intent）
 // place: { coord:"lng,lat", keyword }；mode 有值 → 路線規劃(route)，否則 → 標點(place)
+// 前提：呼叫前 coord 必須已通過 parseCoord 驗證（見唯一呼叫者 naverNativeUrl），此處才敢直接解構不判 null
 function naverActionQuery(place, mode) {
-  const [lon, lat] = place.coord.split(',').map((s) => s.trim());
+  const { lon, lat } = parseCoord(place.coord);
   const name = encodeURIComponent(place.keyword || '');
   if (mode) {
     return `route/${naverRouteType(mode)}?dlat=${lat}&dlng=${lon}&dname=${name}&appname=${NAVER_APPNAME}`;
@@ -77,7 +80,7 @@ function naverActionQuery(place, mode) {
 // iOS：回傳 nmap://…（未安裝的偵測由 app.js 以逾時彈窗處理）
 // Android：回傳 intent://…（自帶 browser_fallback_url，未安裝自動退回網頁版地圖）
 function naverNativeUrl(place, mode) {
-  if (!place || !place.coord) return null;
+  if (!place || !parseCoord(place.coord)) return null;
   const plat = naverPlatform();
   if (plat === 'other') return null;
 
