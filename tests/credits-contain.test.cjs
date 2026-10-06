@@ -5,6 +5,9 @@ const {test}=require('node:test');const assert=require('node:assert/strict');con
 function element(tag){return {tagName:tag,children:[],className:'',append(...children){this.children.push(...children);}};}
 test('credits DOM preserves the actual KOGL4 boat contain flag without changing other previews',async()=>{
   const source=JSON.parse(fs.readFileSync(path.join(root,'data/photo-sources.json'),'utf8'));
+  // Keep this legacy preview contract scoped to the original 21 records;
+  // credits-meal-previews.test.cjs exercises all 28 including meal contain flags.
+  source.photos=source.photos.filter(photo=>!photo.image.startsWith('images/korea/meal-'));
   const list=element('section');const status=element('p');
   const context=vm.createContext({URL,document:{createElement:element,getElementById:id=>id==='credits-list'?list:status},fetch:async()=>({ok:true,json:async()=>source})});
   vm.runInContext(fs.readFileSync(path.join(root,'js/photo-credits.js'),'utf8'),context);

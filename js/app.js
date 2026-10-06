@@ -11,6 +11,11 @@ document.addEventListener('error', handlePhotoError, true);
 function handlePhotoError(event) {
   const image = event.target;
   if (!image || typeof image.matches !== 'function' || !image.matches('img.media-img')) return;
+  const mealCard = typeof image.closest === 'function' && image.closest('.card--meal');
+  if (mealCard) {
+    const media = mealCard.querySelector('.meal-media');
+    if (media) media.classList.add('meal-media--failed');
+  }
   const fallback = document.createElement('div');
   fallback.className = 'media-ph';
   fallback.textContent = '圖片暫時無法載入';
@@ -261,7 +266,7 @@ function renderDay(dayIndex) {
     const minutes = timeToMinutes(time);
     const before = minutes === null ? -1 : displayRows.findIndex(row => row.time !== null && row.time > minutes);
     displayRows.splice(before === -1 ? displayRows.length : before, 0,
-      { time: minutes, html: mealRow(key, description, time, day.mealArticles && day.mealArticles[key]) });
+      { time: minutes, html: mealRow(key, description, time, day.mealArticles && day.mealArticles[key], day.mealPhotos && day.mealPhotos[key], `day-${day.day}-${key}`) });
   }
   const rows = displayRows.map(row => row.html).join('');
 
@@ -279,13 +284,18 @@ function renderDay(dayIndex) {
   document.getElementById('content').innerHTML = html;
 }
 
-function mealRow(key, description, time, articles) {
+function mealRow(key, description, time, articles, mealPhoto, mealId) {
   const label = key === 'lunch' ? '午餐' : description.includes('自理') ? '晚餐(自理)' : '晚餐';
+  const validPhoto = mealPhoto && typeof mealPhoto === 'object' && !Array.isArray(mealPhoto) &&
+    typeof mealPhoto.image === 'string' && /^images\/korea\/[a-z0-9-]+\.jpg$/.test(mealPhoto.image) &&
+    !/[\s\u0000-\u001f\u007f]/.test(mealPhoto.image) &&
+    typeof mealPhoto.imageAlt === 'string' && mealPhoto.imageAlt.trim();
+  const media = validPhoto ? `<div class="meal-media" data-meal-photo="${esc(mealId || key)}">${mediaHTML({ ...mealPhoto, imageType: 'illustrative' }, '餐食示意')}</div>` : '';
   return `
     <li class="tl-item tl-meal">
       <div class="tl-rail"><span class="tl-node"></span></div>
       <article class="card card--meal">
-        <div class="card-body">
+        ${media}${media ? '\n        ' : ''}<div class="card-body">
           <h3 class="card-title">🍽 ${label}</h3>
           <p class="card-intro">${timeToMinutes(time) === null ? '行程順序・時間待通知，待領隊通知' : `預估 ${esc(fmt12(time))} KST`}</p>
           <p class="card-intro">${esc(description)}</p>
@@ -365,9 +375,9 @@ function transitRow(it, state) {
     </li>`;
 }
 
-function mediaHTML(it) {
+function mediaHTML(it, illustrativeLabel = '示意圖') {
   if (it.image) {
-    const label = it.imageType === 'surroundings' ? '地區示意' : it.imageType === 'illustrative' ? '示意圖' : '';
+    const label = it.imageType === 'surroundings' ? '地區示意' : it.imageType === 'illustrative' ? illustrativeLabel : '';
     return `<img class="media-img${it.imageFit === 'contain' ? ' media-img--contain' : ''}" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.name)}" loading="lazy" decoding="async">${label ? `<span class="photo-badge" title="${esc(it.imageNote || label)}">${label}</span>` : ''}`;
   }
   // 手冊行程色塊佔位：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊

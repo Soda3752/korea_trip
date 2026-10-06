@@ -29,7 +29,8 @@ async function loadPhotoCredits() {
     for (const photo of source.photos) {
       const article = photoElement('article', '', 'credit-card');
       article.append(photoElement('h2', photo.imageAlt || photo.key));
-      if (/^images\/korea\/[abc]-[a-z0-9-]+\.jpg$/.test(photo.image)) {
+      if (typeof photo.image === 'string' && (/^images\/korea\/[abc]-[a-z0-9-]+\.jpg$/.test(photo.image) ||
+        /^images\/korea\/meal-(?:d1-dinner|d[234]-(?:lunch|dinner))\.jpg$/.test(photo.image))) {
         const image = photoElement('img', '', photo.imageFit === 'contain' ? 'credit-img--contain' : ''); image.src = photo.image; image.alt = photo.imageAlt || photo.key; image.loading = 'lazy'; article.append(image);
       }
       article.append(photoElement('p', '作者：' + photo.author), photoElement('p', '授權：' + photo.license));

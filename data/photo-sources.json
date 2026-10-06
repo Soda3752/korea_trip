@@ -444,6 +444,174 @@
         "grant_url": "https://www.kogl.or.kr/info/license.do",
         "verified_reuse_rights": "Agency photo/content grant verified; underlying LED artwork scope not expressly specified."
       }
+    },
+    {
+      "key": "meal-d1-dinner",
+      "cardIds": [
+        "d1-dinner"
+      ],
+      "image": "images/korea/meal-d1-dinner.jpg",
+      "imageAlt": "韓式紫菜飯捲，海苔包裹米飯與蔬菜，撒上芝麻；料理示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "取自文章「母女麻藥紫菜飯捲」實吃段落。首爾廣藏市場食記，非抵達仁川後團餐店家；口味與份量不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://alinalife.tw/monyeokimbap/",
+      "originalUrl": "https://alinalife.tw/wp-content/uploads/2025/01/DSC09887.jpg",
+      "author": "Alina 愛琳娜",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://alinalife.tw/monyeokimbap/",
+      "sha256": "e30d82194cfbbdab3bed843a6e453dd18abaeb93c35b49fddf615864d2add22e",
+      "modifications": "Proportional resize only: 1024×683 → 900×600; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://alinalife.tw/monyeokimbap/",
+        "description": "廣藏市場麻藥飯捲｜母女紫菜包飯最好吃，連Running Man都喜歡 @Alina 愛琳娜",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d2-lunch",
+      "cardIds": [
+        "d2-lunch"
+      ],
+      "image": "images/korea/meal-d2-lunch.jpg",
+      "imageAlt": "韓式烤盤上的五花肉等豬肉、蔬菜與大醬湯；料理示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "取自文章「好吃嗎？」烤肉與小菜段落。文中豬肉商會不是已確認的「烤肉學校」，只作五花肉等豬肉料理參考；吃到飽方案不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://yuki.tw/read-105413.html",
+      "originalUrl": "https://yuki.tw/wp-content/uploads/2024/04/20240417161959_0_090f72.jpg",
+      "author": "Yuki / Yuki’s Life",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://yuki.tw/read-105413.html",
+      "sha256": "755b25ce1191ecb3cfe22fd2c0b4d2fe18f223f65e67e71ad5688f7e663f6dbf",
+      "modifications": "Proportional resize only: 1300×975 → 900×675; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://yuki.tw/read-105413.html",
+        "description": "明洞必吃美食【豬肉商會】一人4百超值烤肉吃到飽~還有豬皮、大醬湯！ - Yuki's Life",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d2-dinner",
+      "cardIds": [
+        "d2-dinner"
+      ],
+      "image": "images/korea/meal-d2-dinner.jpg",
+      "imageAlt": "韓式馬鈴薯豬骨湯鍋，湯匙托起馬鈴薯；料理示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "取自文章「馬鈴薯排骨湯」多人鍋段落，照片中的湯匙明確呈現馬鈴薯。元堂明洞店不是丹陽晚餐店家，只作馬鈴薯豬骨湯料理參考。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://alinalife.tw/onedang",
+      "originalUrl": "https://alinalife.tw/wp-content/uploads/IMG_2299.jpg",
+      "author": "Alina 愛琳娜",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://alinalife.tw/onedang",
+      "sha256": "f517b26ce5880addea790851dfc702fbf1ec0ea0f6ad7d28757fbf3612077a22",
+      "modifications": "Proportional resize only: 800×533 → 800×533; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://alinalife.tw/onedang",
+        "description": "【首爾美食】明洞元堂馬鈴薯排骨湯｜24小時營業的1人友善餐廳 @Alina 愛琳娜",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d3-lunch",
+      "cardIds": [
+        "d3-lunch"
+      ],
+      "image": "images/korea/meal-d3-lunch.jpg",
+      "imageAlt": "炭火烤盤上烤好的韓式豬肉塊；料理示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "取自熟成豬肩肉實吃段落；文章另述烤爐使用炭火。烤黨在首爾，不是已確認的丹陽花園；不能據此確認團餐店家、直火烤法或烤具。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://alinalife.tw/ggupdang/",
+      "originalUrl": "https://alinalife.tw/wp-content/uploads/2025/04/DSC03916.jpg",
+      "author": "Alina 愛琳娜",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://alinalife.tw/ggupdang/",
+      "sha256": "b3deb3b6f530d2d0a28df08c74ff7709a4e8f295df691f514c04d37076b61af9",
+      "modifications": "Proportional resize only: 1200×800 → 900×600; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://alinalife.tw/ggupdang/",
+        "description": "꿉당烤黨 Ggupdang｜好吃的首爾米其林烤肉，有專業幫烤服務 @Alina 愛琳娜",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d3-dinner",
+      "cardIds": [
+        "d3-dinner"
+      ],
+      "image": "images/korea/meal-d3-dinner.jpg",
+      "imageAlt": "首爾廣藏市場攤位與飯捲、煎餅等小吃拼圖；自理晚餐街頭美食示意，非東大門實景",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "自理晚餐未指定料理。所給首爾美食文章東大門段落有餐廳料理照但無適合的街頭市場照片，因此選用同文「廣藏市場」段落的市場與小吃拼圖。這是首爾街頭美食類型參考，明確不是東大門實景，不代表選定任何餐廳、菜單或營業時間。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://alinalife.tw/seoul-food/",
+      "originalUrl": "https://alinalife.tw/wp-content/uploads/2017/09/kwangjang-market-old.jpg",
+      "author": "Alina 愛琳娜",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://alinalife.tw/seoul-food/",
+      "sha256": "fa9c6957758a36189d3a485c1e1665855a0439f5a6f0a168dfc05815df21b823",
+      "modifications": "Proportional resize only: 800×533 → 800×533; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://alinalife.tw/seoul-food/",
+        "description": "首爾美食推薦》弘大、明洞、聖水洞分區餐廳與市場小吃 @Alina 愛琳娜",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d4-lunch",
+      "cardIds": [
+        "d4-lunch"
+      ],
+      "image": "images/korea/meal-d4-lunch.jpg",
+      "imageAlt": "韓式海鮮鍋中堆疊章魚、鮑魚、蟹與各式貝類；料理示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "取自文章「招牌就是一整鍋活海鮮」段落；文章列明章魚、鮑魚、螃蟹等鍋料，照片可見章魚吸盤、鮑魚與蟹肢/貝類。三姓穴海鮮湯道頭店在濟州，不是首爾「寶寶廚房」已確認店家，份量不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://itainan.com.tw/samseonghyeol-haemultang-dodu/",
+      "originalUrl": "https://itainan.com.tw/wp-content/uploads/2026/08/20260810154541_0_13cf14.jpg",
+      "author": "Lydia / 台南好Food遊",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://itainan.com.tw/samseonghyeol-haemultang-dodu/",
+      "sha256": "3ea397f4a241a00ff6e9bcff1522b1bdf677e296c9aa0b9e35d070c12166e7b5",
+      "modifications": "Proportional resize only: 2048×1536 → 900×675; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://itainan.com.tw/samseonghyeol-haemultang-dodu/",
+        "description": "濟州島美食｜太浮誇！海鮮在鍋子裡跳舞!整鍋鮑魚、章魚、螃蟹堆成山，上桌竟然還會動「三姓穴海鮮湯 道頭店 삼성혈해물탕 도두점」 - 台南好Food遊",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
+    },
+    {
+      "key": "meal-d4-dinner",
+      "cardIds": [
+        "d4-dinner"
+      ],
+      "image": "images/korea/meal-d4-dinner.jpg",
+      "imageAlt": "明洞夜市熱氣升騰的小吃攤與魚板湯鍋；自理晚餐示意",
+      "imageType": "illustrative",
+      "imageFit": "contain",
+      "imageNote": "使用指定更新文章 https://alinalife.tw/myeongdong/ 的明洞夜市魚板串小吃段落，非舊 twopigsfun 文章。僅作明洞自理晚餐街頭美食參考，未選定店家或料理，未確認營業時間。 全部為示意照片，非官方餐廳或團餐確認影像。",
+      "sourceUrl": "https://alinalife.tw/myeongdong/",
+      "originalUrl": "https://alinalife.tw/wp-content/uploads/2018/08/DSCF8261.jpg",
+      "author": "Alina 愛琳娜",
+      "license": "All rights reserved; no open license or rights-holder permission verified.",
+      "licenseUrl": "https://alinalife.tw/myeongdong/",
+      "sha256": "6341997ea184c97798c038aec501e205468c205661640235619becd3704b9fa1",
+      "modifications": "Proportional resize only: 800×533 → 800×533; RGB JPEG recompression quality 88. No crop, retouching, or watermark removal. Original downloaded bytes retained outside repository.",
+      "sourceEvidence": {
+        "retrievedFrom": "https://alinalife.tw/myeongdong/",
+        "description": "【首爾明洞攻略】明洞 美食購物逛街推薦地圖,必訪景點明洞聖堂 @Alina 愛琳娜",
+        "rightsStatement": "著作權保留；原作者／網站權利人所有。依使用者要求下載作個人示範研究，不代表取得權利人授權。",
+        "visualVerification": "餐食類型示意；參考照片不代表本團餐廳、菜單或份量。"
+      }
     }
   ]
 }

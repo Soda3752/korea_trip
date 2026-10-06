@@ -28,9 +28,11 @@ const expectedOrder = [
   [0, 1, 2],
 ];
 test('all five days merge exactly seven neutral lunch/dinner cards at their existing estimated times', () => {
+  const noPhotos = structuredClone(itinerary);
+  noPhotos.days.forEach(day => { delete day.mealPhotos; });
   const counts = [];
   itinerary.days.forEach((day, dayIndex) => {
-    const { rows, meals, context } = render(itinerary, dayIndex);
+    const { rows, meals, context } = render(noPhotos, dayIndex);
     counts.push(meals.length);
     assert.equal(meals.length, [1, 2, 2, 2, 0][dayIndex], `D${day.day} meal count`);
     assert.equal(rows.length, expectedOrder[dayIndex].length);
@@ -74,6 +76,7 @@ test('missing or invalid meal times stay pending at the end, never fabricated or
 test('meal rows keep full descriptions escaped and omit absent or unarranged meals without adding breakfast', () => {
   const data = structuredClone(itinerary);
   const day = data.days[1];
+  delete day.mealPhotos; // Explicit legacy no-photo fixture; canonical photos are tested separately.
   day.meals.lunch += ` <b>餐&"'</b>`;
   day.meals.dinner += ` <img src=x onerror="bad()">`;
   const { meals } = render(data, 1);

@@ -129,6 +129,16 @@
             "note": "韓式飯卷種類與外帶用餐參考；文中為首爾廣藏市場母女紫菜包飯，並非本團仁川抵達後提供飯卷的店家，口味、份量亦不代表團餐。"
           }
         ]
+      },
+      "mealPhotos": {
+        "dinner": {
+          "image": "images/korea/meal-d1-dinner.jpg",
+          "imageAlt": "韓式紫菜飯捲，海苔包裹米飯與蔬菜，撒上芝麻；料理示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "取自文章「母女麻藥紫菜飯捲」實吃段落。首爾廣藏市場食記，非抵達仁川後團餐店家；口味與份量不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d1-dinner"
+        }
       }
     },
     {
@@ -319,6 +329,24 @@
             "note": "馬鈴薯燉豬骨料理類型參考；行程未指定餐廳，文中元堂明洞店不是本團丹陽晚餐店家，菜單和份量不代表團餐。"
           }
         ]
+      },
+      "mealPhotos": {
+        "lunch": {
+          "image": "images/korea/meal-d2-lunch.jpg",
+          "imageAlt": "韓式烤盤上的五花肉等豬肉、蔬菜與大醬湯；料理示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "取自文章「好吃嗎？」烤肉與小菜段落。文中豬肉商會不是已確認的「烤肉學校」，只作五花肉等豬肉料理參考；吃到飽方案不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d2-lunch"
+        },
+        "dinner": {
+          "image": "images/korea/meal-d2-dinner.jpg",
+          "imageAlt": "韓式馬鈴薯豬骨湯鍋，湯匙托起馬鈴薯；料理示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "取自文章「馬鈴薯排骨湯」多人鍋段落，照片中的湯匙明確呈現馬鈴薯。元堂明洞店不是丹陽晚餐店家，只作馬鈴薯豬骨湯料理參考。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d2-dinner"
+        }
       }
     },
     {
@@ -476,6 +504,24 @@
             "note": "自理晚餐未指定店家；閱讀文章「東大門美食」段落，了解東大門周邊用餐種類與晚間覓食方向。僅供自由選擇，未替旅客選定餐廳或確認營業時間。"
           }
         ]
+      },
+      "mealPhotos": {
+        "lunch": {
+          "image": "images/korea/meal-d3-lunch.jpg",
+          "imageAlt": "炭火烤盤上烤好的韓式豬肉塊；料理示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "取自熟成豬肩肉實吃段落；文章另述烤爐使用炭火。烤黨在首爾，不是已確認的丹陽花園；不能據此確認團餐店家、直火烤法或烤具。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d3-lunch"
+        },
+        "dinner": {
+          "image": "images/korea/meal-d3-dinner.jpg",
+          "imageAlt": "首爾廣藏市場攤位與飯捲、煎餅等小吃拼圖；自理晚餐街頭美食示意，非東大門實景",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "自理晚餐未指定料理。所給首爾美食文章東大門段落有餐廳料理照但無適合的街頭市場照片，因此選用同文「廣藏市場」段落的市場與小吃拼圖。這是首爾街頭美食類型參考，明確不是東大門實景，不代表選定任何餐廳、菜單或營業時間。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d3-dinner"
+        }
       }
     },
     {
@@ -674,6 +720,24 @@
             "note": "明洞商圈美食與逛街參考；自理晚餐未指定店家，文章中的餐廳與小吃不代表本團已安排，營業與菜單依現場確認。"
           }
         ]
+      },
+      "mealPhotos": {
+        "lunch": {
+          "image": "images/korea/meal-d4-lunch.jpg",
+          "imageAlt": "韓式海鮮鍋中堆疊章魚、鮑魚、蟹與各式貝類；料理示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "取自文章「招牌就是一整鍋活海鮮」段落；文章列明章魚、鮑魚、螃蟹等鍋料，照片可見章魚吸盤、鮑魚與蟹肢/貝類。三姓穴海鮮湯道頭店在濟州，不是首爾「寶寶廚房」已確認店家，份量不代表團餐。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d4-lunch"
+        },
+        "dinner": {
+          "image": "images/korea/meal-d4-dinner.jpg",
+          "imageAlt": "明洞夜市熱氣升騰的小吃攤與魚板湯鍋；自理晚餐示意",
+          "imageType": "illustrative",
+          "imageFit": "contain",
+          "imageNote": "使用指定更新文章 https://alinalife.tw/myeongdong/ 的明洞夜市魚板串小吃段落，非舊 twopigsfun 文章。僅作明洞自理晚餐街頭美食參考，未選定店家或料理，未確認營業時間。 全部為示意照片，非官方餐廳或團餐確認影像。",
+          "photoKey": "meal-d4-dinner"
+        }
       }
     },
     {
