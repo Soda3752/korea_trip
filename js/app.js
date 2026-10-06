@@ -70,6 +70,7 @@ function fillIntroClock() {
   set('[data-h1]', h1);
   set('[data-m10]', m10);
   set('[data-m1]', m1);
+  set('.deco-loader-eyebrow', 'Autumn · Korea · 韓國時間 KST UTC+9');
 }
 
 // 一次性入場：時間軸卡片依序浮現，再淡出翻牌時鐘
@@ -276,7 +277,7 @@ function renderDay(dayIndex) {
       <div class="day-kicker">Day ${day.day} · ${day.date.slice(5).replace('-', '/')}（${day.weekday}）</div>
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
-    <p class="day-time-note">韓國時間 KST · 預估時間僅供參考，實際依領隊、交通及用餐安排調整；時間標示不代表實際所在位置。</p>
+    <p class="day-time-note">${day.items.some(isTaiwanSpot) ? '各地當地時間，臺灣 UTC+8／韓國 KST UTC+9' : '韓國時間 KST'} · 預估時間僅供參考，實際依領隊、交通及用餐安排調整；時間標示不代表實際所在位置。</p>
     ${mealHTML(day)}
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
@@ -307,8 +308,26 @@ function mealRow(key, description, time, articles, mealPhoto, mealId) {
     </li>`;
 }
 
+// Verified airport identity; display conversion never changes canonical KST/state keys.
+function isTaiwanSpot(it) {
+  return it.photoKey === 'khh' && it.map?.keyword === '高雄國際機場';
+}
+
+function spotDisplayTime(it) {
+  if (!isTaiwanSpot(it) || typeof it.time !== 'string' || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(it.time)) return it.time;
+  const [hour, minute] = it.time.split(':').map(Number);
+  const local = (hour * 60 + minute - 60 + 1440) % 1440;
+  return `${String(Math.floor(local / 60)).padStart(2, '0')}:${String(local % 60).padStart(2, '0')}`;
+}
+
+function spotDisplayIntro(it) {
+  if (!isTaiwanSpot(it) || typeof it.intro !== 'string') return it.intro;
+  return ['時間軸為韓國時間KST 14:40。', '時間軸為KST 17:10。', '時間軸KST為16:10。']
+    .reduce((intro, clause) => intro.replace(clause, ''), it.intro);
+}
+
 function spotRow(it, state) {
-  const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(it.time))} KST</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
+  const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(spotDisplayTime(it)))} ${isTaiwanSpot(it) ? '臺灣時間 UTC+8' : 'KST'}</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
   const url = googleSearchUrl(it.map);
   const nav = url
     ? `<a class="btn-nav" data-map href="${esc(url)}" target="_blank" rel="noopener noreferrer">導航 ↗</a>`
@@ -327,7 +346,7 @@ function spotRow(it, state) {
             ${nav}
           </div>
           ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
-          ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}${articlesHTML(it)}
+          ${it.intro ? `<p class="card-intro">${esc(spotDisplayIntro(it))}</p>` : ''}${articlesHTML(it)}
         </div>
       </article>
     </li>`;
