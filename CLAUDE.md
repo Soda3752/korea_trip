@@ -7,7 +7,7 @@
 ## 架構
 
 - `data/itinerary.json`：本次手冊整理的公開行程、三餐、住宿與提醒。
-- 全域JS載入順序：`js/naver.js` → `js/now.js` → `js/app.js`；無import/export。
+- 全域JS載入順序：`js/google-maps.js` → `js/now.js` → `js/app.js`；無import/export。
 - `meta.people: null`：人數未知，標頭省略人數，不猜測。
 - `days[].items[]` 以spot列出手冊順序；`time`為KST `HH:mm` 或 `null`。三餐在 `meals`，住宿在 `hotel`，由每日提醒呈現。
 - 使用者已授權參考估時：20個估時需`timeEstimated:true`並明示時間僅供參考，午餐作安排基準。五個原手冊時刻不可覆寫；`mealTimes`亦為參考。規劃假設可留`planningNotes`，`tips`使用精簡提醒。不得把估時當成領隊確認、預約或實測車程；分店地址、座標不可補造。
@@ -33,12 +33,12 @@
 ```bash
 node --test tests/*.test.cjs
 node --check js/now.js
-node --check js/naver.js
+node --check js/google-maps.js
 node --check js/app.js
 python3 -m http.server 8000
 ```
 
-用 `?now=2026-10-11T14:40` 測試已知集合，`?now=2026-10-12T12:00`測試未知時間不高亮，以及前／後／午夜邊界。Node測試使用內建node:test、vm，不加npm套件。瀏覽器檢查分頁、資訊、載入與手機寬度；Naver App真機行為需另外測試。
+用 `?now=2026-10-11T14:40` 測試已知集合，`?now=2026-10-12T12:00`測試未知時間不高亮，以及前／後／午夜邊界。Node測試使用內建node:test、vm，不加npm套件。瀏覽器檢查分頁、資訊、載入與手機寬度；Google Maps 使用通用 HTTPS 連結（`api=1`），不需要 API key（金鑰）或計費設定；作業系統（OS）／瀏覽器決定開啟 App 或網頁。不得加入點擊攔截、安裝彈窗、逾時／商店 intent；真機原生 App 行為需另外測試，不承諾一定喚起 App。地址優先於有效 WGS84 `lng,lat` 座標（連結改為 `lat,lng`），其次為既有關鍵字；未知目標不出按鈕。交通卡使用 Google Maps 目的地路線與已識別的交通方式。
 
 ## 部署
 

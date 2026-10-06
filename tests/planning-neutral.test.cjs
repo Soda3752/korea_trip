@@ -15,7 +15,7 @@ function render(data, dayIndex, time) {
     document: { addEventListener() {}, getElementById: () => content },
     navigator: { userAgent: '' }, window: {}, input: data, dayIndex,
   });
-  for (const file of ['js/naver.js', 'js/now.js', 'js/app.js']) {
+  for (const file of ['js/google-maps.js', 'js/now.js', 'js/app.js']) {
     vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   }
   const state = vm.runInContext('APP.data=input;recompute();renderDay(dayIndex);APP.state', context);

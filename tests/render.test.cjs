@@ -4,8 +4,8 @@ const fs = require('node:fs');
 const vm = require('node:vm');
 function app() {
   const els = Object.fromEntries(['app-title','app-sub','content'].map(k => [k, {}]));
-  const ctx = vm.createContext({ document: { addEventListener(){}, getElementById(k){return els[k];} }, navigator:{userAgent:''}, window:{} });
-  for (const file of ['js/naver.js','js/now.js','js/app.js']) vm.runInContext(fs.readFileSync(file,'utf8'),ctx);
+  const ctx = vm.createContext({ URLSearchParams, document: { addEventListener(){}, getElementById(k){return els[k];} }, navigator:{userAgent:''}, window:{} });
+  for (const file of ['js/google-maps.js','js/now.js','js/app.js']) vm.runInContext(fs.readFileSync(file,'utf8'),ctx);
   const data = JSON.parse(fs.readFileSync('data/itinerary.json','utf8'));
   ctx.input = data;
   vm.runInContext('APP.data = input; APP.state = {mode:"during",dayIndex:1,currentItemIndex:-1,nextItemIndex:-1};',ctx);
@@ -51,7 +51,7 @@ test('new landmark navigation uses Korean search and unknown hotel branches rema
   assert.equal(water.map?.keyword,'송도 센트럴파크 수상택시');
   const aurora = data.days[4].items[0];
   assert.equal(aurora.map.keyword,'인스파이어 오로라');
-  assert.equal(ctx.naverSearchUrl(aurora.map),'https://map.naver.com/p/search/'+encodeURIComponent(aurora.map.keyword));
+  assert.equal(ctx.googleSearchUrl(aurora.map),'https://www.google.com/maps/search/?'+new URLSearchParams({api:'1',query:aurora.map.keyword}));
   for (const d of data.days.slice(1,4)) {
     const place = d.items.at(-1).map;
     assert.ok(place.keyword); assert.equal(place.coord,undefined);

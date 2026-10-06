@@ -39,7 +39,6 @@ async function init() {
   APP.activeDay = APP.state.dayIndex; // 預設開「今天」
   selectTab(APP.activeDay, { scroll: false });
   bindNowButton();
-  attachMapHandler();
   bindHeaderCollapse();
   scrollToCurrent();
   playIntro(); // 一次性：時間軸依序浮現 → 翻牌時鐘淡出
@@ -269,9 +268,9 @@ function renderDay(dayIndex) {
 
 function spotRow(it, state) {
   const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(it.time))} KST</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
-  const nav = it.map
-    ? `<a class="btn-nav" data-map href="${naverSearchUrl(it.map)}" target="_blank" rel="noopener"
-         data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
+  const url = googleSearchUrl(it.map);
+  const nav = url
+    ? `<a class="btn-nav" data-map href="${esc(url)}" target="_blank" rel="noopener noreferrer">導航 ↗</a>`
     : '';
   const badge = state === 'state-current'
     ? '<span class="now-badge">現在</span>'
@@ -294,7 +293,7 @@ function spotRow(it, state) {
 }
 
 function transitRow(it, state) {
-  const url = naverNavUrl(it.to, it.mode);
+  const url = googleNavUrl(it.to, it.mode);
   const icon = MODE_ICON[it.mode] || '➡️';
   const dest = it.to && it.to.keyword
     ? `<span class="transit-dest">▸ 即將前往 ${esc(it.to.keyword)}</span>` : '';
@@ -306,8 +305,7 @@ function transitRow(it, state) {
       </span>
       ${url ? '<span class="transit-go">開地圖 ↗</span>' : ''}`;
   const body = url
-    ? `<a class="transit-chip" data-map href="${url}" target="_blank" rel="noopener"
-         data-coord="${esc((it.to && it.to.coord) || '')}" data-name="${esc((it.to && it.to.keyword) || '')}" data-mode="${esc(it.mode || '')}">${inner}</a>`
+    ? `<a class="transit-chip" data-map href="${esc(url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`
     : `<div class="transit-chip transit-chip--static">${inner}</div>`;
   return `
     <li class="tl-item tl-transit ${state}">
@@ -426,66 +424,6 @@ function bindHeaderCollapse() {
   // 轉向／改變視窗寬度會改變標題列高度 → 重新量測對齊
   window.addEventListener('resize', () => requestAnimationFrame(syncTopbarHeight), { passive: true });
   update();
-}
-
-// 手機點擊「導航」/交通串接 → 先試喚起 Naver Map App，開不起來才退回網頁
-function attachMapHandler() {
-  document.addEventListener('click', (e) => {
-    const a = e.target.closest('a[data-map]');
-    if (!a) return;
-    const coord = a.getAttribute('data-coord');
-    if (!coord) return; // 無座標 → 直接走 href（網頁搜尋）
-    const web = a.getAttribute('href');
-    const native = naverNativeUrl(
-      { coord, keyword: a.getAttribute('data-name') || '' },
-      a.getAttribute('data-mode') || ''
-    );
-    if (!native) return; // 桌機 → 正常開網頁
-    e.preventDefault();
-    if (naverPlatform() === 'android') {
-      // intent 自帶 browser_fallback_url：有裝開 App，沒裝自動退回網頁版地圖
-      window.location.href = native;
-      return;
-    }
-    // iOS：嘗試喚起 App，1.5 秒內若頁面仍可見（App 沒開）→ 彈窗引導安裝／改用網頁版
-    const timer = setTimeout(() => {
-      if (!document.hidden) showInstallDialog(web);
-    }, 1500);
-    const cancel = () => clearTimeout(timer);
-    document.addEventListener('visibilitychange', cancel, { once: true });
-    window.addEventListener('pagehide', cancel, { once: true });
-    window.location.href = native;
-  });
-}
-
-// 未偵測到 Naver Map App（iOS）→ 底部彈窗：前往安裝／改用網頁版／取消
-function showInstallDialog(webUrl) {
-  if (document.querySelector('.install-sheet')) return; // 避免重複
-  const overlay = document.createElement('div');
-  overlay.className = 'install-overlay';
-  overlay.innerHTML = `
-    <div class="install-sheet" role="dialog" aria-modal="true" aria-labelledby="install-title">
-      <p class="install-title" id="install-title">尚未偵測到 Naver Map App</p>
-      <p class="install-desc">安裝後導航更精準，<br>或改用網頁版地圖繼續。</p>
-      <button type="button" class="install-btn install-btn--primary" data-act="install">前往安裝 Naver Map</button>
-      <button type="button" class="install-btn" data-act="web">改用網頁版地圖</button>
-      <button type="button" class="install-btn install-btn--ghost" data-act="cancel">取消</button>
-    </div>`;
-  const close = () => overlay.remove();
-  overlay.addEventListener('click', (ev) => {
-    const act = ev.target.closest('[data-act]')?.getAttribute('data-act');
-    if (ev.target === overlay || act === 'cancel') return close();
-    if (act === 'install') {
-      const store = naverStoreUrl('ios');
-      if (store) window.location.href = store;
-      return close();
-    }
-    if (act === 'web') {
-      if (webUrl) window.location.href = webUrl;
-      return close();
-    }
-  });
-  document.body.appendChild(overlay);
 }
 
 function scrollToCurrent() {

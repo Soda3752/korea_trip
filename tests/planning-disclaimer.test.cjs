@@ -13,7 +13,7 @@ function app() {
     navigator: { userAgent: '' },
     window: {},
   });
-  for (const file of ['js/naver.js', 'js/now.js', 'js/app.js']) {
+  for (const file of ['js/google-maps.js', 'js/now.js', 'js/app.js']) {
     vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   }
   return context;
