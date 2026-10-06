@@ -31,13 +31,13 @@ function resolveState(data, now) {
     if (now.dateStr > dates[dates.length - 1]) return { mode: 'after', dayIndex: days.length - 1 };
     return { mode: 'none', dayIndex: 0 };
   }
-  const spots = days[dayIndex].items.map((it, index) => ({ index, minutes: timeToMinutes(it.time), type: it.type })).filter(it => it.type === 'spot');
-  const hasUnknown = spots.some(it => it.minutes === null);
+  const spots = days[dayIndex].items.map((it, index) => ({ index, minutes: timeToMinutes(it.time), type: it.type, estimated: it.timeEstimated === true })).filter(it => it.type === 'spot');
+  const hasUnknown = spots.some(it => it.minutes === null || it.estimated);
   let currentItemIndex = -1, nextItemIndex = -1;
   if (hasUnknown) {
     // 混合未知時間時，不能由已知出發時間推測之後仍在同一場所。
     // 只在手冊已知時間那一分鐘標示當下節點，不推測「即將」。
-    const exact = spots.find(it => it.minutes !== null && it.minutes === now.minutes);
+    const exact = spots.find(it => it.minutes !== null && !it.estimated && it.minutes === now.minutes);
     if (exact) currentItemIndex = exact.index;
   } else {
     spots.forEach(it => { if (it.minutes <= now.minutes) currentItemIndex = it.index; });

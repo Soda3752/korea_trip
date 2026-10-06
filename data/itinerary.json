@@ -20,41 +20,59 @@
           "type": "spot",
           "time": "14:40",
           "name": "高雄國際機場 KHH 集合",
-          "image": null,
+          "image": "images/korea/a-khh.jpg",
           "intro": "台灣時間13:40集合；高雄國際航空站國際航廈三樓A12櫃台（中華航空代理）。時間軸為韓國時間KST 14:40。",
           "map": {
             "keyword": "高雄國際機場"
-          }
+          },
+          "imageAlt": "高雄國際機場國際航廈免稅商店",
+          "imageType": "actual",
+          "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
+          "photoKey": "khh"
         },
         {
           "type": "spot",
           "time": "17:10",
           "name": "高雄國際機場 KHH 出發・TW672",
-          "image": null,
+          "image": "images/korea/a-khh.jpg",
           "intro": "TW672台灣時間16:10出發，韓國時間20:00抵達仁川。時間軸為KST 17:10。",
           "map": {
             "keyword": "高雄國際機場"
-          }
+          },
+          "imageAlt": "高雄國際機場國際航廈免稅商店",
+          "imageType": "actual",
+          "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
+          "photoKey": "khh"
         },
         {
           "type": "spot",
           "time": "20:00",
           "name": "仁川國際機場 ICN 抵達",
-          "image": null,
+          "image": "images/korea/a-icn.jpg",
           "intro": "TW672韓國時間20:00抵達；後續集合與前往飯店待領隊通知。",
           "map": {
             "keyword": "인천국제공항"
-          }
+          },
+          "imageAlt": "仁川國際機場第一航廈外觀",
+          "imageType": "actual",
+          "imageNote": "2024 年仁川機場第一航廈照片；不表示已確認本次使用的航廈。 已縮圖並轉為 JPEG。",
+          "photoKey": "icn"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "22:00",
           "name": "AIR SKY HOTEL",
-          "image": null,
+          "image": "images/korea/a-airsky.jpg",
           "intro": "入住手冊列示飯店。 時間待領隊通知。",
           "map": {
             "keyword": "31 Eunhasu-ro 29beon-gil, Yeongjong-gu, Incheon, 南韓 23315"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "20:00落地後預留入境、行李領取及團體接駁，預估22:00入住；以領隊通知為準。",
+          "imageAlt": "仁川永宗島乙旺里海灘，AIR SKY HOTEL 地區示意",
+          "imageType": "surroundings",
+          "imageNote": "未找到已確認可重用的 AIR SKY HOTEL 照片，改用永宗島乙旺里海灘地區代表照；不是飯店外觀、房間或飯店門前景色。 已縮圖並轉為 JPEG。",
+          "photoKey": "airsky"
         }
       ],
       "meals": {
@@ -66,8 +84,14 @@
         "name": "AIR SKY HOTEL",
         "address": "31 Eunhasu-ro 29beon-gil, Yeongjong-gu, Incheon, 南韓 23315"
       },
-      "tips": "手冊行程順序；未標示時間皆待領隊通知，實際順序可能因交通、天候或場地調整。",
-      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。"
+      "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。落地後預留入境、行李與接駁；入住時間可能延後。實際依領隊通知、交通與天候調整。",
+      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
+      "mealTimes": {
+        "breakfast": null,
+        "lunch": null,
+        "dinner": "21:00"
+      },
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 20:00抵達後預留入境、行李與團體接駁，21:00飯卷為預估領取／食用時段、非餐廳安排；22:00入住僅供參考，晚到可能再延後。"
     },
     {
       "day": 2,
@@ -77,61 +101,93 @@
       "items": [
         {
           "type": "spot",
-          "time": null,
+          "time": "09:00",
           "name": "松島水上計程車",
-          "image": null,
+          "image": "images/korea/a-songdo-water.jpg",
           "intro": "搭乘地點待領隊確認。 時間待領隊通知。",
           "map": {
             "keyword": "송도 센트럴파크 수상택시"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "松島中央公園人工湖，水上計程車活動地區示意",
+          "imageType": "surroundings",
+          "imageNote": "照片為松島中央公園湖景；不是已辨識的水上計程車船隻照片。 已縮圖並轉為 JPEG。",
+          "photoKey": "songdo-water"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "10:30",
           "name": "現代PREMIUM OUTLET",
-          "image": null,
+          "image": "images/korea/a-songdo-outlet.jpg",
           "intro": "松島現代Premium Outlet購物。 時間待領隊通知。",
           "map": {
             "keyword": "현대프리미엄아울렛 송도점"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "現代 Premium Outlet 松島店庭院活動實景",
+          "imageType": "actual",
+          "imageNote": "2026年6月松島現代Outlet庭院觀光活動實景；不代表本次日期有此活動。",
+          "photoKey": "songdo-outlet"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "16:00",
           "name": "俗離山道國立公園",
-          "image": null,
+          "image": "images/korea/b-songnisan.jpg",
           "intro": "季節性賞楓，實際楓況依天候而異。 時間待領隊通知。",
           "map": {
             "keyword": "속리산국립공원"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "以12:00～13:00午餐為錨點，之後保留約三小時松島至俗離山長途車程，非導航驗證。",
+          "imageAlt": "俗離山國立公園秋季山林實景",
+          "imageType": "actual",
+          "imageNote": "2017年11月歷史照片；秋色不代表本次日期實況。",
+          "photoKey": "songnisan"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "16:20",
           "name": "丹楓隧道",
-          "image": null,
+          "image": "images/korea/b-danpung-representative.jpg",
           "intro": "賞楓路段依領隊帶領，確切位置待確認。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "imageAlt": "俗離山秋季山林示意，非已確認的丹楓隧道路段",
+          "imageType": "illustrative",
+          "imageNote": "行程未提供丹楓隧道路段；使用俗離山秋季山林示意，非該道路的已確認照片。",
+          "photoKey": "danpung-representative"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "16:45",
           "name": "法住寺",
-          "image": null,
+          "image": "images/korea/b-beopjusa.jpg",
           "intro": "俗離山法住寺，季節性賞楓。 時間待領隊通知。",
           "map": {
             "keyword": "법주사"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "法住寺建築與佛塔實景",
+          "imageType": "actual",
+          "imageNote": "法住寺實景照片。",
+          "photoKey": "beopjusa"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "20:30",
           "name": "丹陽大明渡假村（二人一戶）",
-          "image": null,
+          "image": "images/korea/a-danyang-hotel.jpg",
           "intro": "入住丹陽大明渡假村（二人一戶）；地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "丹陽大明渡假村"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "法住寺暫於17:30離開，預留約兩小時至丹陽及一小時晚餐，20:30入住為預估。",
+          "imageAlt": "丹陽邑河岸城市全景，丹陽大明渡假村地區示意",
+          "imageType": "surroundings",
+          "imageNote": "丹陽邑地區代表照；不是丹陽大明／Sono Belle 飯店外觀、房間或飯店景觀承諾。 已縮圖並轉為 JPEG。",
+          "photoKey": "danyang-hotel"
         }
       ],
       "meals": {
@@ -143,8 +199,14 @@
         "name": "丹陽大明渡假村（二人一戶）",
         "address": null
       },
-      "tips": "手冊行程順序；未標示時間皆待領隊通知，實際順序可能因交通、天候或場地調整。",
-      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。"
+      "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。長途移動日較緊湊，購物與賞楓停留可能調整。實際依領隊通知、交通與天候調整。",
+      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
+      "mealTimes": {
+        "breakfast": "07:00",
+        "lunch": "12:00",
+        "dinner": "19:30"
+      },
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需縮短購物或調整賞楓停留：早餐後約08:00離開仁川飯店，預留約一小時到松島；水上計程車與營運時間待確認。10:30～11:45購物，12:00～13:00午餐暫以松島周邊為假設，餐廳位置非已確認；13:00～16:00預留約三小時松島至俗離山，16:00～17:30串聯公園、丹楓隧道與法住寺，17:30～19:30預留約兩小時至丹陽，19:30～20:30晚餐後入住。上述車程為地理規劃預估，未經路線API或即時交通驗證；若餐廳不在假設區域、塞車或寺院入場時段不符，需由領隊調整，不保證當天全數按點完成。"
     },
     {
       "day": 3,
@@ -154,51 +216,79 @@
       "items": [
         {
           "type": "spot",
-          "time": null,
+          "time": "09:00",
           "name": "滿天下空中走廊 SKY WALK",
-          "image": null,
+          "image": "images/korea/b-mancheonha-skywalk.jpg",
           "intro": "季節性賞楓與空中走廊。 時間待領隊通知。",
           "map": {
             "keyword": "만천하스카이워크"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "丹陽滿天下空中走廊觀景台與南漢江實景",
+          "imageType": "actual",
+          "imageNote": "2019年6月場館實景；保留韓國觀光公社原圖浮水印。",
+          "photoKey": "mancheonha-skywalk"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "10:45",
           "name": "九景傳統市場",
-          "image": null,
+          "image": "images/korea/b-danyang-gugyeong-market.jpg",
           "intro": "丹陽九景傳統市場，美食大探索。 時間待領隊通知。",
           "map": {
             "keyword": "단양 구경시장"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "丹陽九景市場棚內購物街與招牌實景",
+          "imageType": "actual",
+          "imageNote": "2019年6月市場內部實景，非入口；保留韓國觀光公社原圖浮水印。",
+          "photoKey": "danyang-gugyeong-market"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "13:15",
           "name": "森林系網紅咖啡廳（不含飲品）",
-          "image": null,
+          "image": "images/korea/c-forest-cafe.jpg",
           "intro": "咖啡廳名稱與分店待確認；飲品不包含。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "timeNote": "暫以丹陽周邊咖啡廳13:15～14:00停留為規劃假設；名稱、分店與位置未確認，非預約。",
+          "imageAlt": "韓國濟州花園咖啡廳綠意示意，非行程指定咖啡廳",
+          "imageType": "illustrative",
+          "imageNote": "行程未提供店名；使用濟州 Hallim 的 Han’s Garden 咖啡廳花園照片作森林系咖啡廳示意，並非確認的行程店家。",
+          "photoKey": "d3-i2"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "17:00",
           "name": "東大門綜合商場",
-          "image": null,
+          "image": "images/korea/b-dongdaemun-complex.jpg",
           "intro": "手冊安排東大門綜合商場。 時間待領隊通知。",
           "map": {
             "keyword": "동대문종합시장"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "暫於14:00離開丹陽，留約三小時長途車程至首爾；抵達與店家營業時間待確認。",
+          "imageAlt": "東大門綜合市場布料店實景",
+          "imageType": "actual",
+          "imageNote": "東大門綜合市場布料店，非廣藏市場或東大門設計廣場。",
+          "photoKey": "dongdaemun-complex"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "21:00",
           "name": "安山HOUND HOTEL",
-          "image": null,
+          "image": "images/korea/a-ansan-hound.jpg",
           "intro": "入住安山HOUND HOTEL；分店與地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "安山HOUND HOTEL"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "暫於19:30離開首爾，留約一個半小時到安山；飯店分店未確認。",
+          "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
+          "imageType": "surroundings",
+          "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
+          "photoKey": "ansan-hound"
         }
       ],
       "meals": {
@@ -210,8 +300,14 @@
         "name": "安山HOUND HOTEL",
         "address": null
       },
-      "tips": "手冊行程順序；未標示時間皆待領隊通知，實際順序可能因交通、天候或場地調整。",
-      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。"
+      "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。丹陽至首爾為長途移動，行程較緊湊，咖啡廳與購物可能調整。實際依領隊通知、交通與天候調整。",
+      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
+      "mealTimes": {
+        "breakfast": "07:30",
+        "lunch": "12:00",
+        "dinner": "18:30"
+      },
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需調整咖啡廳停留或東大門購物：09:00～10:15空中走廊含團體轉乘，10:45～11:45市場，12:00～13:00丹陽午餐，13:15～14:00咖啡廳暫以丹陽周邊為假設、店家仍待確認；14:00～17:00預留約三小時丹陽至首爾，17:00起東大門購物、18:30自理晚餐，約19:30離開首爾、預留約一個半小時到安山，21:00入住。車程未經路線API或即時交通驗證；咖啡廳位置、商場營業與塞車均可能影響安排，晚到需由領隊調整，不保證店家仍營業。"
     },
     {
       "day": 4,
@@ -221,65 +317,102 @@
       "items": [
         {
           "type": "spot",
-          "time": null,
+          "time": "09:00",
           "name": "景福宮＋韓服體驗",
-          "image": null,
+          "image": "images/korea/b-gyeongbokgung.jpg",
           "intro": "季節性賞楓與銀杏，安排韓服體驗。 時間待領隊通知。",
           "map": {
             "keyword": "경복궁"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "首爾景福宮建築實景",
+          "imageType": "actual",
+          "imageNote": "景福宮實景照片，非承諾特定韓服活動內容。",
+          "photoKey": "gyeongbokgung"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "11:30",
           "name": "韓流時尚彩粧店",
-          "image": null,
+          "image": "images/korea/c-korean-cosmetics.jpg",
           "intro": "店名、分店與地址待確認。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "imageAlt": "韓國藥妝店保養彩粧貨架示意，非行程指定分店",
+          "imageType": "illustrative",
+          "imageNote": "韓國藥妝店男性保養品貨架照片；店名與行程彩粧店未確認，僅為韓國美妝購物示意。",
+          "photoKey": "d4-i1"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "13:30",
           "name": "韓國文化體驗營",
-          "image": null,
+          "image": "images/korea/c-hanbok-culture.jpg",
           "intro": "水果大福DIY＋韓服體驗＋海苔博物館＋韓流潮拍大頭貼；場地與分店待確認。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "imageAlt": "韓國雲峴宮韓服體驗示意，非行程指定文化體驗營",
+          "imageType": "illustrative",
+          "imageNote": "來源為 2012 年雲峴宮韓服體驗，攝影 Jeon Han／Korea.net；文化體驗營名稱未提供，非確認的本團場地或活動。",
+          "photoKey": "d4-i2"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "15:30",
           "name": "HERO塗鴉秀",
-          "image": null,
+          "image": "images/korea/c-performance.jpg",
           "intro": "音樂、光線與繪畫演出；劇院與場次待確認。若休館或滿座，行程先後可能調整。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "timeNote": "15:30為估算行程占位，非確認場次或演出預約；劇院、場次與轉場時間待領隊確認。",
+          "imageAlt": "韓國傳統鼓舞舞台演出示意，非 HERO 塗鴉秀實景",
+          "imageType": "illustrative",
+          "imageNote": "未取得可核實自由授權的 HERO／The Painters 宣傳照片；改用韓國國立舞蹈團 2006 年世宗文化會館三鼓舞／五鼓舞照片，僅為舞台表演示意，不是 HERO 塗鴉秀。Commons VRT 許可編號 2008092910004321。",
+          "photoKey": "d4-i3"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "17:15",
           "name": "韓國超市巡禮",
-          "image": null,
+          "image": "images/korea/c-korean-supermarket.jpg",
           "intro": "超市名稱、分店與地址待確認。 時間待領隊通知。",
-          "map": null
+          "map": null,
+          "timeEstimated": true,
+          "imageAlt": "首爾超市零食貨架示意，非行程指定超市分店",
+          "imageType": "illustrative",
+          "imageNote": "使用 2001 年首爾超市照片，僅為韓國超市購物示意；未確認行程超市店名或分店，陳列非現況。",
+          "photoKey": "d4-i4"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "18:30",
           "name": "首爾明洞",
-          "image": null,
+          "image": "images/korea/b-myeongdong.jpg",
           "intro": "手冊安排首爾明洞購物。 時間待領隊通知。",
           "map": {
             "keyword": "서울 명동"
-          }
+          },
+          "timeEstimated": true,
+          "imageAlt": "首爾明洞商店街實景",
+          "imageType": "actual",
+          "imageNote": "2011年10月歷史照片，不代表本次街景或商店營業情況。",
+          "photoKey": "myeongdong"
         },
         {
           "type": "spot",
-          "time": null,
+          "time": "22:00",
           "name": "安山HOUND HOTEL",
-          "image": null,
+          "image": "images/korea/a-ansan-hound.jpg",
           "intro": "入住安山HOUND HOTEL；分店與地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "安山HOUND HOTEL"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "暫於20:00離開首爾，預留約兩小時返回安山；飯店分店未確認。",
+          "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
+          "imageType": "surroundings",
+          "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
+          "photoKey": "ansan-hound"
         }
       ],
       "meals": {
@@ -291,8 +424,14 @@
         "name": "安山HOUND HOTEL",
         "address": null
       },
-      "tips": "手冊行程順序；未標示時間皆待領隊通知，實際順序可能因交通、天候或場地調整。",
-      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。"
+      "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。由安山前往首爾，晚間返回安山；HERO時間為估算，非確認場次。實際依領隊通知、交通與天候調整。",
+      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
+      "mealTimes": {
+        "breakfast": "06:30",
+        "lunch": "12:15",
+        "dinner": "19:00"
+      },
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 安山約07:00出發，預留約兩小時到首爾；09:00～11:00景福宮及韓服，11:30～12:00彩粧店，12:15～13:15午餐，13:30～15:00文化體驗，15:30僅為塗鴉秀規劃占位、非確認場次或預約，先暫留約80分鐘與轉場；17:15超市、18:30明洞，19:00自理晚餐，約20:00離開首爾、預留約兩小時返回安山，22:00入住。場地、分店與場次未定，安排緊湊可能需縮短購物或調整；車程為預估、未經路線API驗證。"
     },
     {
       "day": 5,
@@ -302,33 +441,47 @@
       "items": [
         {
           "type": "spot",
-          "time": null,
+          "time": "09:00",
           "name": "Mohegan INSPIRE迎仕柏數位大道",
-          "image": null,
+          "image": "images/korea/c-inspire-area.jpg",
           "intro": "迎仕柏度假城LED數位大道。 時間待領隊通知。",
           "map": {
             "keyword": "인스파이어 오로라"
-          }
+          },
+          "timeEstimated": true,
+          "timeNote": "09:00預估到達，暫留45分鐘參觀、09:45離開，預留50分鐘接駁至機場；非已確認的動畫時段。",
+          "imageAlt": "仁川永宗島海岸地區示意，非 INSPIRE 迎仕柏數位大道實景",
+          "imageType": "surroundings",
+          "imageNote": "數位大道影像尚未確認完整重用權限；採永宗島乙旺里海岸地區代表照，非飯店、LED天幕或實際活動照片。",
+          "photoKey": "d5-i0"
         },
         {
           "type": "spot",
           "time": "13:05",
           "name": "仁川國際機場 ICN 出發・TW671",
-          "image": null,
+          "image": "images/korea/a-icn.jpg",
           "intro": "TW671韓國時間13:05出發；台灣時間15:10抵達高雄。機場集合與報到時間待領隊通知。",
           "map": {
             "keyword": "인천국제공항"
-          }
+          },
+          "imageAlt": "仁川國際機場第一航廈外觀",
+          "imageType": "actual",
+          "imageNote": "2024 年仁川機場第一航廈照片；不表示已確認本次使用的航廈。 已縮圖並轉為 JPEG。",
+          "photoKey": "icn"
         },
         {
           "type": "spot",
           "time": "16:10",
           "name": "高雄國際機場 KHH 抵達",
-          "image": null,
+          "image": "images/korea/a-khh.jpg",
           "intro": "TW671台灣時間15:10抵達；時間軸KST為16:10。",
           "map": {
             "keyword": "高雄國際機場"
-          }
+          },
+          "imageAlt": "高雄國際機場國際航廈免稅商店",
+          "imageType": "actual",
+          "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
+          "photoKey": "khh"
         }
       ],
       "meals": {
@@ -340,8 +493,14 @@
         "name": "溫暖的家",
         "address": null
       },
-      "tips": "手冊行程順序；未標示時間皆待領隊通知，實際順序可能因交通、天候或場地調整。",
-      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。"
+      "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。暫以10:35抵達機場為目標（起飛前2.5小時），非領隊確認的集合時間；必要時縮短迎仕柏停留或調整安排。實際依領隊通知、交通與天候調整。",
+      "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
+      "mealTimes": {
+        "breakfast": "06:00",
+        "lunch": null,
+        "dinner": null
+      },
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 早餐暫抓06:00，約07:00離開安山、預留約兩小時到INSPIRE；09:00～09:45短暫參觀，數位大道動畫與開放時段待確認、不保證可看到指定節目。09:45離開、預留約50分鐘接駁及團體下車，目標10:35抵達仁川機場（依手冊起飛前2.5小時提醒倒推），非領隊確認的集合或報到時間，不另新增報到站。13:05航班優先，遇塞車或未開放應由領隊縮短參觀或調整，車程僅為預估、未經路線API驗證。"
     }
   ],
   "info": {

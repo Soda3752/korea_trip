@@ -573,3 +573,6 @@ a.transit-chip:active { background: var(--coral-soft); }
 @media (min-width: 560px) {
   .card-media { height: 172px; }
 }
+
+.photo-badge{position:absolute;left:12px;bottom:12px;background:rgba(30,34,40,.85);color:white;border-radius:6px;padding:5px 9px;font-size:12px;line-height:1.4;max-width:75%;z-index:2}
+.day-time-note{font-size:13px;line-height:1.7;color:var(--text-muted,#625a51);margin:0 0 20px}

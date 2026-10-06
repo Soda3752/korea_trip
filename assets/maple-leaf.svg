@@ -1,0 +1,5 @@
+<!-- Original seven-lobed maple silhouette, drawn for this itinerary. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="M32 3 38 17 43 12 43 26 56 20 53 31 61 32 48 43 51 49 35 47 34 60 30 60 31 47 14 50 17 43 3 32 11 30 8 20 22 26 21 12 26 17Z" fill="#922f27"/>
+  <path d="M32 17 32 47M17 31 32 42 47 31" stroke="#fffaf2" stroke-width="1.4" stroke-linecap="round" opacity=".65"/>
+</svg>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#FBF7EF">
+  <meta name="theme-color" content="#922f27">
   <title>韓國秋楓 5天4夜 · 跟團行程</title>
   <!-- 部署版本標記：CI 將 __BUILD_VERSION__ 換成 git SHA；本機開發維持字面值（前端據此略過版本檢查） -->
   <script>window.__BUILD__ = "__BUILD_VERSION__";</script>
@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Poppins:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="css/style.css?v=__BUILD_VERSION__">
+  <link rel="stylesheet" href="css/maple-theme.css?v=__BUILD_VERSION__">
 </head>
 <body>
   <!-- 入場：翻牌時鐘（數字由 app.js 依當前韓國時間填入；無 JS／reduced-motion 時自動隱藏） -->
@@ -29,6 +30,7 @@
   </div>
 
   <header class="topbar">
+    <img class="maple-leaf" src="assets/maple-leaf.svg" alt="" aria-hidden="true" width="36" height="36">
     <h1 id="app-title" class="topbar-title">韓國秋楓跟團行程</h1>
     <p id="app-sub" class="topbar-sub"></p>
     <p id="app-updated" class="topbar-updated" hidden></p>
@@ -46,6 +48,7 @@
 
   <footer class="footer">
     <p>行程可隨時調整 · 編輯 <code>data/itinerary.json</code> 即可</p>
+    <p><a href="photo-credits.html">圖片來源與授權</a></p>
   </footer>
 
   <script src="js/naver.js?v=__BUILD_VERSION__"></script>

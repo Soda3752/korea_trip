@@ -1,0 +1,459 @@
+{
+  "notice": "來源頁、作者、授權及實景／示意區分；歷史照片不代表當日景況。照片縮圖與重壓縮，來源浮水印不移除。",
+  "photos": [
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaohsiung_Airport_Terminal.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Kaohsiung_Airport_Terminal.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Alec @ Taiwan",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "key": "khh",
+      "cardIds": [
+        "d1-i0",
+        "d1-i1",
+        "d5-i2"
+      ],
+      "image": "images/korea/a-khh.jpg",
+      "imageAlt": "高雄國際機場國際航廈免稅商店",
+      "imageType": "actual",
+      "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
+      "sha256": "2dc56d2770f990f2965e7d224dbf3c01189abb772a42a4e426dc8635bce5074a",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "中文（臺灣）：​高雄國際機場國際航廈免稅商店",
+        "licenseShortName": "CC BY 2.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+        "licenseStatement": "This file is licensed under the Creative Commons Attribution 2.0 Generic license.",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Kaohsiung_Airport_Terminal.jpg/960px-Kaohsiung_Airport_Terminal.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%ADT1_%EC%A0%84%EA%B2%BD_2024.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/7/7c/%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%ADT1_%EC%A0%84%EA%B2%BD_2024.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Narubaru7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+      "key": "icn",
+      "cardIds": [
+        "d1-i2",
+        "d5-i1"
+      ],
+      "image": "images/korea/a-icn.jpg",
+      "imageAlt": "仁川國際機場第一航廈外觀",
+      "imageType": "actual",
+      "imageNote": "2024 年仁川機場第一航廈照片；不表示已確認本次使用的航廈。 已縮圖並轉為 JPEG。",
+      "sha256": "f0702616e8473c072abd92d5bf0a65d754c0fcca758153c731e6658cbf1a7acb",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "한국어:  인천국제공항 T1(제1여객터미널) 2024년 사진",
+        "licenseShortName": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+        "licenseStatement": "This file is licensed under the Creative Commons Attribution 4.0 International license.",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%ADT1_%EC%A0%84%EA%B2%BD_2024.jpg/960px-%EC%9D%B8%EC%B2%9C%EA%B3%B5%ED%95%ADT1_%EC%A0%84%EA%B2%BD_2024.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eulwangri_Beach,_near_Incheon_Airport.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Ken Eckert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "key": "airsky",
+      "cardIds": [
+        "d1-i3"
+      ],
+      "image": "images/korea/a-airsky.jpg",
+      "imageAlt": "仁川永宗島乙旺里海灘，AIR SKY HOTEL 地區示意",
+      "imageType": "surroundings",
+      "imageNote": "未找到已確認可重用的 AIR SKY HOTEL 照片，改用永宗島乙旺里海灘地區代表照；不是飯店外觀、房間或飯店門前景色。 已縮圖並轉為 JPEG。",
+      "sha256": "adccb0f7be262c7288d5156817a0ba6a776e70c3c784600b40b54fae9f75482c",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "English:  Eulwangri Beach, near Incheon International Airport, Korea",
+        "licenseShortName": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg/960px-Eulwangri_Beach%2C_near_Incheon_Airport.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Central_Park_Lake,_Songdo_IBD.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Central_Park_Lake%2C_Songdo_IBD.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Ken Eckert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "key": "songdo-water",
+      "cardIds": [
+        "d2-i0"
+      ],
+      "image": "images/korea/a-songdo-water.jpg",
+      "imageAlt": "松島中央公園人工湖，水上計程車活動地區示意",
+      "imageType": "surroundings",
+      "imageNote": "照片為松島中央公園湖景；不是已辨識的水上計程車船隻照片。 已縮圖並轉為 JPEG。",
+      "sha256": "7175f9b5e3f9d7ce718c059b5febb0b15596ef5c4153f1597bf102cb9b27f5a9",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "English:  The lake at Central Park, Songdo IBD, Incheon, Korea",
+        "licenseShortName": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Central_Park_Lake%2C_Songdo_IBD.jpg/960px-Central_Park_Lake%2C_Songdo_IBD.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://www.gimhae.go.kr/00025.web?gcode=1172&idx=2587553&amode=view",
+      "originalUrl": "https://www.gimhae.go.kr/board/image.do?idx=2587553&fnum=2&s=&gcode=1172&q=",
+      "author": "김해시（金海市）；文章作者 홍수진，個別攝影者未列名",
+      "license": "KOGL Type 1",
+      "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+      "key": "songdo-outlet",
+      "cardIds": [
+        "d2-i1"
+      ],
+      "image": "images/korea/a-songdo-outlet.jpg",
+      "imageAlt": "現代 Premium Outlet 松島店庭院活動實景",
+      "imageType": "actual",
+      "imageNote": "2026年6月松島現代Outlet庭院觀光活動實景；不代表本次日期有此活動。",
+      "sha256": "0c2c9a1bc87123cff538237b5114378c9d85f8407ba3b013e180f0b1bfa81f6b",
+      "sourceEvidence": {
+        "identity": "Article identifies June 20–21, 2026 tourism promotion at Hyundai Premium Outlet Songdo; its second attached image shows the actual outlet courtyard, JILLSTUART/SANDRO/Factory BASH storefronts and event stage.",
+        "licenseStatement": "Source article explicitly says: 본 저작물은 \"공공누리\" 제1유형 : 출처표시조건 에 따라 이용 할 수 있습니다."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Danyang-eup.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Panoramic_view_of_Danyang-eup.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Academy of Korean Studies",
+      "license": "KOGL Type 1",
+      "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+      "key": "danyang-hotel",
+      "cardIds": [
+        "d2-i5"
+      ],
+      "image": "images/korea/a-danyang-hotel.jpg",
+      "imageAlt": "丹陽邑河岸城市全景，丹陽大明渡假村地區示意",
+      "imageType": "surroundings",
+      "imageNote": "丹陽邑地區代表照；不是丹陽大明／Sono Belle 飯店外觀、房間或飯店景觀承諾。 已縮圖並轉為 JPEG。",
+      "sha256": "2210a2a41e0170a4a391cf02666c63786ce412c72a30d668d0812af08a07e211",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "English:  A town located in the southeastern part of Danyang-gun, Chungcheongbuk-do.",
+        "licenseShortName": "KOGL Type 1",
+        "licenseUrl": "http://www.kogl.or.kr/info/licenseType1.do",
+        "licenseStatement": "This file is licensed under the Korea Open Government License Type 1.",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Panoramic_view_of_Danyang-eup.jpg/960px-Panoramic_view_of_Danyang-eup.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service.",
+        "originalSourcePage": "https://encykorea.aks.ac.kr/Media/Search?query=%EB%8B%A8%EC%96%91%EC%9D%8D%20%EC%A0%84%EA%B2%BD&page=1&pageSize=20"
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ansan_lake_park.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Ansan_lake_park.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Jeong seolah",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "key": "ansan-hound",
+      "cardIds": [
+        "d3-i4",
+        "d4-i6"
+      ],
+      "image": "images/korea/a-ansan-hound.jpg",
+      "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
+      "imageType": "surroundings",
+      "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
+      "sha256": "6d9818542ec1cbed79aed2e9f61f9952a78e6b859fd1d8bb60e7c14e4498c48e",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "English:  Ansan lake park",
+        "licenseShortName": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "licenseStatement": "This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication.",
+        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ansan_lake_park.jpg/960px-Ansan_lake_park.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "songnisan",
+      "cardIds": [
+        "d2-i2"
+      ],
+      "image": "images/korea/b-songnisan.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature%27s_Best.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Nature%27s_Best.jpg",
+      "author": "Caitlyn Heney",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageAlt": "俗離山國立公園秋季山林實景",
+      "imageType": "actual",
+      "imageNote": "2017年11月歷史照片；秋色不代表本次日期實況。",
+      "sha256": "f7966e7fef43bc384d43558722bbf8485765d608472bbc4ae2dac1e6bb105214",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "danpung-representative",
+      "cardIds": [
+        "d2-i3"
+      ],
+      "image": "images/korea/b-danpung-representative.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nature%27s_Best.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/d0/Nature%27s_Best.jpg",
+      "author": "Caitlyn Heney",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageAlt": "俗離山秋季山林示意，非已確認的丹楓隧道路段",
+      "imageType": "illustrative",
+      "imageNote": "行程未提供丹楓隧道路段；使用俗離山秋季山林示意，非該道路的已確認照片。",
+      "sha256": "f7966e7fef43bc384d43558722bbf8485765d608472bbc4ae2dac1e6bb105214",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "beopjusa",
+      "cardIds": [
+        "d2-i4"
+      ],
+      "image": "images/korea/b-beopjusa.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Beopjusa_temple_grounds.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Beopjusa_temple_grounds.jpg",
+      "author": "Yoo Chung",
+      "license": "CC BY-SA 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "imageAlt": "法住寺建築與佛塔實景",
+      "imageType": "actual",
+      "imageNote": "法住寺實景照片。",
+      "sha256": "e18bdf6566a8b40298a267f920f68843523b3fbe2a3f894eb28ed62b73f40ac9",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "mancheonha-skywalk",
+      "cardIds": [
+        "d3-i0"
+      ],
+      "image": "images/korea/b-mancheonha-skywalk.jpg",
+      "sourceUrl": "https://korean1.visitkorea.or.kr/kor/nphotogallery/photo.kto?newphotoDTO.sub_menu=new&newphotoDTO.searchWord=&func_name=photo_view&newphotoDTO.photo_code=1513015201906005k",
+      "originalUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/34/2613234_image2_1.jpg",
+      "author": "ⓒ한국관광공사 사진갤러리-김지호 (Korea Tourism Organization / Kim Ji-ho)",
+      "license": "KOGL Type 1",
+      "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+      "imageAlt": "丹陽滿天下空中走廊觀景台與南漢江實景",
+      "imageType": "actual",
+      "imageNote": "2019年6月場館實景；保留韓國觀光公社原圖浮水印。",
+      "sha256": "f35169f229cc2fbb8f78c678ddc0bf25842b304f754ed0c5b0b64cc1175c2805",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "danyang-gugyeong-market",
+      "cardIds": [
+        "d3-i1"
+      ],
+      "image": "images/korea/b-danyang-gugyeong-market.jpg",
+      "sourceUrl": "https://korean1.visitkorea.or.kr/kor/nphotogallery/photo.kto?newphotoDTO.sub_menu=new&newphotoDTO.searchWord=&func_name=photo_view&newphotoDTO.photo_code=3013008201906009k",
+      "originalUrl": "https://tong.visitkorea.or.kr/cms/resource_photo/73/2613173_image2_1.jpg",
+      "author": "ⓒ한국관광공사 사진갤러리-김지호 (Korea Tourism Organization / Kim Ji-ho)",
+      "license": "KOGL Type 1",
+      "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
+      "imageAlt": "丹陽九景市場棚內購物街與招牌實景",
+      "imageType": "actual",
+      "imageNote": "2019年6月市場內部實景，非入口；保留韓國觀光公社原圖浮水印。",
+      "sha256": "34ab1c04258a89ca8831e0ad1e3925ae687d37041fa47ab35e10982d50d02151",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "dongdaemun-complex",
+      "cardIds": [
+        "d3-i3"
+      ],
+      "image": "images/korea/b-dongdaemun-complex.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:2020-05-16_10.34.27_%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A2%85%ED%95%A9%EC%8B%9C%EC%9E%A5_%EC%9B%90%EB%8B%A8_%EA%B0%80%EA%B2%8C.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/41/2020-05-16_10.34.27_%EB%8F%99%EB%8C%80%EB%AC%B8%EC%A2%85%ED%95%A9%EC%8B%9C%EC%9E%A5_%EC%9B%90%EB%8B%A8_%EA%B0%80%EA%B2%8C.jpg",
+      "author": "Choi Kwang-mo",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "imageAlt": "東大門綜合市場布料店實景",
+      "imageType": "actual",
+      "imageNote": "東大門綜合市場布料店，非廣藏市場或東大門設計廣場。",
+      "sha256": "cb3b7d966ce2b11a16bcd4ccf017ceb78b06e35c75067f418172297d1dacd42a",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "gyeongbokgung",
+      "cardIds": [
+        "d4-i0"
+      ],
+      "image": "images/korea/b-gyeongbokgung.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Gyeongbokgung.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Gyeongbokgung.jpg",
+      "author": "螺钉",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageAlt": "首爾景福宮建築實景",
+      "imageType": "actual",
+      "imageNote": "景福宮實景照片，非承諾特定韓服活動內容。",
+      "sha256": "bd3bebf61d2ffde8263f66d85243580d872268627eb65c68932352242835d509",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "myeongdong",
+      "cardIds": [
+        "d4-i5"
+      ],
+      "image": "images/korea/b-myeongdong.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Myeongdong2.JPG",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Myeongdong2.JPG",
+      "author": "Whity (uploaded by Kirakirameister)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "imageAlt": "首爾明洞商店街實景",
+      "imageType": "actual",
+      "imageNote": "2011年10月歷史照片，不代表本次街景或商店營業情況。",
+      "sha256": "7a097bf22fddcd4407e36f0c91a477881ec8a1078b9a3988c37ed57034e7c38c",
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "d3-i2",
+      "cardIds": [
+        "d3-i2"
+      ],
+      "image": "images/korea/c-forest-cafe.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:%ED%95%9C%ED%98%95%EC%88%98%EC%A0%95%EC%9B%90_03.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/3/3e/%ED%95%9C%ED%98%95%EC%88%98%EC%A0%95%EC%9B%90_03.jpg",
+      "author": "Grapesurgeon",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "imageAlt": "韓國濟州花園咖啡廳綠意示意，非行程指定咖啡廳",
+      "imageType": "illustrative",
+      "imageNote": "行程未提供店名；使用濟州 Hallim 的 Han’s Garden 咖啡廳花園照片作森林系咖啡廳示意，並非確認的行程店家。",
+      "sha256": "59210cdbb978b41b438162c5fa3981d17b6961176c4c153448467e29d2d5b6af",
+      "credits": "File:한형수정원 03.jpg — Grapesurgeon; CC BY-SA 4.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
+      "sourceCredit": "Own work",
+      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY-SA 4.0; LicenseUrl=https://creativecommons.org/licenses/by-sa/4.0; AttributionRequired=true.",
+      "width": 1280,
+      "height": 960,
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "d4-i1",
+      "cardIds": [
+        "d4-i1"
+      ],
+      "image": "images/korea/c-korean-cosmetics.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Men%27s_cosmetics_in_drug_store_of_South_Korea.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Men%27s_cosmetics_in_drug_store_of_South_Korea.jpg",
+      "author": "Siyoung In",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "imageAlt": "韓國藥妝店保養彩粧貨架示意，非行程指定分店",
+      "imageType": "illustrative",
+      "imageNote": "韓國藥妝店男性保養品貨架照片；店名與行程彩粧店未確認，僅為韓國美妝購物示意。",
+      "sha256": "7938f4b053695264bf5bb2dfdf6241415699e757c95c47c084cb4d164c1d2bf0",
+      "credits": "File:Men's cosmetics in drug store of South Korea.jpg — Siyoung In; CC BY-SA 4.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
+      "sourceCredit": "Own work",
+      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY-SA 4.0; LicenseUrl=https://creativecommons.org/licenses/by-sa/4.0; AttributionRequired=true.",
+      "width": 960,
+      "height": 1280,
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "d4-i2",
+      "cardIds": [
+        "d4-i2"
+      ],
+      "image": "images/korea/c-hanbok-culture.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korea_Hanbok_Experience_08_(8028305521).jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/57/Korea_Hanbok_Experience_08_%288028305521%29.jpg",
+      "author": "Jeon Han / Korea.net (Korean Culture and Information Service)",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "imageAlt": "韓國雲峴宮韓服體驗示意，非行程指定文化體驗營",
+      "imageType": "illustrative",
+      "imageNote": "來源為 2012 年雲峴宮韓服體驗，攝影 Jeon Han／Korea.net；文化體驗營名稱未提供，非確認的本團場地或活動。",
+      "sha256": "dc0ab2206fbeba8b17331bb82825fc7862ecc1ac536a4a38ec0dafccd90ce3c6",
+      "credits": "File:Korea Hanbok Experience 08 (8028305521).jpg — Jeon Han / Korea.net (Korean Culture and Information Service); CC BY-SA 2.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
+      "sourceCredit": "Korea_Hanbok_Experience_08",
+      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY-SA 2.0; LicenseUrl=https://creativecommons.org/licenses/by-sa/2.0; AttributionRequired=true.",
+      "width": 903,
+      "height": 1280,
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "d4-i3",
+      "cardIds": [
+        "d4-i3"
+      ],
+      "image": "images/korea/c-performance.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean_dance-Samgomu_Ogomu-01.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Korean_dance-Samgomu_Ogomu-01.jpg",
+      "author": "by bdnegin (Brian Negin)",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "imageAlt": "韓國傳統鼓舞舞台演出示意，非 HERO 塗鴉秀實景",
+      "imageType": "illustrative",
+      "imageNote": "未取得可核實自由授權的 HERO／The Painters 宣傳照片；改用韓國國立舞蹈團 2006 年世宗文化會館三鼓舞／五鼓舞照片，僅為舞台表演示意，不是 HERO 塗鴉秀。Commons VRT 許可編號 2008092910004321。",
+      "sha256": "c1b42d9f99e1807bca99a23d257afa9ea6b433fe354ac3ac01f7cf43d4a8f0c5",
+      "credits": "File:Korean dance-Samgomu Ogomu-01.jpg — by bdnegin (Brian Negin); CC BY-SA 3.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
+      "sourceCredit": "https://www.flickr.com/photos/bdnegin/2693559796/",
+      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY-SA 3.0; LicenseUrl=https://creativecommons.org/licenses/by-sa/3.0; AttributionRequired=true.",
+      "width": 1280,
+      "height": 854,
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "key": "d4-i4",
+      "cardIds": [
+        "d4-i4"
+      ],
+      "image": "images/korea/c-korean-supermarket.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Supermarket_in_Seoul_(2001)_-_1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Supermarket_in_Seoul_%282001%29_-_1.jpg",
+      "author": "Alex C",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "imageAlt": "首爾超市零食貨架示意，非行程指定超市分店",
+      "imageType": "illustrative",
+      "imageNote": "使用 2001 年首爾超市照片，僅為韓國超市購物示意；未確認行程超市店名或分店，陳列非現況。",
+      "sha256": "3cdee4960c3f6dbf34b1a858b1086e212b9941c01b1f7ba40b1d27235c93b23f",
+      "credits": "File:Supermarket in Seoul (2001) - 1.jpg — Alex C; CC BY 2.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
+      "sourceCredit": "https://www.flickr.com/photos/alexchoi/343047536/",
+      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY 2.0; LicenseUrl=https://creativecommons.org/licenses/by/2.0; AttributionRequired=true.",
+      "width": 1024,
+      "height": 768,
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eulwangri_Beach,_near_Incheon_Airport.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
+      "author": "Ken Eckert",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "sha256": "adccb0f7be262c7288d5156817a0ba6a776e70c3c784600b40b54fae9f75482c",
+      "sourceEvidence": {
+        "retrievedFrom": "Commons file-page HTML",
+        "description": "English:  Eulwangri Beach, near Incheon International Airport, Korea",
+        "licenseShortName": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
+        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg/960px-Eulwangri_Beach%2C_near_Incheon_Airport.jpg",
+        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
+      },
+      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。",
+      "key": "d5-i0",
+      "cardIds": [
+        "d5-i0"
+      ],
+      "image": "images/korea/c-inspire-area.jpg",
+      "imageAlt": "仁川永宗島海岸地區示意，非 INSPIRE 迎仕柏數位大道實景",
+      "imageType": "surroundings",
+      "imageNote": "數位大道影像尚未確認完整重用權限；採永宗島乙旺里海岸地區代表照，非飯店、LED天幕或實際活動照片。"
+    }
+  ]
+}

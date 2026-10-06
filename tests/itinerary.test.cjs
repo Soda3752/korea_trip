@@ -19,7 +19,7 @@ test('public itinerary follows the five-day handbook without invented details', 
     for (const key of ['breakfast','lunch','dinner']) assert.ok(d.meals[key]);
     assert.ok(d.hotel.name);
     for (const x of d.items) {
-      assert.equal(x.image, null);
+      assert.ok(x.image && /^images\/korea\/[a-z0-9-]+\.jpg$/.test(x.image));
       if (x.time === null) assert.match(x.intro, /待領隊通知/);
       if (/咖啡廳|彩粧店|文化體驗營|HERO|超市/.test(x.name)) {
         assert.equal(x.map, null); assert.match(x.intro, /待確認/);
@@ -29,7 +29,7 @@ test('public itinerary follows the five-day handbook without invented details', 
   assert.equal(data.meta.timezone, '+09:00');
   assert.equal(data.meta.people, null);
   assert.deepEqual(data.coords, {});
-  assert.deepEqual(data.days.map(d => d.items.filter(x => x.time !== null).map(x => x.time)), [['14:40','17:10','20:00'],[],[],[],['13:05','16:10']]);
+  assert.deepEqual(data.days.map(d => d.items.filter(x => x.time !== null && !x.timeEstimated).map(x => x.time)), [['14:40','17:10','20:00'],[],[],[],['13:05','16:10']]);
   assert.match(data.days[0].items[0].intro, /台灣時間13:40.*三樓A12/);
   assert.match(data.days[0].items[1].intro, /台灣時間16:10/);
   assert.match(data.days[4].items[2].intro, /台灣時間15:10.*KST.*16:10/);
@@ -38,7 +38,7 @@ test('public itinerary follows the five-day handbook without invented details', 
   for (const i of [1,2,3]) assert.equal(data.days[i].hotel.address, null);
   assert.match(data.days[3].items[2].intro, /水果大福DIY.*韓服體驗.*海苔博物館.*韓流潮拍大頭貼/);
   const publicText = JSON.stringify(data);
-  assert.doesNotMatch(publicText, /釜山|Busan|7C6153|MIDAM|Spa Land|SEL\d|09\d{8}|全面採電子|均需/);
+  assert.doesNotMatch(publicText, /釜山|Busan|7C6153|MIDAM|Spa Land|SEL\d|(?<!\d)09\d{8}(?!\d)|全面採電子|均需/);
   assert.match(publicText, /20公斤/); assert.match(publicText, /10公斤/); assert.match(publicText, /220V/); assert.match(publicText, /300/);
   assert.match(publicText, /手冊.*未.*驗證/);
   assert.ok(data.info.officialLinks.some(x => x.url === 'https://www.e-arrivalcard.go.kr/'));

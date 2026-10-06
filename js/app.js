@@ -6,6 +6,16 @@ const MODE_ICON = { walk: '🚶', taxi: '🚕', metro: '🚇', bus: '🚌' };
 const MODE_LABEL = { walk: '步行', taxi: '計程車', metro: '地鐵', bus: '公車' };
 
 document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('error', handlePhotoError, true);
+
+function handlePhotoError(event) {
+  const image = event.target;
+  if (!image || typeof image.matches !== 'function' || !image.matches('img.media-img')) return;
+  const fallback = document.createElement('div');
+  fallback.className = 'media-ph';
+  fallback.textContent = '圖片暫時無法載入';
+  image.replaceWith(fallback);
+}
 
 async function init() {
   fillIntroClock(); // 依當前韓國時間填入翻牌時鐘，讓入場數字與「現在」一致
@@ -221,9 +231,13 @@ function renderDay(dayIndex) {
   const isToday = APP.state.mode === 'during' && APP.state.dayIndex === dayIndex;
   const curIdx = isToday ? APP.state.currentItemIndex : -1;
   const nextIdx = isToday ? APP.state.nextItemIndex : -1;
+  const hasUnknown = day.items.some(it => it.type === 'spot' &&
+    (timeToMinutes(it.time) === null || it.timeEstimated === true));
 
   const itemState = (i, type) => {
-    if (!isToday || (type === 'spot' && !day.items[i].time) || (curIdx === -1 && nextIdx === -1)) return '';
+    if (!isToday || day.items[i].timeEstimated === true || (type === 'spot' && !day.items[i].time) || (curIdx === -1 && nextIdx === -1)) return '';
+    // 混合預估／未知時間只標示已知時刻節點，不推測其他卡片的進度。
+    if (hasUnknown) return type === 'spot' && i === curIdx ? 'state-current' : '';
     if (type === 'spot') {
       if (i === curIdx) return 'state-current';
       if (i === nextIdx) return 'state-next';
@@ -246,6 +260,7 @@ function renderDay(dayIndex) {
       <div class="day-kicker">Day ${day.day} · ${day.date.slice(5).replace('-', '/')}（${day.weekday}）</div>
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
+    <p class="day-time-note">韓國時間 KST · 預估時間僅供參考，實際依領隊、交通及用餐安排調整；時間標示不代表實際所在位置。</p>
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
   `;
@@ -253,7 +268,7 @@ function renderDay(dayIndex) {
 }
 
 function spotRow(it, state) {
-  const time = it.time ? `<time class="spot-time">${esc(fmt12(it.time))} KST</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
+  const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(it.time))} KST</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
   const nav = it.map
     ? `<a class="btn-nav" data-map href="${naverSearchUrl(it.map)}" target="_blank" rel="noopener"
          data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
@@ -303,7 +318,8 @@ function transitRow(it, state) {
 
 function mediaHTML(it) {
   if (it.image) {
-    return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.name)}" loading="lazy">`;
+    const label = it.imageType === 'surroundings' ? '地區示意' : it.imageType === 'illustrative' ? '示意圖' : '';
+    return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.name)}" loading="lazy" decoding="async">${label ? `<span class="photo-badge" title="${esc(it.imageNote || label)}">${label}</span>` : ''}`;
   }
   // 手冊行程色塊佔位：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊
   const PH_PALETTE = ['#2FA6A0', '#F27C63', '#E8B84B', '#8E7CC3', '#5B9BD5', '#EE8A6F', '#79B8A8', '#F2B84B'];
@@ -316,7 +332,8 @@ function mediaHTML(it) {
 
 function notesHTML(day) {
   const parts = [];
-  if (day.meals) parts.push(`<div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐：${esc(day.meals.breakfast)}<br>午餐：${esc(day.meals.lunch)}<br>晚餐：${esc(day.meals.dinner)}</p></div></div>`);
+  const mealTime = key => day.mealTimes && day.mealTimes[key] ? `（預估 ${esc(day.mealTimes[key])}）` : '';
+  if (day.meals) parts.push(`<div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐${mealTime('breakfast')}：${esc(day.meals.breakfast)}<br>午餐${mealTime('lunch')}：${esc(day.meals.lunch)}<br>晚餐${mealTime('dinner')}：${esc(day.meals.dinner)}</p>${day.mealTimes ? '<p>餐食時間僅供參考，實際依領隊安排。</p>' : ''}</div></div>`);
   if (day.hotel) parts.push(`<div class="note"><span class="note-ico">🏨</span><div><strong>住宿</strong><p>${esc(day.hotel.name)}<br>${esc(day.hotel.address || (day.hotel.name === '溫暖的家' ? '返台' : '地址／分店待確認'))}</p></div></div>`);
   if (day.tips) parts.push(`<div class="note note--tip"><span class="note-ico">💡</span><div><strong>小提醒</strong><p>${esc(day.tips)}</p></div></div>`);
   if (day.transport) parts.push(`<div class="note note--car"><span class="note-ico">🚗</span><div><strong>交通</strong><p>${esc(day.transport)}</p></div></div>`);
