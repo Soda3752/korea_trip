@@ -1,72 +1,49 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## 專案
 
-## 專案本質
+2026-10-11 至 2026-10-15 韓國秋楓跟團行程，高雄／仁川進出。純HTML、CSS、原生JS手機優先靜態網站，無框架、npm依賴或建置步驟。保留既有設計，不加入路線示意圖或無關功能。
 
-手機優先的**單頁靜態網站**：韓國 5 天 4 夜自由行行程表，部署於 GitHub Pages。
-**無建置步驟、無框架、無 npm 依賴**——純 HTML/CSS/原生 JS。三支 JS 以 `<script>` 依序載入（`naver.js` → `now.js` → `app.js`），彼此用**全域函式**呼叫，沒有 import/export 模組系統。
+## 架構
 
-> 本專案由 `china_trip`（上海）fork 而來，保留整體架構與設計語言，行程內容已清空為韓國空白範本。**時區為 KST（`+09:00`）。** 導航層已由高德改接 **Naver Map**（`js/naver.js`），座標系改為 **WGS-84**。
+- `data/itinerary.json`：本次手冊整理的公開行程、三餐、住宿與提醒。
+- 全域JS載入順序：`js/naver.js` → `js/now.js` → `js/app.js`；無import/export。
+- `meta.people: null`：人數未知，標頭省略人數，不猜測。
+- `days[].items[]` 以spot列出手冊順序；`time`為KST `HH:mm` 或 `null`。三餐在 `meals`，住宿在 `hotel`，由每日提醒呈現。
+- 沒有來源佐證的時刻、移動時長、分店地址、座標不要補造。
+- `coords: {}`；已知景點使用韓文搜尋，AIR SKY使用手冊原文地址；其他飯店只搜名稱，分店待確認。未指名場地 `map: null`。
+- `image: null` 使用既有色塊「手冊行程」。真圖需確認場所與使用權，勿重用無關照片。
 
-## 核心架構：資料與呈現分離
+## KST與高亮
 
-所有行程內容都在 `data/itinerary.json`，程式碼只負責讀取與渲染。**改行程＝只編輯這個 JSON，不要動 JS。**
+`shanghaiNow()`僅保留原相容介面名稱，實際已修為韓國KST（UTC+9），即UTC瞬間加9小時並讀UTC欄位。支援有效 `?now=YYYY-MM-DDTHH:mm` 或日期（午夜），不接受無效日期／時刻或帶時區的覆寫。
 
-- `meta`：標題、日期區間、`timezone`（韓國 `+09:00`，當前景點判斷的時區依據）。
-- `coords`：`地點關鍵字 → "經度,緯度"`（**WGS-84** 世界座標系）查表。`app.js` 的 `enrichCoords()` 在載入時依 `keyword` 把座標補進各 `map`/`to`，因此座標集中在此一處維護。刪掉某筆 → 該地點退回關鍵字搜尋。
-- `days[].items[]`：兩種交錯節點
-  - `spot`（景點卡片）：`time`(HH:mm)、`name`、`image`(null→漸層佔位／URL／`images/` 路徑)、`intro`、`map`（**選填**，有才顯示導航鈕）。
-  - `transit`（交通串接）：`mode`(`walk`/`taxi`/`metro`/`bus`)、`desc`、`to`（目的地，點擊跳 Naver Map）。
-- `info`：資訊分頁資料（交通總覽、費用、行李、滴滴指南、注意事項、App）。
+完全已知時刻的日程保留目前／下一站判斷；混合未知時刻的日程只能在已知時刻那一分鐘標示該節點，不推測目前位置或下一站。未定時刻顯示「行程順序・時間待通知」與「待領隊通知」，不顯示狀態類別。
 
-## 三支 JS 的職責
+台灣集合13:40對應KST14:40，TW672台灣16:10對應KST17:10、仁川20:00；TW671仁川13:05、台灣抵達15:10對應KST16:10。卡片明寫當地時間。
 
-- `js/now.js`：時間與「目前該在哪個景點」。`shanghaiNow()` **一律換算 UTC+8**（取 UTC 瞬間 +8h 再讀 UTC 欄位，與裝置時區無關），並支援 `?now=YYYY-MM-DDTHH:mm` 覆寫。`resolveState()` 是純函式，回傳 `{mode: before|during|after|none, dayIndex, currentItemIndex, nextItemIndex}`。
-- `js/naver.js`：Naver Map deeplink。`naverSearchUrl`/`naverNavUrl` 產生網頁版 `map.naver.com/p/search/{query}` 連結（fallback）；`naverNativeUrl` 依平台產生 App scheme：iOS 直接回 `nmap://`（`place`/`route/{car|walk|public|bicycle}`），Android 回 `intent://...scheme=nmap;package=com.nhn.android.nmap` 並帶 `browser_fallback_url` 退回網頁版。**`nmap://` 強制帶 `appname` 參數**（`NAVER_APPNAME`）。座標存 `"lng,lat"`（WGS-84），scheme 參數為 `lat`/`lng` 分開。mode 對應：`walk`→walk、`taxi`→car、`metro`/`bus`→public。
-- `js/app.js`：載入 JSON、tab 切換、時間軸 spine 渲染、三態高亮、「回到現在」、資訊分頁、`renderUpdatedAt()`、入場翻牌時鐘。`attachMapHandler()` 用事件委派：手機點 `a[data-map]` 時先試 App scheme，iOS 1.5 秒逾時 fallback 網頁，Android 由 intent 的 `browser_fallback_url` 處理。`fillIntroClock()`／`playIntro()`／`hideIntro()` 控制入場：`fillIntroClock()` 依 `shanghaiNow().label` 填翻牌四位數（與「現在」連動）；`playIntro()` 一次性播放時間軸卡片依序浮現後淡出 loader（`prefers-reduced-motion` 或載入失敗皆直接 `hideIntro()`）。
+## 公開資料安全
 
-## 當前景點高亮（招牌功能）
+原始手冊不得複製進repo。不要新增人名、電話、私人聯絡資料、旅行社組織聯絡資料或團號。手冊提醒與法律規定未獨立驗證，行李20／10公斤、220V圓形兩孔、每日NT$300服務費需註明來源；入境與管制規定連到官方作最新查核，不宣稱一律適用。
 
-`resolveState` 比對今天日期與各 `day.date` 找出今天是 Day 幾；當天時間軸中「最後一個 `time ≤ 現在` 的 spot」標為「現在」、下一個 spot 標「即將」。**範本行程日期為 2026-10（佔位，待填實際日期），平時測試一定要用 `?now=` 覆寫**，否則永遠是旅程前倒數狀態、看不到高亮。
+## 測試與預覽
 
-## 部署（GitHub Pages + Actions）
-
-- push 到 `main` 觸發 `.github/workflows/deploy.yml` 自動部署。Pages 已啟用為 `build_type=workflow`（曾因 workflow token 無權建立站台失敗，改用帳號 `gh api` 啟用後解決）。
-- workflow 在上傳前產生 `build-info.json`（台北 UTC+8 時間戳），前端 `renderUpdatedAt()` fetch 後顯示「最後更新」。此檔由 CI 產生、**已 gitignore，不要手動 commit**。
-- 正式網址：`https://soda3752.github.io/korea_trip/`
-
-## 常用指令
+嚴格TDD：先測試、執行確認RED，再實作確認GREEN。
 
 ```bash
-# 本地預覽（需用伺服器，因 fetch 載入 JSON）
+node --test tests/*.test.cjs
+node --check js/now.js
+node --check js/naver.js
+node --check js/app.js
 python3 -m http.server 8000
-# 測試當前景點高亮（關鍵）
-open "http://localhost:8000/?now=2026-10-01T13:30"
-
-# 部署：直接 push，workflow 自動跑
-git push
-gh run watch <run-id> --exit-status      # 觀察部署
-gh run list --workflow=deploy.yml --limit 1
 ```
 
-## 驗證手法（無測試框架）
+用 `?now=2026-10-11T14:40` 測試已知集合，`?now=2026-10-12T12:00`測試未知時間不高亮，以及前／後／午夜邊界。Node測試使用內建node:test、vm，不加npm套件。瀏覽器檢查分頁、資訊、載入與手機寬度；Naver App真機行為需另外測試。
 
-- 語法：`node --check js/*.js`
-- 邏輯：用 node `vm` 沙箱載入 `now.js`/`naver.js`（stub `location`/`navigator`/`URLSearchParams`），對 `resolveState` 與 deeplink 組裝做斷言。
-- 視覺：headless Chrome `--screenshot` 搭配 `?now=` 驗證前/中/後三種狀態與當前高亮。
-- Naver Map App **喚起行為無法在此環境驗證**，需在 iOS/Android 真機各測一次。
+## 部署
 
-## 設計語言（老上海 Art Deco・月份牌）
+main push觸發GitHub Pages Actions；CI使用 `Asia/Seoul` 產生KST最後更新時間與版本快取標記。`build-info.json`被gitignore，不手動commit。正式網址 `https://soda3752.github.io/korea_trip/`。沒有明確授權不commit、push或更動遠端。
 
-- 主調是 **墨綠（`--jade` #1f3a34）＋鎏金（`--gold` #c9a24b）＋米白紙感（`--paper` #efe4c7）**，墨綠當「墨色」用（主文字 `--ink` #20312b，不用純黑）。
-- **胭脂紅（`--rouge` #9e2b25）是唯一破格，只用於「現在/即將」狀態**（節點脈動、邊框、徽章、標題），勿擴散到其他元件。
-- Deco 語彙：時間軸節點為**菱形**（`rotate(45deg)`）、時間用**鎏金框車票**樣式、Day 標頭為墨綠帶＋鎏金 ◆ 分隔、卡片為米白＋鎏金細框。少圓角（`--radius` 6px）。
-- 字體分工：`--serif`（Noto Serif TC）中文標題、`--deco`（Cinzel）拉丁與數字、`--sans`（Noto Sans TC）內文。**經 `index.html` 的 Google Fonts `<link>` 載入**——這是專案唯一的外部依賴；離線時 fallback 到系統襯線（Songti），版面不壞但少了 Deco 味。
-- 入場簽名：翻牌時鐘（`.deco-loader`），墨綠斜紋底＋鎏金外框，數字隨當前韓國時間（KST）連動，翻牌後時間軸依序浮現。
+## 設計
 
-## 慣例
-
-- 內容一律**繁體中文**。
-- `coords` 為地標近似座標（非實地校準），導航會到地標附近；特定場所（如「宮宴 北京西路1485號」）建議實機校正。
-- 設計文件在 `.claude/report/2026_06_18/`。
+依現有 `css/style.css` 與 `index.html` 保持版型、字體、色彩與入場翻牌時鐘，不以過時文件描述覆蓋現行CSS。內容一律繁體中文。更多維護與來源規則見README。

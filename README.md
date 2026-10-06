@@ -1,76 +1,60 @@
-# 韓國 5天4夜 · 自由行網頁
+# 韓國秋楓 5天4夜 · 跟團行程
 
-手機優先的單頁靜態行程網頁，依當下時間（UTC+9・KST）自動指出「現在該在哪個景點」，點與點之間有可點擊的交通串接。部署於 GitHub Pages。
+2026-10-11 至 2026-10-15，高雄出發、仁川進出。手機優先單頁靜態網站，維持原有版型與 Naver Map 搜尋，不加入路線示意圖。
 
-> 由 `china_trip`（上海）fork 而來，保留整體架構與設計語言，行程內容已清空為韓國空白範本。
+## 資料與來源
 
-## 功能
+`data/itinerary.json` 依本次行前手冊整理每日行程順序、三餐與住宿；原始手冊只留在本機，公開資料不含旅客或領隊姓名、電話、旅行社聯絡資料、團號。
 
-- **Day 1–5 分頁 + 資訊分頁**：依今天日期自動開到當天，當前時段景點以脈動高亮。
-- **時間軸 spine**：填充至「現在」，清楚呈現「已過 / 現在 / 即將」三態。
-- **景點卡片**：景點圖（可為漸層佔位）＋ 簡介 ＋（選填）「導航」鈕。
-- **交通串接**：點擊帶入「即將前往」目的地。
-- **回到現在**：手動瀏覽其他天後，一鍵回到當前景點。
+- Day 1：高雄 → 仁川 → AIR SKY HOTEL。
+- Day 2：松島水上計程車 → 現代PREMIUM OUTLET → 俗離山道國立公園 → 丹楓隧道 → 法住寺；丹陽大明渡假村（二人一戶）。
+- Day 3：滿天下空中走廊 → 九景傳統市場 → 森林系網紅咖啡廳（不含飲品） → 東大門綜合商場；安山HOUND HOTEL。
+- Day 4：景福宮＋韓服 → 彩粧店 → 文化體驗營（水果大福DIY、韓服、海苔博物館、潮拍大頭貼） → HERO塗鴉秀 → 超市 → 首爾明洞；安山HOUND HOTEL。
+- Day 5：迎仕柏LED數位大道 → 仁川 → 高雄。
 
-## 改行程：只動一個檔
+手冊列示託運20公斤、手提10公斤、220V圓形兩孔插頭，以及每人每日NT$300服務費，皆標示來源與未獨立驗證。入境、海關、檢疫、行動電源與航空規範以資訊頁官方連結及出發前確認為準，不把手冊中的概括法規敘述當成現行事實。
 
-編輯 [`data/itinerary.json`](data/itinerary.json)，程式碼完全不用碰。
+## 時間與不確定性
 
-每天的 `items` 由兩種節點交錯組成：
+時間軸、時鐘與部署時間戳一律為 **KST（UTC+9）**，不依裝置時區。
 
-```jsonc
-// 景點卡片
-{
-  "type": "spot",
-  "time": "14:30",                 // HH:mm，當前景點判斷依此
-  "name": "景福宮",
-  "image": null,                   // null=漸層佔位；補圖改成 "images/gyeongbokgung.jpg"
-  "intro": "朝鮮王朝正宮…",         // 簡介
-  "map": { "keyword": "景福宮", "city": "首爾" }  // 選填，有才顯示「導航」鈕
-}
+| 項目 | 當地時間 | 時間軸 KST |
+| --- | --- | --- |
+| 10/11 高雄國際航廈三樓A12集合 | 台灣13:40 | 14:40 |
+| TW672 高雄出發 | 台灣16:10 | 17:10 |
+| TW672 仁川抵達 | 韓國20:00 | 20:00 |
+| 10/15 TW671 仁川出發 | 韓國13:05 | 13:05 |
+| TW671 高雄抵達 | 台灣15:10 | 16:10 |
 
-// 交通串接（夾在兩景點之間）
-{
-  "type": "transit",
-  "mode": "metro",                 // walk / taxi / metro / bus
-  "desc": "地鐵 3 號線約 20 分鐘",
-  "to": { "keyword": "景福宮", "city": "首爾" }
-}
-```
+其他節點 `time: null`，顯示「行程順序・時間待通知」與「待領隊通知」，不是自行估計的時刻。混合已知／未知時間的日程只在確切時刻那一分鐘標示已知節點，不推測目前或下一站；全部未定時間的日程不高亮。實際安排以領隊通知為準。
 
-### 補景點真圖
+## 地圖與圖片
 
-1. 把圖片放進 `images/`（例如 `images/gyeongbokgung.jpg`）。
-2. 在該 spot 的 `image` 欄填路徑 `"images/gyeongbokgung.jpg"`。
+`coords: {}`：沒有可直接採用的來源座標，不猜測。已知地標使用韓文關鍵字搜尋；AIR SKY以手冊原文地址搜尋。丹陽與安山飯店僅保留名稱搜尋，地址／分店待確認。未指名的咖啡廳、商店、體驗場地、HERO劇院、超市及丹楓路段 `map: null`。
 
-### 校正景點座標
+全部 `image: null` 使用原有色塊並標示「手冊行程」。已移除舊行程照片；補圖必須確認確為本次場所、有適當使用權，不重用無關照片。無座標時 Naver 走網頁搜尋，不保證手機喚起 App。
 
-景點與交通的精準度由 `data/itinerary.json` 最上方的 `coords` 表決定（`"經度,緯度"`，**WGS-84 世界座標系**）：
+## 預覽與測試
 
-- 有座標 → 精準標點與路線規劃。
-- 移除某筆 → 該地點退回關鍵字搜尋。
-
-> 🗺️ **地圖：Naver Map**。導航層 `js/naver.js` 走 Naver Map 深連結：手機優先喚起 `nmap://` App（未安裝則彈窗引導安裝或改用網頁版），桌機開 `map.naver.com`。座標為 **WGS-84**（`"經度,緯度"`）。<br>
-> `mode` 對應 Naver 路線類型：`walk`→步行、`taxi`→駕車、`metro`/`bus`→大眾運輸。
-
-## 本地預覽
+無框架、無 npm 依賴、無建置步驟；JS依序以全域函式載入 `naver.js` → `now.js` → `app.js`。
 
 ```bash
-cd korea_trip
 python3 -m http.server 8000
-# 瀏覽器開 http://localhost:8000
+node --test tests/*.test.cjs
+node --check js/now.js
+node --check js/naver.js
+node --check js/app.js
 ```
 
-測試「當前景點」：在網址加 `?now=` 覆寫時間（不影響真實時間，KST）：
+覆寫時間採KST牆上時間，支援 `?now=2026-10-12T00:00` 或只有日期；無效日期／時刻會回到真實KST。
 
-```
-http://localhost:8000/?now=2026-10-01T13:30
-```
+- `http://localhost:8000/?now=2026-10-10T23:59`：出發前。
+- `http://localhost:8000/?now=2026-10-11T14:40`：已知集合時刻。
+- `http://localhost:8000/?now=2026-10-12T12:00`：未定時間，不高亮。
+- `http://localhost:8000/?now=2026-10-16T00:00`：旅程後。
 
-## 部署到 GitHub Pages
+測試使用Node內建 `node:test` 與 `vm`，覆蓋手冊行程、航班跨時區、餐食住宿、隱私、KST午夜、覆寫、未知時間及HTML呈現。更動先寫測試確認RED，再實作並確認GREEN。
 
-1. push 到 `main` 後，`.github/workflows/deploy.yml` 會自動部署。
-2. GitHub repo → **Settings → Pages → Build and deployment → Source** 選 **GitHub Actions**（若尚未啟用）。
-3. 部署完成後網址約為 `https://<帳號>.github.io/korea_trip/`。
+## 部署
 
-> `.nojekyll` 已加入，避免 GitHub Pages 的 Jekyll 處理底線開頭資源。
+GitHub Pages由 `.github/workflows/deploy.yml` 在push至main時部署；產生KST `build-info.json` 與快取版本標記。此檔由CI產生且被gitignore。本地不需要生成它；未commit或push不會部署。

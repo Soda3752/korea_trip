@@ -1,4 +1,4 @@
-// 釜山自由行 — 主程式：載入資料、tab 切換、時間軸渲染、當前景點高亮
+// 韓國秋楓跟團行程 — 主程式：載入資料、tab 切換、時間軸渲染、當前景點高亮
 
 const APP = { data: null, state: null, activeDay: 0, refreshTimer: null };
 
@@ -8,7 +8,7 @@ const MODE_LABEL = { walk: '步行', taxi: '計程車', metro: '地鐵', bus: '�
 document.addEventListener('DOMContentLoaded', init);
 
 async function init() {
-  fillIntroClock(); // 依當前上海時間填入翻牌時鐘，讓入場數字與「現在」一致
+  fillIntroClock(); // 依當前韓國時間填入翻牌時鐘，讓入場數字與「現在」一致
   if (await checkFreshVersion()) return; // 偵測到新版 → 已觸發強制重載，停止後續初始化
   try {
     const res = await fetch('data/itinerary.json', { cache: 'no-store' });
@@ -45,7 +45,7 @@ async function init() {
 const PREFERS_REDUCED = () =>
   window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// 依當前上海時間填入翻牌四位數（HH:mm）
+// 依當前韓國時間填入翻牌四位數（HH:mm）
 function fillIntroClock() {
   const loader = document.getElementById('deco-loader');
   if (!loader) return;
@@ -100,7 +100,7 @@ function renderHeader() {
   const m = APP.data.meta;
   document.getElementById('app-title').textContent = m.title;
   document.getElementById('app-sub').textContent =
-    `${m.dateRange} · ${m.people}人 · ${m.hotel}`;
+    [m.dateRange, m.people ? `${m.people}人` : null, m.hotel].filter(Boolean).join(' · ');
 }
 
 // sessionStorage 安全存取（隱私模式下存取可能 throw）
@@ -132,7 +132,7 @@ async function checkFreshVersion() {
   return false;
 }
 
-// 最後更新時間（由 CI 部署時產生的 build-info.json，台北 UTC+8）
+// 最後更新時間（由 CI 部署時產生的 build-info.json，韓國 KST UTC+9）
 async function renderUpdatedAt() {
   const el = document.getElementById('app-updated');
   if (!el) return;
@@ -223,7 +223,7 @@ function renderDay(dayIndex) {
   const nextIdx = isToday ? APP.state.nextItemIndex : -1;
 
   const itemState = (i, type) => {
-    if (!isToday) return '';
+    if (!isToday || (type === 'spot' && !day.items[i].time) || (curIdx === -1 && nextIdx === -1)) return '';
     if (type === 'spot') {
       if (i === curIdx) return 'state-current';
       if (i === nextIdx) return 'state-next';
@@ -253,7 +253,7 @@ function renderDay(dayIndex) {
 }
 
 function spotRow(it, state) {
-  const time = it.time ? `<time class="spot-time">${esc(fmt12(it.time))}</time>` : '';
+  const time = it.time ? `<time class="spot-time">${esc(fmt12(it.time))} KST</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
   const nav = it.map
     ? `<a class="btn-nav" data-map href="${naverSearchUrl(it.map)}" target="_blank" rel="noopener"
          data-coord="${esc(it.map.coord || '')}" data-name="${esc(it.map.keyword || '')}" data-mode="">導航 ↗</a>`
@@ -305,17 +305,19 @@ function mediaHTML(it) {
   if (it.image) {
     return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.name)}" loading="lazy">`;
   }
-  // 甘川洞彩層佔位圖：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊
+  // 手冊行程色塊佔位：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊
   const PH_PALETTE = ['#2FA6A0', '#F27C63', '#E8B84B', '#8E7CC3', '#5B9BD5', '#EE8A6F', '#79B8A8', '#F2B84B'];
   const c = PH_PALETTE[hashStr(it.name) % PH_PALETTE.length];
   return `<div class="media-ph" style="--ph:${c}">
       <span class="media-ph-name">${esc(it.name)}</span>
-      <span class="media-ph-hint">📷 待補圖</span>
+      <span class="media-ph-hint">手冊行程</span>
     </div>`;
 }
 
 function notesHTML(day) {
   const parts = [];
+  if (day.meals) parts.push(`<div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐：${esc(day.meals.breakfast)}<br>午餐：${esc(day.meals.lunch)}<br>晚餐：${esc(day.meals.dinner)}</p></div></div>`);
+  if (day.hotel) parts.push(`<div class="note"><span class="note-ico">🏨</span><div><strong>住宿</strong><p>${esc(day.hotel.name)}<br>${esc(day.hotel.address || (day.hotel.name === '溫暖的家' ? '返台' : '地址／分店待確認'))}</p></div></div>`);
   if (day.tips) parts.push(`<div class="note note--tip"><span class="note-ico">💡</span><div><strong>小提醒</strong><p>${esc(day.tips)}</p></div></div>`);
   if (day.transport) parts.push(`<div class="note note--car"><span class="note-ico">🚗</span><div><strong>交通</strong><p>${esc(day.transport)}</p></div></div>`);
   return parts.length ? `<section class="notes">${parts.join('')}</section>` : '';
@@ -345,7 +347,7 @@ function renderInfo() {
       </table></div>
     </section>
     <section class="info-block">
-      <h3 class="info-h">💰 預估費用（台幣・每人參考）</h3>
+      <h3 class="info-h">💰 手冊費用提醒（台幣・每人）</h3>
       <div class="table-wrap"><table class="info-table">
         <thead><tr><th>項目</th><th>每人</th><th>備註</th></tr></thead>
         <tbody>${budgetRows}</tbody>
@@ -356,12 +358,14 @@ function renderInfo() {
       <ul class="checklist">${checklist}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">🚕 Kakao Taxi・叫車指南</h3>
+      <h3 class="info-h">🚌 跟團集合與地圖使用</h3>
       <ul class="bullet">${didi}</ul>
     </section>
     <section class="info-block">
-      <h3 class="info-h">☀️ 釜山旅遊注意事項</h3>
+      <h3 class="info-h">☀️ 行前手冊提醒與官方查核</h3>
       <ul class="bullet">${notes}</ul>
+      <h3 class="info-h">官方最新規定查核</h3>
+      <ul class="bullet">${(info.officialLinks || []).map(a => `<li><a href="${esc(a.url)}" target="_blank" rel="noopener">${esc(a.name)} ↗</a></li>`).join('')}</ul>
     </section>
     <section class="info-block">
       <h3 class="info-h">📱 實用 App</h3>

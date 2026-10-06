@@ -24,6 +24,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Test itinerary and time logic
+        run: node --test tests/*.test.cjs
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -32,7 +40,7 @@ jobs:
       - name: Stamp build version & bust caches
         run: |
           VERSION="${GITHUB_SHA::8}"
-          BUILT_AT="$(TZ=Asia/Taipei date '+%Y-%m-%d %H:%M')"
+          BUILT_AT="$(TZ=Asia/Seoul date '+%Y-%m-%d %H:%M KST')"
           # build-info.json：前端以 no-store 抓取，version 用於偵測新版、builtAt 顯示「最後更新」
           echo "{\"builtAt\":\"$BUILT_AT\",\"version\":\"$VERSION\"}" > build-info.json
           cat build-info.json
