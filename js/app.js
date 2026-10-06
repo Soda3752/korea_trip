@@ -336,7 +336,10 @@ function articlesHTML(it) {
     } catch (_) {
       return false;
     }
-  }).map(a => `<div class="spot-article"><a class="btn-nav article-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(it.name)}：${esc(a.title)}（${esc(a.siteName)}）"><span>${a.scope === 'exact' ? '中文文章 ↗' : '參考文章 ↗'}</span><span>${esc(a.title)} · ${esc(a.siteName)}</span></a>${a.scope === 'related' ? '<p class="article-reference">相關閱讀，非本次行程或場館的確認資訊。</p>' : ''}<p class="article-note">${esc(a.note)}</p></div>`);
+  }).map(a => {
+    const detail = `${it.name}：${a.title}（${a.siteName}）；${a.note}${a.scope === 'related' ? '；相關閱讀，非本次行程或場館的確認資訊。' : ''}`;
+    return `<a class="article-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer" title="${esc(detail)}" aria-label="${esc(detail)}">${a.scope === 'exact' ? '相關文章 ↗' : '相關文章（參考）↗'}</a>`;
+  });
   return rows.length ? `<div class="spot-articles">${rows.join('')}</div>` : '';
 }
 
@@ -379,7 +382,7 @@ function mediaHTML(it) {
 function mealHTML(day) {
   if (!day.meals) return '';
   const mealTime = key => day.mealTimes && day.mealTimes[key] ? `（預估 ${esc(day.mealTimes[key])}）` : '';
-  return `<section class="notes"><div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐${mealTime('breakfast')}：${esc(day.meals.breakfast)}<br>午餐${mealTime('lunch')}：${esc(day.meals.lunch)}<br>晚餐${mealTime('dinner')}：${esc(day.meals.dinner)}</p>${day.mealTimes ? '<p>餐食時間僅供參考，實際依領隊安排。</p>' : ''}</div></div></section>`;
+  return `<section class="notes daily-meals"><div class="daily-meals-head"><span class="note-ico">🍽</span><strong>每日餐食</strong></div><p>早餐${mealTime('breakfast')}：${esc(day.meals.breakfast)}<br>午餐${mealTime('lunch')}：${esc(day.meals.lunch)}<br>晚餐${mealTime('dinner')}：${esc(day.meals.dinner)}</p>${day.mealTimes ? '<p>餐食時間僅供參考，實際依領隊安排。</p>' : ''}</section>`;
 }
 
 function notesHTML(day) {

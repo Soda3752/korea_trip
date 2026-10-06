@@ -24,7 +24,9 @@ test('meal reading uses safe related article links without naming a confirmed re
  const d=structuredClone(itinerary);
  d.days[0].mealArticles={dinner:[{url:'https://example.com/food',title:'飯卷介紹',siteName:'料理部落格',scope:'related',note:'料理參考，非本團餐廳。'}]};
  const html=render(d,0).meals[0][0];
- assert.match(html,/article-link/);assert.match(html,/參考文章 ↗/);assert.match(html,/非本次行程或場館/);assert.match(html,/rel="noopener noreferrer"/);
+ assert.match(html,/article-link/);assert.match(html,/相關文章（參考）↗/);assert.match(html,/非本次行程或場館/);assert.match(html,/rel="noopener noreferrer"/);
+ assert.match(html,/aria-label="[^"]*非本次行程或場館/);
+ assert.doesNotMatch(html,/article-reference|article-note|btn-nav article-link/);
  d.days[0].mealArticles.dinner[0].url='javascript:alert(1)';
  assert.doesNotMatch(render(d,0).meals[0][0],/article-link|javascript:/);
 });

@@ -26,7 +26,7 @@ function assertTopMeals(day, html) {
   const timeNoteEnd = html.indexOf('</p>', html.indexOf('<p class="day-time-note">')) + '</p>'.length;
   const timelineStart = html.indexOf('<ol class="timeline">');
   const timelineEnd = html.indexOf('</ol>', timelineStart) + '</ol>'.length;
-  const summary = html.match(/<section class="notes"><div class="note"><span class="note-ico">🍽<\/span>[\s\S]*?<\/section>/);
+  const summary = html.match(/<section\b[^>]*class="(?=[^"]*\bnotes\b)(?=[^"]*\bdaily-meals\b)[^"]*"[^>]*>[\s\S]*?<\/section>/);
   assert.ok(summary, 'a separate meal summary uses existing notes styling');
   assert.ok(headEnd > 0 && timeNoteEnd > headEnd && timelineStart > timeNoteEnd);
   assert.ok(summary.index >= timeNoteEnd && summary.index + summary[0].length < timelineStart,
@@ -93,6 +93,27 @@ test('meals without estimated times retain all labels without inventing estimate
   delete day.mealTimes;
   const { html } = render(day);
   assertTopMeals(day, html);
-  const summary = html.slice(html.indexOf('<section class="notes">'), html.indexOf('<ol class="timeline">'));
+  const summary = html.slice(html.indexOf('<section class="notes daily-meals">'), html.indexOf('<ol class="timeline">'));
   assert.doesNotMatch(summary, /預估|undefined|null/);
+});
+
+test('daily meal header keeps the icon separate from full-width meal rows', () => {
+  const { html } = render(itinerary.days[0]);
+  const summary = html.match(/<section\b[^>]*class="[^"]*\bdaily-meals\b[^"]*"[^>]*>([\s\S]*?)<\/section>/);
+  assert.ok(summary);
+  assert.match(summary[1], /<div class="daily-meals-head">\s*<span class="note-ico">🍽<\/span>\s*<strong>每日餐食<\/strong>\s*<\/div>\s*<p>/);
+  assert.doesNotMatch(summary[1], /class="note"|<div><strong>/);
+});
+
+test('daily meal spacing is scoped without changing bottom note layout', () => {
+  const css = fs.readFileSync('css/maple-theme.css','utf8');
+  const rules = [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)];
+  const declarations = selector => rules.filter(r=>r[1].replace(/\/\*[\s\S]*?\*\//g,'').trim()===selector).map(r=>r[2]).join(';');
+  const summary = declarations('.daily-meals');
+  assert.match(summary,/padding:\s*14px\s+16px/);
+  assert.match(summary,/margin:\s*10px\s+0\s+20px/);
+  assert.match(declarations('.daily-meals-head'),/display:\s*flex/);
+  assert.match(declarations('.daily-meals p'),/margin:\s*4px\s+0\s+0/);
+  assert.doesNotMatch(summary,/padding-left:|grid-template-columns:/);
+  assert.doesNotMatch(declarations('.notes'),/padding:|margin:/);
 });
