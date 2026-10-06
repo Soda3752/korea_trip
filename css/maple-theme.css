@@ -109,10 +109,13 @@
 
 /* A separate badge strip keeps reference-photo watermarks unobscured. */
 .meal-media {
-  position: relative; height: 120px; max-height: 140px;
+  position: relative; height: auto; max-height: none;
   padding-bottom: 22px; background: var(--paper);
 }
-.meal-media .media-img { object-fit: cover; }
+.meal-media .media-img {
+  display: block; width: 100%; height: auto; max-height: none;
+  object-fit: cover;
+}
 .meal-media .media-img--contain { object-fit: contain; }
 .meal-media .photo-badge {
   left: 8px; bottom: 2px; font-size: 10px;
@@ -122,9 +125,6 @@
 .meal-media .media-ph {
   background: var(--paper); color: var(--ink-soft);
   padding: 8px 12px; font-size: .75rem;
-}
-@media (min-width: 560px) {
-  .meal-media { height: 140px; }
 }
 
 /* Only the top meal summary uses full-width rows and a gap before the timeline. */

@@ -81,11 +81,19 @@ test('captured image errors replace only the meal image and mark its media for a
   assert.equal(replaced, undefined);
 });
 
-test('meal CSS limits media height, explicitly preserves contain/watermarks and shrinks failed media', () => {
+test('meal CSS fills card width at natural aspect ratio, preserves contain/watermarks and compact failure fallback', () => {
   const css = fs.readFileSync('css/maple-theme.css', 'utf8');
-  assert.match(css, /\.meal-media\s*\{[^}]*height:\s*120px;[^}]*max-height:\s*140px;/);
-  assert.match(css, /@media\s*\(min-width:\s*560px\)\s*\{\s*\.meal-media\s*\{\s*height:\s*140px;/);
-  assert.match(css, /\.meal-media \.media-img\s*\{[^}]*object-fit:\s*cover;/);
+  const mediaRules = [...css.matchAll(/\.meal-media\s*\{([^}]*)\}/g)];
+  assert.ok(mediaRules.length, 'meal media needs scoped sizing');
+  for (const [, declarations] of mediaRules) {
+    assert.match(declarations, /(?:^|[;\s])height:\s*auto;/, 'meal media must not retain the 120/140px height caps at any breakpoint');
+    assert.match(declarations, /max-height:\s*none;/);
+  }
+  const imageRule = css.match(/\.meal-media \.media-img\s*\{([^}]*)\}/);
+  assert.ok(imageRule, 'scope natural image sizing to meals, including images with the contain class');
+  for (const declaration of [/display:\s*block;/, /width:\s*100%;/, /(?:^|[;\s])height:\s*auto;/, /max-height:\s*none;/]) {
+    assert.match(imageRule[1], declaration, 'override base image height:100% without cropping or letterboxing');
+  }
   assert.match(css, /\.meal-media \.media-img--contain\s*\{[^}]*object-fit:\s*contain;/);
   assert.match(css, /\.meal-media \.photo-badge\s*\{[^}]*bottom:\s*2px;[^}]*font-size:\s*10px;/);
   assert.match(css, /\.meal-media\s*\{[^}]*padding-bottom:\s*22px;/, 'reserve a badge strip outside the image, not over watermarks');
