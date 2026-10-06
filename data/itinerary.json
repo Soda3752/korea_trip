@@ -62,16 +62,16 @@
           "type": "spot",
           "time": "22:00",
           "name": "AIR SKY HOTEL",
-          "image": "images/korea/a-airsky.jpg",
+          "image": "images/korea/a-airsky-real.jpg",
           "intro": "入住手冊列示飯店。 時間待領隊通知。",
           "map": {
             "keyword": "31 Eunhasu-ro 29beon-gil, Yeongjong-gu, Incheon, 南韓 23315"
           },
           "timeEstimated": true,
           "timeNote": "20:00落地後預留入境、行李領取及團體接駁，預估22:00入住；以領隊通知為準。",
-          "imageAlt": "仁川永宗島乙旺里海灘，AIR SKY HOTEL 地區示意",
-          "imageType": "surroundings",
-          "imageNote": "未找到已確認可重用的 AIR SKY HOTEL 照片，改用永宗島乙旺里海灘地區代表照；不是飯店外觀、房間或飯店門前景色。 已縮圖並轉為 JPEG。",
+          "imageAlt": "AIR SKY HOTEL官方客房照片",
+          "imageType": "actual",
+          "imageNote": "AIR SKY官方房型參考，不保證本團同一房型、樓層或景觀。",
           "photoKey": "airsky"
         }
       ],
@@ -103,16 +103,17 @@
           "type": "spot",
           "time": "09:00",
           "name": "松島水上計程車",
-          "image": "images/korea/a-songdo-water.jpg",
+          "image": "images/korea/a-songdo-water-real.jpg",
           "intro": "搭乘地點待領隊確認。 時間待領隊通知。",
           "map": {
             "keyword": "송도 센트럴파크 수상택시"
           },
           "timeEstimated": true,
-          "imageAlt": "松島中央公園人工湖，水上計程車活動地區示意",
-          "imageType": "surroundings",
-          "imageNote": "照片為松島中央公園湖景；不是已辨識的水上計程車船隻照片。 已縮圖並轉為 JPEG。",
-          "photoKey": "songdo-water"
+          "imageAlt": "松島中央公園客艙式水上計程車",
+          "imageType": "actual",
+          "imageNote": "仁川觀光公社官方水上計程車照片；保留原始JPEG並完整顯示。",
+          "photoKey": "songdo-water",
+          "imageFit": "contain"
         },
         {
           "type": "spot",
@@ -177,16 +178,16 @@
           "type": "spot",
           "time": "20:30",
           "name": "丹陽大明渡假村（二人一戶）",
-          "image": "images/korea/a-danyang-hotel.jpg",
+          "image": "images/korea/a-danyang-hotel-real.jpg",
           "intro": "入住丹陽大明渡假村（二人一戶）；地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "丹陽大明渡假村"
           },
           "timeEstimated": true,
           "timeNote": "法住寺暫於17:30離開，預留約兩小時至丹陽及一小時晚餐，20:30入住為預估。",
-          "imageAlt": "丹陽邑河岸城市全景，丹陽大明渡假村地區示意",
-          "imageType": "surroundings",
-          "imageNote": "丹陽邑地區代表照；不是丹陽大明／Sono Belle 飯店外觀、房間或飯店景觀承諾。 已縮圖並轉為 JPEG。",
+          "imageAlt": "丹陽大明／Sono Belle官方客房照片",
+          "imageType": "actual",
+          "imageNote": "丹陽大明／Sono Belle官方房型參考，不保證本團同一房型、樓層或景觀。",
           "photoKey": "danyang-hotel"
         }
       ],
@@ -278,16 +279,16 @@
           "type": "spot",
           "time": "21:00",
           "name": "安山HOUND HOTEL",
-          "image": "images/korea/a-ansan-hound.jpg",
+          "image": "images/korea/a-ansan-hound-real.jpg",
           "intro": "入住安山HOUND HOTEL；分店與地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "安山HOUND HOTEL"
           },
           "timeEstimated": true,
           "timeNote": "暫於19:30離開首爾，留約一個半小時到安山；飯店分店未確認。",
-          "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
-          "imageType": "surroundings",
-          "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
+          "imageAlt": "HOUND反月島2館飯店外觀照片",
+          "imageType": "actual",
+          "imageNote": "與手冊飯店資訊核對的HOUND反月島2館公開外觀照片；實際住宿安排依領隊確認。",
           "photoKey": "ansan-hound"
         }
       ],
@@ -360,14 +361,14 @@
           "type": "spot",
           "time": "15:30",
           "name": "HERO塗鴉秀",
-          "image": "images/korea/c-performance.jpg",
+          "image": "images/korea/c-performance-real.jpg",
           "intro": "音樂、光線與繪畫演出；劇院與場次待確認。若休館或滿座，行程先後可能調整。 時間待領隊通知。",
           "map": null,
           "timeEstimated": true,
           "timeNote": "15:30為估算行程占位，非確認場次或演出預約；劇院、場次與轉場時間待領隊確認。",
-          "imageAlt": "韓國傳統鼓舞舞台演出示意，非 HERO 塗鴉秀實景",
-          "imageType": "illustrative",
-          "imageNote": "未取得可核實自由授權的 HERO／The Painters 宣傳照片；改用韓國國立舞蹈團 2006 年世宗文化會館三鼓舞／五鼓舞照片，僅為舞台表演示意，不是 HERO 塗鴉秀。Commons VRT 許可編號 2008092910004321。",
+          "imageAlt": "HERO塗鴉秀官方光雕繪畫演出照片",
+          "imageType": "actual",
+          "imageNote": "HERO／The Painters 官方演出照片；劇院、演員與場次依實際安排。",
           "photoKey": "d4-i3"
         },
         {
@@ -402,16 +403,16 @@
           "type": "spot",
           "time": "22:00",
           "name": "安山HOUND HOTEL",
-          "image": "images/korea/a-ansan-hound.jpg",
+          "image": "images/korea/a-ansan-hound-real.jpg",
           "intro": "入住安山HOUND HOTEL；分店與地址待確認，導航僅提供飯店名稱搜尋。 時間待領隊通知。",
           "map": {
             "keyword": "安山HOUND HOTEL"
           },
           "timeEstimated": true,
           "timeNote": "暫於20:00離開首爾，預留約兩小時返回安山；飯店分店未確認。",
-          "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
-          "imageType": "surroundings",
-          "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
+          "imageAlt": "HOUND反月島2館飯店外觀照片",
+          "imageType": "actual",
+          "imageNote": "與手冊飯店資訊核對的HOUND反月島2館公開外觀照片；實際住宿安排依領隊確認。",
           "photoKey": "ansan-hound"
         }
       ],
@@ -443,16 +444,16 @@
           "type": "spot",
           "time": "09:00",
           "name": "Mohegan INSPIRE迎仕柏數位大道",
-          "image": "images/korea/c-inspire-area.jpg",
+          "image": "images/korea/c-inspire-real.jpg",
           "intro": "迎仕柏度假城LED數位大道。 時間待領隊通知。",
           "map": {
             "keyword": "인스파이어 오로라"
           },
           "timeEstimated": true,
           "timeNote": "09:00預估到達，暫留45分鐘參觀、09:45離開，預留50分鐘接駁至機場；非已確認的動畫時段。",
-          "imageAlt": "仁川永宗島海岸地區示意，非 INSPIRE 迎仕柏數位大道實景",
-          "imageType": "surroundings",
-          "imageNote": "數位大道影像尚未確認完整重用權限；採永宗島乙旺里海岸地區代表照，非飯店、LED天幕或實際活動照片。",
+          "imageAlt": "INSPIRE迎仕柏奧羅拉LED海洋數位長廊",
+          "imageType": "actual",
+          "imageNote": "迎仕柏奧羅拉長廊實景；LED節目及展示時段依現場安排。",
           "photoKey": "d5-i0"
         },
         {

@@ -1,5 +1,5 @@
 {
-  "notice": "來源頁、作者、授權及實景／示意區分；歷史照片不代表當日景況。照片縮圖與重壓縮，來源浮水印不移除。",
+  "notice": "個人非商業 demo；含開放授權及著作權保留照片，個別來源依實際條件記錄，不代表已取得所有照片重用授權。來源浮水印不移除；圖片縮圖及重壓縮（水上計程車照片保留完整原始 JPEG，未縮圖或重壓縮），歷史照片不代表當日景況。",
   "photos": [
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kaohsiung_Airport_Terminal.jpg",
@@ -57,56 +57,52 @@
       "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eulwangri_Beach,_near_Incheon_Airport.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      "author": "Ken Eckert",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "key": "airsky",
       "cardIds": [
         "d1-i3"
       ],
-      "image": "images/korea/a-airsky.jpg",
-      "imageAlt": "仁川永宗島乙旺里海灘，AIR SKY HOTEL 地區示意",
-      "imageType": "surroundings",
-      "imageNote": "未找到已確認可重用的 AIR SKY HOTEL 照片，改用永宗島乙旺里海灘地區代表照；不是飯店外觀、房間或飯店門前景色。 已縮圖並轉為 JPEG。",
-      "sha256": "adccb0f7be262c7288d5156817a0ba6a776e70c3c784600b40b54fae9f75482c",
-      "sourceEvidence": {
-        "retrievedFrom": "Commons file-page HTML",
-        "description": "English:  Eulwangri Beach, near Incheon International Airport, Korea",
-        "licenseShortName": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
-        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg/960px-Eulwangri_Beach%2C_near_Incheon_Airport.jpg",
-        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
-      },
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+      "image": "images/korea/a-airsky-real.jpg",
+      "imageAlt": "AIR SKY HOTEL官方客房照片",
+      "imageType": "actual",
+      "imageNote": "AIR SKY官方房型參考，不保證本團同一房型、樓層或景觀。",
+      "sourceUrl": "https://www.hotelairsky.co.kr/en",
+      "originalUrl": "https://static.wixstatic.com/media/232d9f_5b0c6e32663a421d895331fddccbe0f6~mv2.jpg",
+      "author": "攝影者未標示（來源：AIR SKY HOTEL官方網站）",
+      "sourceOperator": "AIR SKY HOTEL官方網站",
+      "license": "著作權保留；未取得另行重用授權（個人非商業 demo）",
+      "licenseUrl": "https://www.hotelairsky.co.kr/en",
+      "modifications": "等比例縮至最長邊1280像素內、JPEG重壓縮；未移除來源浮水印。",
+      "notes": "AIR SKY官方房型參考，不保證本團同一房型、樓層或景觀。",
+      "sha256": "040e9bf8fb1712766a7f18ef039d4f9495c012f8b24e3e78e4a63d98684d6f14",
+      "rightsStatus": "copyright-reserved"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Central_Park_Lake,_Songdo_IBD.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Central_Park_Lake%2C_Songdo_IBD.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      "author": "Ken Eckert",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
       "key": "songdo-water",
       "cardIds": [
         "d2-i0"
       ],
-      "image": "images/korea/a-songdo-water.jpg",
-      "imageAlt": "松島中央公園人工湖，水上計程車活動地區示意",
-      "imageType": "surroundings",
-      "imageNote": "照片為松島中央公園湖景；不是已辨識的水上計程車船隻照片。 已縮圖並轉為 JPEG。",
-      "sha256": "7175f9b5e3f9d7ce718c059b5febb0b15596ef5c4153f1597bf102cb9b27f5a9",
-      "sourceEvidence": {
-        "retrievedFrom": "Commons file-page HTML",
-        "description": "English:  The lake at Central Park, Songdo IBD, Incheon, Korea",
-        "licenseShortName": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
-        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Central_Park_Lake%2C_Songdo_IBD.jpg/960px-Central_Park_Lake%2C_Songdo_IBD.jpg",
-        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
-      },
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+      "image": "images/korea/a-songdo-water-real.jpg",
+      "imageAlt": "松島中央公園客艙式水上計程車",
+      "imageType": "actual",
+      "imageNote": "仁川觀光公社官方水上計程車照片；保留原始JPEG並完整顯示。",
+      "sourceUrl": "https://www.ito.or.kr/bbs/bbsMsgDetail.do?msg_seq=243&bcd=galleryko&pgno=22",
+      "originalUrl": "https://www.ito.or.kr/images/bbs/galleryko/2020/susangtaeksi_004.jpg",
+      "author": "攝影者未標示（來源：Incheon Tourism Organization (인천관광공사)）",
+      "sourceOperator": "Incheon Tourism Organization (인천관광공사)",
+      "license": "KOGL Type 4（署名、非商業、禁止改作）",
+      "licenseUrl": "https://www.ito.or.kr/bbs/bbsMsgDetail.do?msg_seq=243&bcd=galleryko&pgno=22",
+      "modifications": "保留原始JPEG位元組；未裁切或重壓縮，版面完整顯示。",
+      "notes": "仁川觀光公社官方水上計程車照片；保留原始JPEG並完整顯示。",
+      "sha256": "1c44f9b10ab84cb13a89ce4d981673755ca133747654fec547b061c46aed9208",
+      "rightsStatus": "conditional-open-license",
+      "imageFit": "contain",
+      "sourceRightsEvidence": {
+        "status": "Exact gallery displays KOGL Type 4: attribution, noncommercial, no changes. Preserve original and avoid crop/edits.",
+        "photo_exists": true,
+        "agency_content_grant_verified": true,
+        "grant_quote": "공공누리 공공저작물 자유이용 허락 - 출처표시+상업용금지+변경금지",
+        "verified_reuse_rights": "Conditional KOGL Type 4 grant on exact gallery; no separate permission obtained."
+      }
     },
     {
       "sourceUrl": "https://www.gimhae.go.kr/00025.web?gcode=1172&idx=2587553&amode=view",
@@ -130,58 +126,46 @@
       "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Danyang-eup.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/95/Panoramic_view_of_Danyang-eup.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      "author": "Academy of Korean Studies",
-      "license": "KOGL Type 1",
-      "licenseUrl": "https://www.kogl.or.kr/info/licenseType1.do",
       "key": "danyang-hotel",
       "cardIds": [
         "d2-i5"
       ],
-      "image": "images/korea/a-danyang-hotel.jpg",
-      "imageAlt": "丹陽邑河岸城市全景，丹陽大明渡假村地區示意",
-      "imageType": "surroundings",
-      "imageNote": "丹陽邑地區代表照；不是丹陽大明／Sono Belle 飯店外觀、房間或飯店景觀承諾。 已縮圖並轉為 JPEG。",
-      "sha256": "2210a2a41e0170a4a391cf02666c63786ce412c72a30d668d0812af08a07e211",
-      "sourceEvidence": {
-        "retrievedFrom": "Commons file-page HTML",
-        "description": "English:  A town located in the southeastern part of Danyang-gun, Chungcheongbuk-do.",
-        "licenseShortName": "KOGL Type 1",
-        "licenseUrl": "http://www.kogl.or.kr/info/licenseType1.do",
-        "licenseStatement": "This file is licensed under the Korea Open Government License Type 1.",
-        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Panoramic_view_of_Danyang-eup.jpg/960px-Panoramic_view_of_Danyang-eup.jpg",
-        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service.",
-        "originalSourcePage": "https://encykorea.aks.ac.kr/Media/Search?query=%EB%8B%A8%EC%96%91%EC%9D%8D%20%EC%A0%84%EA%B2%BD&page=1&pageSize=20"
-      },
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+      "image": "images/korea/a-danyang-hotel-real.jpg",
+      "imageAlt": "丹陽大明／Sono Belle官方客房照片",
+      "imageType": "actual",
+      "imageNote": "丹陽大明／Sono Belle官方房型參考，不保證本團同一房型、樓層或景觀。",
+      "sourceUrl": "https://www.sonohotelsresorts.com/belle_dy/roomsviewall",
+      "originalUrl": "https://www.sonohotelsresorts.com/api/hms/user/management/file/image/uHpumU4i1F02eTTe01Zkcg==/2",
+      "author": "攝影者未標示（來源：Sono Hotels & Resorts官方網站）",
+      "sourceOperator": "Sono Hotels & Resorts官方網站",
+      "license": "著作權保留；未取得另行重用授權（個人非商業 demo）",
+      "licenseUrl": "https://www.sonohotelsresorts.com/belle_dy/roomsviewall",
+      "modifications": "等比例縮至最長邊1280像素內、JPEG重壓縮；未移除來源浮水印。",
+      "notes": "丹陽大明／Sono Belle官方房型參考，不保證本團同一房型、樓層或景觀。",
+      "sha256": "ffad7e9c1527106ca155b72f5cf73ca9941d0146c53d8fbfda250024875e430f",
+      "rightsStatus": "copyright-reserved"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ansan_lake_park.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/5/51/Ansan_lake_park.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      "author": "Jeong seolah",
-      "license": "CC0",
-      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
       "key": "ansan-hound",
       "cardIds": [
         "d3-i4",
         "d4-i6"
       ],
-      "image": "images/korea/a-ansan-hound.jpg",
-      "imageAlt": "安山湖水公園，HOUND HOTEL 所在城市示意",
-      "imageType": "surroundings",
-      "imageNote": "HOUND HOTEL 分店未確認，使用安山湖水公園城市代表照；不是任一 HOUND 飯店照片，亦不暗示公園與飯店距離。 已縮圖並轉為 JPEG。 照片為春季櫻花景色，僅代表地區，非本次秋季景況。",
-      "sha256": "6d9818542ec1cbed79aed2e9f61f9952a78e6b859fd1d8bb60e7c14e4498c48e",
-      "sourceEvidence": {
-        "retrievedFrom": "Commons file-page HTML",
-        "description": "English:  Ansan lake park",
-        "licenseShortName": "CC0",
-        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-        "licenseStatement": "This file is made available under the Creative Commons CC0 1.0 Universal Public Domain Dedication.",
-        "downloadUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ansan_lake_park.jpg/960px-Ansan_lake_park.jpg",
-        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
-      },
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+      "image": "images/korea/a-ansan-hound-real.jpg",
+      "imageAlt": "HOUND反月島2館飯店外觀照片",
+      "imageType": "actual",
+      "imageNote": "與手冊飯店資訊核對的HOUND反月島2館公開外觀照片；實際住宿安排依領隊確認。",
+      "sourceUrl": "http://ap73.yncmedia.kr/page/page3",
+      "originalUrl": "http://ap73.yncmedia.kr/img_up/shop_pds/ap73/contents/myboard/ma_galler4/geon-mul-jeong-myeon1727244661.jpg",
+      "author": "攝影者未標示（來源：The Hound Hotel Bandalseom2官方網站）",
+      "sourceOperator": "The Hound Hotel Bandalseom2官方網站",
+      "license": "著作權保留；未取得另行重用授權（個人非商業 demo）",
+      "licenseUrl": "http://ap73.yncmedia.kr/page/page3",
+      "modifications": "等比例縮至最長邊1280像素內、JPEG重壓縮；未移除來源浮水印。",
+      "notes": "與手冊飯店資訊核對的HOUND反月島2館公開外觀照片；實際住宿安排依領隊確認。",
+      "sha256": "6f2f245d09902d1a88d714d815b6b7f35a014d262f1648790e408781fd187a04",
+      "rightsStatus": "copyright-reserved",
+      "legacyHttpSource": true
     },
     {
       "key": "songnisan",
@@ -390,22 +374,25 @@
       "cardIds": [
         "d4-i3"
       ],
-      "image": "images/korea/c-performance.jpg",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Korean_dance-Samgomu_Ogomu-01.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/14/Korean_dance-Samgomu_Ogomu-01.jpg",
-      "author": "by bdnegin (Brian Negin)",
-      "license": "CC BY-SA 3.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-      "imageAlt": "韓國傳統鼓舞舞台演出示意，非 HERO 塗鴉秀實景",
-      "imageType": "illustrative",
-      "imageNote": "未取得可核實自由授權的 HERO／The Painters 宣傳照片；改用韓國國立舞蹈團 2006 年世宗文化會館三鼓舞／五鼓舞照片，僅為舞台表演示意，不是 HERO 塗鴉秀。Commons VRT 許可編號 2008092910004321。",
-      "sha256": "c1b42d9f99e1807bca99a23d257afa9ea6b433fe354ac3ac01f7cf43d4a8f0c5",
-      "credits": "File:Korean dance-Samgomu Ogomu-01.jpg — by bdnegin (Brian Negin); CC BY-SA 3.0; via Wikimedia Commons. Resized/recompressed; EXIF orientation normalized.",
-      "sourceCredit": "https://www.flickr.com/photos/bdnegin/2693559796/",
-      "licenseEvidence": "Commons imageinfo extmetadata: LicenseShortName=CC BY-SA 3.0; LicenseUrl=https://creativecommons.org/licenses/by-sa/3.0; AttributionRequired=true.",
-      "width": 1280,
-      "height": 854,
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
+      "image": "images/korea/c-performance-real.jpg",
+      "imageAlt": "HERO塗鴉秀官方光雕繪畫演出照片",
+      "imageType": "actual",
+      "imageNote": "HERO／The Painters 官方演出照片；劇院、演員與場次依實際安排。",
+      "sourceUrl": "https://www.thepainters.co.kr/zh",
+      "originalUrl": "https://static.wixstatic.com/media/3bdc00_09abb7b4bc184415b5955288585bcd16~mv2.jpg",
+      "author": "攝影者未標示（來源：THE PAINTERS official website）",
+      "sourceOperator": "THE PAINTERS official website",
+      "license": "著作權保留；未取得另行重用授權（個人非商業 demo）",
+      "licenseUrl": "https://www.thepainters.co.kr/zh",
+      "modifications": "等比例縮至最長邊1280像素內、JPEG重壓縮；未移除來源浮水印。",
+      "notes": "HERO／The Painters 官方演出照片；劇院、演員與場次依實際安排。",
+      "sha256": "16a29b04d8b00b54260479e308446b9dea6c10372d60afaebcd4965018ef1f92",
+      "rightsStatus": "copyright-reserved",
+      "sourceRightsEvidence": {
+        "status": "No reuse license found on official promotional page; separate permission not obtained.",
+        "photo_exists": true,
+        "verified_reuse_rights": false
+      }
     },
     {
       "key": "d4-i4",
@@ -430,30 +417,33 @@
       "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Eulwangri_Beach,_near_Incheon_Airport.jpg",
-      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original",
-      "author": "Ken Eckert",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-      "sha256": "adccb0f7be262c7288d5156817a0ba6a776e70c3c784600b40b54fae9f75482c",
-      "sourceEvidence": {
-        "retrievedFrom": "Commons file-page HTML",
-        "description": "English:  Eulwangri Beach, near Incheon International Airport, Korea",
-        "licenseShortName": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "licenseStatement": "This file is licensed under the Creative Commons Attribution-Share Alike 4.0 International license.",
-        "downloadUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Eulwangri_Beach%2C_near_Incheon_Airport.jpg/960px-Eulwangri_Beach%2C_near_Incheon_Airport.jpg",
-        "visualVerification": "Downloaded JPEG visually inspected in a-contact-sheet.jpg; subject consistent with Commons description; surroundings images do not identify the hotel, outlet, or taxi service."
-      },
-      "modifications": "縮圖、方向校正及 JPEG 重壓縮；各張衍生照片沿用來源授權（含適用的相同方式分享條款），不包含整個網站。",
       "key": "d5-i0",
       "cardIds": [
         "d5-i0"
       ],
-      "image": "images/korea/c-inspire-area.jpg",
-      "imageAlt": "仁川永宗島海岸地區示意，非 INSPIRE 迎仕柏數位大道實景",
-      "imageType": "surroundings",
-      "imageNote": "數位大道影像尚未確認完整重用權限；採永宗島乙旺里海岸地區代表照，非飯店、LED天幕或實際活動照片。"
+      "image": "images/korea/c-inspire-real.jpg",
+      "imageAlt": "INSPIRE迎仕柏奧羅拉LED海洋數位長廊",
+      "imageType": "actual",
+      "imageNote": "迎仕柏奧羅拉長廊實景；LED節目及展示時段依現場安排。",
+      "sourceUrl": "https://www.yeongjong.go.kr/tour/regional_tour/yongyoo/view.do?trspt_sn=219",
+      "originalUrl": "https://www.yeongjong.go.kr/other/attach/process.file.do?TP=dn&out=inline&w=1000&sn=31382&key=84EC65DA61D6A82",
+      "author": "攝影者未標示（來源：Incheon Yeongjong District official tourism website (인천광역시 영종구청)）",
+      "sourceOperator": "Incheon Yeongjong District official tourism website (인천광역시 영종구청)",
+      "license": "著作權保留；未取得另行重用授權（個人非商業 demo）",
+      "licenseUrl": "https://www.yeongjong.go.kr/tour/regional_tour/yongyoo/view.do?trspt_sn=219",
+      "modifications": "等比例縮至最長邊1280像素內、JPEG重壓縮；未移除來源浮水印。",
+      "notes": "迎仕柏奧羅拉長廊實景；LED節目及展示時段依現場安排。",
+      "sha256": "859ea17ef6b96b19d03214cb9dc5b8c43a58804cacbc0ee9d1b01622705f67fe",
+      "rightsStatus": "copyright-reserved",
+      "sourceRightsEvidence": {
+        "status": "Official exact-content page explicitly displays KOGL Type 1 attribution grant. Photographer ownership alone is not the basis; agency content-level grant is the evidence. Separate LED artwork clearance is not stated, so do not claim independent LED artwork rights resolved.",
+        "photo_exists": true,
+        "agency_content_grant_verified": true,
+        "underlying_led_artwork_explicit_clearance": false,
+        "grant_quote": "본 콘텐츠는 “공공누리 제1유형” 조건에 따라 이용할 수 있습니다.",
+        "grant_url": "https://www.kogl.or.kr/info/license.do",
+        "verified_reuse_rights": "Agency photo/content grant verified; underlying LED artwork scope not expressly specified."
+      }
     }
   ]
 }

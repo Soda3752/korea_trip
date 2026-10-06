@@ -1,6 +1,17 @@
 'use strict';
 function safePhotoUrl(value) {
-  try { const url = new URL(value); return url.protocol === 'https:' && !url.username && !url.password ? url.href : null; } catch (_) { return null; }
+  try {
+    // Inspect the raw HTTP authority: URL normalization erases explicit :80.
+    const httpAuthority = typeof value === 'string' && value.trim().match(/^http:\/\/([^/?#\\]*)/i);
+    if (httpAuthority && httpAuthority[1].includes(':')) return null;
+    const url = new URL(value);
+    if (url.username || url.password) return null;
+    // Verified public hotel-gallery citation; HTTPS has a mismatched certificate.
+    // This exception does not load remote photos: all displayed images are local JPEGs.
+    const legacy = url.protocol === 'http:' && httpAuthority && url.hostname === 'ap73.yncmedia.kr' && !url.port &&
+      (url.pathname === '/page/page3' || url.pathname.startsWith('/img_up/shop_pds/ap73/contents/'));
+    return url.protocol === 'https:' || legacy ? url.href : null;
+  } catch (_) { return null; }
 }
 function photoElement(tag, text, cls) {
   const element = document.createElement(tag); if (text) element.textContent = text; if (cls) element.className = cls; return element;
@@ -19,7 +30,7 @@ async function loadPhotoCredits() {
       const article = photoElement('article', '', 'credit-card');
       article.append(photoElement('h2', photo.imageAlt || photo.key));
       if (/^images\/korea\/[abc]-[a-z0-9-]+\.jpg$/.test(photo.image)) {
-        const image = photoElement('img'); image.src = photo.image; image.alt = photo.imageAlt || photo.key; image.loading = 'lazy'; article.append(image);
+        const image = photoElement('img', '', photo.imageFit === 'contain' ? 'credit-img--contain' : ''); image.src = photo.image; image.alt = photo.imageAlt || photo.key; image.loading = 'lazy'; article.append(image);
       }
       article.append(photoElement('p', '作者：' + photo.author), photoElement('p', '授權：' + photo.license));
       if (photo.imageNote) article.append(photoElement('p', photo.imageNote));

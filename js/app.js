@@ -317,7 +317,7 @@ function transitRow(it, state) {
 function mediaHTML(it) {
   if (it.image) {
     const label = it.imageType === 'surroundings' ? '地區示意' : it.imageType === 'illustrative' ? '示意圖' : '';
-    return `<img class="media-img" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.name)}" loading="lazy" decoding="async">${label ? `<span class="photo-badge" title="${esc(it.imageNote || label)}">${label}</span>` : ''}`;
+    return `<img class="media-img${it.imageFit === 'contain' ? ' media-img--contain' : ''}" src="${esc(it.image)}" alt="${esc(it.imageAlt || it.name)}" loading="lazy" decoding="async">${label ? `<span class="photo-badge" title="${esc(it.imageNote || label)}">${label}</span>` : ''}`;
   }
   // 手冊行程色塊佔位：依名稱從調色盤取一個主題色，CSS 據 --ph 做柔和雙色塊
   const PH_PALETTE = ['#2FA6A0', '#F27C63', '#E8B84B', '#8E7CC3', '#5B9BD5', '#EE8A6F', '#79B8A8', '#F2B84B'];

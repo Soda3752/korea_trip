@@ -12,6 +12,7 @@
 - `days[].items[]` 以spot列出手冊順序；`time`為KST `HH:mm` 或 `null`。三餐在 `meals`，住宿在 `hotel`，由每日提醒呈現。
 - 使用者已授權參考估時：20個估時需`timeEstimated:true`並明示時間僅供參考，午餐作安排基準。五個原手冊時刻不可覆寫；`mealTimes`亦為參考。規劃假設可留`planningNotes`，`tips`使用精簡提醒。不得把估時當成領隊確認、預約或實測車程；分店地址、座標不可補造。
 - `coords: {}`；已知景點使用韓文搜尋，AIR SKY使用手冊原文地址；其他飯店只搜名稱，分店待確認。未指名場地 `map: null`。
+- 個人非商業demo依使用者指定可用官方公開的著作權保留照片；保留來源並明示未取得開放授權，不以「沒有自由授權」等同「沒有實景照」。網站目前仍公開可存取。不得因照片來源而捏造本團未指明的店家／場館。
 - 圖片為本地`images/korea/*.jpg`，來源與授權集中`data/photo-sources.json`及`photo-credits.html`。實景需確認場所；不明場所或無可用實景照片採清楚標示的示意／地區照，不冒充指定場所。`imageAlt`、`imageNote`、`photoKey`與來源紀錄一致；`image:null`保留色塊fallback。
 
 ## KST與高亮
