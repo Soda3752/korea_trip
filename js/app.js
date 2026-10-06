@@ -247,11 +247,23 @@ function renderDay(dayIndex) {
     return i <= curIdx ? 'state-past' : 'state-upcoming';
   };
 
-  const rows = day.items.map((it, i) => {
-    return it.type === 'spot'
+  // Derived meal rows are display-only: original item indices remain the state keys.
+  const displayRows = day.items.map((it, i) => ({
+    time: timeToMinutes(it.time),
+    html: it.type === 'spot'
       ? spotRow(it, itemState(i, 'spot'))
-      : transitRow(it, itemState(i, 'transit'));
-  }).join('');
+      : transitRow(it, itemState(i, 'transit'))
+  }));
+  for (const key of ['lunch', 'dinner']) {
+    const description = day.meals && day.meals[key];
+    if (typeof description !== 'string' || !description.trim() || /未安排|XXX/.test(description)) continue;
+    const time = day.mealTimes && day.mealTimes[key];
+    const minutes = timeToMinutes(time);
+    const before = minutes === null ? -1 : displayRows.findIndex(row => row.time !== null && row.time > minutes);
+    displayRows.splice(before === -1 ? displayRows.length : before, 0,
+      { time: minutes, html: mealRow(key, description, time, day.mealArticles && day.mealArticles[key]) });
+  }
+  const rows = displayRows.map(row => row.html).join('');
 
   const html = `
     ${bannerHTML()}
@@ -260,10 +272,29 @@ function renderDay(dayIndex) {
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
     <p class="day-time-note">韓國時間 KST · 預估時間僅供參考，實際依領隊、交通及用餐安排調整；時間標示不代表實際所在位置。</p>
+    ${mealHTML(day)}
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
   `;
   document.getElementById('content').innerHTML = html;
+}
+
+function mealRow(key, description, time, articles) {
+  const label = key === 'lunch' ? '午餐' : description.includes('自理') ? '晚餐(自理)' : '晚餐';
+  return `
+    <li class="tl-item tl-meal">
+      <div class="tl-rail"><span class="tl-node"></span></div>
+      <article class="card card--meal">
+        <div class="card-body">
+          <h3 class="card-title">🍽 ${label}</h3>
+          <p class="card-intro">${timeToMinutes(time) === null ? '行程順序・時間待通知，待領隊通知' : `預估 ${esc(fmt12(time))} KST`}</p>
+          <p class="card-intro">${esc(description)}</p>
+          <p class="card-intro">餐食時間僅供參考，實際依領隊安排；非餐廳訂位，自理餐僅供安排參考。</p>
+          <p class="card-intro">用餐地點／分店與位置未確認。</p>
+          ${articlesHTML({ name: label, articles })}
+        </div>
+      </article>
+    </li>`;
 }
 
 function spotRow(it, state) {
@@ -286,10 +317,27 @@ function spotRow(it, state) {
             ${nav}
           </div>
           ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
-          ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}
+          ${it.intro ? `<p class="card-intro">${esc(it.intro)}</p>` : ''}${articlesHTML(it)}
         </div>
       </article>
     </li>`;
+}
+
+function articlesHTML(it) {
+  if (!Array.isArray(it.articles)) return '';
+  const rows = it.articles.filter(a => {
+    if (!a || !['url', 'title', 'siteName', 'note'].every(key => typeof a[key] === 'string' && a[key].trim())) return false;
+    if (a.scope !== 'exact' && a.scope !== 'related') return false;
+    // Reject malformed authority, credentials and parser-normalized control/backslash input.
+    if (!/^https:\/\/[^/?#@]+(?:[/?#]|$)/i.test(a.url) || /[\s\u0000-\u001f\u007f\\]/.test(a.url)) return false;
+    try {
+      const url = new URL(a.url);
+      return url.protocol === 'https:' && !!url.hostname && !url.username && !url.password;
+    } catch (_) {
+      return false;
+    }
+  }).map(a => `<div class="spot-article"><a class="btn-nav article-link" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer" aria-label="${esc(it.name)}：${esc(a.title)}（${esc(a.siteName)}）"><span>${a.scope === 'exact' ? '中文文章 ↗' : '參考文章 ↗'}</span><span>${esc(a.title)} · ${esc(a.siteName)}</span></a>${a.scope === 'related' ? '<p class="article-reference">相關閱讀，非本次行程或場館的確認資訊。</p>' : ''}<p class="article-note">${esc(a.note)}</p></div>`);
+  return rows.length ? `<div class="spot-articles">${rows.join('')}</div>` : '';
 }
 
 function transitRow(it, state) {
@@ -328,10 +376,14 @@ function mediaHTML(it) {
     </div>`;
 }
 
+function mealHTML(day) {
+  if (!day.meals) return '';
+  const mealTime = key => day.mealTimes && day.mealTimes[key] ? `（預估 ${esc(day.mealTimes[key])}）` : '';
+  return `<section class="notes"><div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐${mealTime('breakfast')}：${esc(day.meals.breakfast)}<br>午餐${mealTime('lunch')}：${esc(day.meals.lunch)}<br>晚餐${mealTime('dinner')}：${esc(day.meals.dinner)}</p>${day.mealTimes ? '<p>餐食時間僅供參考，實際依領隊安排。</p>' : ''}</div></div></section>`;
+}
+
 function notesHTML(day) {
   const parts = [];
-  const mealTime = key => day.mealTimes && day.mealTimes[key] ? `（預估 ${esc(day.mealTimes[key])}）` : '';
-  if (day.meals) parts.push(`<div class="note"><span class="note-ico">🍽</span><div><strong>每日餐食</strong><p>早餐${mealTime('breakfast')}：${esc(day.meals.breakfast)}<br>午餐${mealTime('lunch')}：${esc(day.meals.lunch)}<br>晚餐${mealTime('dinner')}：${esc(day.meals.dinner)}</p>${day.mealTimes ? '<p>餐食時間僅供參考，實際依領隊安排。</p>' : ''}</div></div>`);
   if (day.hotel) parts.push(`<div class="note"><span class="note-ico">🏨</span><div><strong>住宿</strong><p>${esc(day.hotel.name)}<br>${esc(day.hotel.address || (day.hotel.name === '溫暖的家' ? '返台' : '地址／分店待確認'))}</p></div></div>`);
   if (day.tips) parts.push(`<div class="note note--tip"><span class="note-ico">💡</span><div><strong>小提醒</strong><p>${esc(day.tips)}</p></div></div>`);
   if (day.transport) parts.push(`<div class="note note--car"><span class="note-ico">🚗</span><div><strong>交通</strong><p>${esc(day.transport)}</p></div></div>`);

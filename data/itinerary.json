@@ -28,7 +28,16 @@
           "imageAlt": "高雄國際機場國際航廈免稅商店",
           "imageType": "actual",
           "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
-          "photoKey": "khh"
+          "photoKey": "khh",
+          "articles": [
+            {
+              "url": "https://travel.yam.com/article/138847",
+              "title": "2026高雄國際機場攻略！航廈介紹、機場美食、交通方式一次收-輕旅行",
+              "siteName": "輕旅行",
+              "scope": "exact",
+              "note": "機場攻略參考；集合、航班與櫃台安排仍依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -42,7 +51,16 @@
           "imageAlt": "高雄國際機場國際航廈免稅商店",
           "imageType": "actual",
           "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
-          "photoKey": "khh"
+          "photoKey": "khh",
+          "articles": [
+            {
+              "url": "https://travel.yam.com/article/138847",
+              "title": "2026高雄國際機場攻略！航廈介紹、機場美食、交通方式一次收-輕旅行",
+              "siteName": "輕旅行",
+              "scope": "exact",
+              "note": "機場攻略參考；集合、航班與櫃台安排仍依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -56,7 +74,16 @@
           "imageAlt": "仁川國際機場第一航廈外觀",
           "imageType": "actual",
           "imageNote": "2024 年仁川機場第一航廈照片；不表示已確認本次使用的航廈。 已縮圖並轉為 JPEG。",
-          "photoKey": "icn"
+          "photoKey": "icn",
+          "articles": [
+            {
+              "url": "https://helena.tw/incheon-t1-arrival/",
+              "title": "【韓國首爾交通】仁川機場入境流程、快速通關一次打包！第一航廈 T1，詳細實景步驟式解析！（韓國首爾旅遊、含聯外交通懶人包）",
+              "siteName": "Helena's Blog",
+              "scope": "exact",
+              "note": "T1航廈流程參考；本團航廈、航班與櫃台安排仍依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -91,7 +118,18 @@
         "lunch": null,
         "dinner": "21:00"
       },
-      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 20:00抵達後預留入境、行李與團體接駁，21:00飯卷為預估領取／食用時段、非餐廳安排；22:00入住僅供參考，晚到可能再延後。"
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 20:00抵達後預留入境、行李與團體接駁，21:00飯卷為預估領取／食用時段、非餐廳安排；22:00入住僅供參考，晚到可能再延後。",
+      "mealArticles": {
+        "dinner": [
+          {
+            "url": "https://alinalife.tw/monyeokimbap/",
+            "title": "廣藏市場麻藥飯捲：母女紫菜包飯",
+            "siteName": "Alina 愛琳娜",
+            "scope": "related",
+            "note": "韓式飯卷種類與外帶用餐參考；文中為首爾廣藏市場母女紫菜包飯，並非本團仁川抵達後提供飯卷的店家，口味、份量亦不代表團餐。"
+          }
+        ]
+      }
     },
     {
       "day": 2,
@@ -113,7 +151,16 @@
           "imageType": "actual",
           "imageNote": "仁川觀光公社官方水上計程車照片；保留原始JPEG並完整顯示。",
           "photoKey": "songdo-water",
-          "imageFit": "contain"
+          "imageFit": "contain",
+          "articles": [
+            {
+              "url": "https://francois0810.pixnet.net/blog/posts/12222422037",
+              "title": "【韓國．首爾．自由行】松島中央公園水上計程車",
+              "siteName": "風耍",
+              "scope": "exact",
+              "note": "搭船遊記供參考；船班與搭乘安排依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -128,7 +175,16 @@
           "imageAlt": "現代 Premium Outlet 松島店庭院活動實景",
           "imageType": "actual",
           "imageNote": "2026年6月松島現代Outlet庭院觀光活動實景；不代表本次日期有此活動。",
-          "photoKey": "songdo-outlet"
+          "photoKey": "songdo-outlet",
+          "articles": [
+            {
+              "url": "https://ginatw.com/incheon-songdo-triple-street-hyundai-premium-outlet/",
+              "title": "【仁川購物】松島TRIPLE STREET超大型購物商圈 現代Hyundai Premium Outlet 、韓國超市Home Plus、No Brand超市",
+              "siteName": "GINA環球旅行生活",
+              "scope": "related",
+              "note": "松島商圈遊記，含現代Outlet介紹；不是本團行程安排的確認資訊。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -144,7 +200,16 @@
           "imageAlt": "俗離山國立公園秋季山林實景",
           "imageType": "actual",
           "imageNote": "2017年11月歷史照片；秋色不代表本次日期實況。",
-          "photoKey": "songnisan"
+          "photoKey": "songnisan",
+          "articles": [
+            {
+              "url": "https://korea.ggogo.com/tour/tours/season/knps.html",
+              "title": "俗離山國家公園賞楓 속리산국립공원",
+              "siteName": "韓國旅遊網 Ggogo",
+              "scope": "exact",
+              "note": "賞楓介紹；文章票價、季節與開放資訊可能有變動。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -157,7 +222,16 @@
           "imageAlt": "俗離山秋季山林示意，非已確認的丹楓隧道路段",
           "imageType": "illustrative",
           "imageNote": "行程未提供丹楓隧道路段；使用俗離山秋季山林示意，非該道路的已確認照片。",
-          "photoKey": "danpung-representative"
+          "photoKey": "danpung-representative",
+          "articles": [
+            {
+              "url": "https://korea.ggogo.com/tour/tours/season/knps.html",
+              "title": "俗離山國家公園賞楓 속리산국립공원",
+              "siteName": "韓國旅遊網 Ggogo",
+              "scope": "related",
+              "note": "俗離山賞楓路段參考，並非已確認的本團「丹楓隧道」。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -172,7 +246,16 @@
           "imageAlt": "法住寺建築與佛塔實景",
           "imageType": "actual",
           "imageNote": "法住寺實景照片。",
-          "photoKey": "beopjusa"
+          "photoKey": "beopjusa",
+          "articles": [
+            {
+              "url": "https://sunyun0821.pixnet.net/blog/posts/14127081895",
+              "title": "俗離山法住寺",
+              "siteName": "雲遊浮生",
+              "scope": "exact",
+              "note": "寺院遊記供參考；票價與開放資訊以官方公告為準。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -188,7 +271,16 @@
           "imageAlt": "丹陽大明／Sono Belle官方客房照片",
           "imageType": "actual",
           "imageNote": "丹陽大明／Sono Belle官方房型參考，不保證本團同一房型、樓層或景觀。",
-          "photoKey": "danyang-hotel"
+          "photoKey": "danyang-hotel",
+          "articles": [
+            {
+              "url": "https://jolin0331.pixnet.net/blog/posts/5052347130",
+              "title": "[跟團]韓國-首爾五天四夜 第二天之[丹陽大明渡假村][住宿篇]",
+              "siteName": "陳馬馬愛分享！／痞客邦",
+              "scope": "exact",
+              "note": "歷史住宿分享；不保證目前設備、房型或本團住宿安排。"
+            }
+          ]
         }
       ],
       "meals": {
@@ -207,7 +299,27 @@
         "lunch": "12:00",
         "dinner": "19:30"
       },
-      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需縮短購物或調整賞楓停留：早餐後約08:00離開仁川飯店，預留約一小時到松島；水上計程車與營運時間待確認。10:30～11:45購物，12:00～13:00午餐暫以松島周邊為假設，餐廳位置非已確認；13:00～16:00預留約三小時松島至俗離山，16:00～17:30串聯公園、丹楓隧道與法住寺，17:30～19:30預留約兩小時至丹陽，19:30～20:30晚餐後入住。上述車程為地理規劃預估，未經路線API或即時交通驗證；若餐廳不在假設區域、塞車或寺院入場時段不符，需由領隊調整，不保證當天全數按點完成。"
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需縮短購物或調整賞楓停留：早餐後約08:00離開仁川飯店，預留約一小時到松島；水上計程車與營運時間待確認。10:30～11:45購物，12:00～13:00午餐暫以松島周邊為假設，餐廳位置非已確認；13:00～16:00預留約三小時松島至俗離山，16:00～17:30串聯公園、丹楓隧道與法住寺，17:30～19:30預留約兩小時至丹陽，19:30～20:30晚餐後入住。上述車程為地理規劃預估，未經路線API或即時交通驗證；若餐廳不在假設區域、塞車或寺院入場時段不符，需由領隊調整，不保證當天全數按點完成。",
+      "mealArticles": {
+        "lunch": [
+          {
+            "url": "https://yuki.tw/read-105413.html",
+            "title": "明洞豬肉商會：五花肉、大醬湯與小菜",
+            "siteName": "Yuki’s Life",
+            "scope": "related",
+            "note": "未找到可確認身份的「烤肉學校」中文部落格；改以五花肉、大醬湯與韓式小菜食記作餐點類型參考。文中豬肉商會明洞店不是本團已確認餐廳，吃到飽規則不代表團餐。"
+          }
+        ],
+        "dinner": [
+          {
+            "url": "https://alinalife.tw/onedang",
+            "title": "明洞元堂馬鈴薯排骨湯食記",
+            "siteName": "Alina 愛琳娜",
+            "scope": "related",
+            "note": "馬鈴薯燉豬骨料理類型參考；行程未指定餐廳，文中元堂明洞店不是本團丹陽晚餐店家，菜單和份量不代表團餐。"
+          }
+        ]
+      }
     },
     {
       "day": 3,
@@ -228,7 +340,16 @@
           "imageAlt": "丹陽滿天下空中走廊觀景台與南漢江實景",
           "imageType": "actual",
           "imageNote": "2019年6月場館實景；保留韓國觀光公社原圖浮水印。",
-          "photoKey": "mancheonha-skywalk"
+          "photoKey": "mancheonha-skywalk",
+          "articles": [
+            {
+              "url": "https://niny.tw/mancheonha-skywalk/",
+              "title": "旅遊。丹陽★滿天下天空步道 居高臨下將南漢江美景盡收眼裡",
+              "siteName": "妮妮˙ˇ˙用類單記錄生活!!",
+              "scope": "exact",
+              "note": "丹陽滿天下天空步道實訪遊記，介紹蛋型觀景塔、木棧道與玻璃天空步道；參觀安排仍依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -243,7 +364,16 @@
           "imageAlt": "丹陽九景市場棚內購物街與招牌實景",
           "imageType": "actual",
           "imageNote": "2019年6月市場內部實景，非入口；保留韓國觀光公社原圖浮水印。",
-          "photoKey": "danyang-gugyeong-market"
+          "photoKey": "danyang-gugyeong-market",
+          "articles": [
+            {
+              "url": "https://niny.tw/danyang-market/",
+              "title": "旅遊。丹陽★丹陽九景市場品嚐丹陽特有大蒜料理",
+              "siteName": "妮妮˙ˇ˙用類單記錄生活!!",
+              "scope": "exact",
+              "note": "丹陽九景傳統市場逛街與大蒜料理美食遊記；文中店家與餐點不代表本團已安排，營業與菜單依現場確認。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -257,7 +387,16 @@
           "imageAlt": "韓國濟州花園咖啡廳綠意示意，非行程指定咖啡廳",
           "imageType": "illustrative",
           "imageNote": "行程未提供店名；使用濟州 Hallim 的 Han’s Garden 咖啡廳花園照片作森林系咖啡廳示意，並非確認的行程店家。",
-          "photoKey": "d3-i2"
+          "photoKey": "d3-i2",
+          "articles": [
+            {
+              "url": "https://una7264fish.pixnet.net/blog/posts/11406290333",
+              "title": "☆仁川 松島 巨型的室內植物園咖啡廳Forest Outings松島支店★",
+              "siteName": "Una的韓國生活大小事",
+              "scope": "related",
+              "note": "風格參考，並非本團已確認咖啡廳；文中松島分店不代表目的地。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -273,7 +412,16 @@
           "imageAlt": "東大門綜合市場布料店實景",
           "imageType": "actual",
           "imageNote": "東大門綜合市場布料店，非廣藏市場或東大門設計廣場。",
-          "photoKey": "dongdaemun-complex"
+          "photoKey": "dongdaemun-complex",
+          "articles": [
+            {
+              "url": "https://www.koreagaja.com/korea_quilts/",
+              "title": "在韓國買棉被 ~『廣藏市場』VS『東大門綜合市場』..韓國棉被材質種類(中韓對照)及清洗方式總整理",
+              "siteName": "索尼客 X 空間／韓國要去哪？",
+              "scope": "exact",
+              "note": "東大門綜合市場棉被、婚嫁與生活用品購物參考，並與廣藏市場比較；不是完整布料採購攻略，店家與商品資訊依現場確認。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -308,7 +456,27 @@
         "lunch": "12:00",
         "dinner": "18:30"
       },
-      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需調整咖啡廳停留或東大門購物：09:00～10:15空中走廊含團體轉乘，10:45～11:45市場，12:00～13:00丹陽午餐，13:15～14:00咖啡廳暫以丹陽周邊為假設、店家仍待確認；14:00～17:00預留約三小時丹陽至首爾，17:00起東大門購物、18:30自理晚餐，約19:30離開首爾、預留約一個半小時到安山，21:00入住。車程未經路線API或即時交通驗證；咖啡廳位置、商場營業與塞車均可能影響安排，晚到需由領隊調整，不保證店家仍營業。"
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 長途移動日較緊湊，可能需調整咖啡廳停留或東大門購物：09:00～10:15空中走廊含團體轉乘，10:45～11:45市場，12:00～13:00丹陽午餐，13:15～14:00咖啡廳暫以丹陽周邊為假設、店家仍待確認；14:00～17:00預留約三小時丹陽至首爾，17:00起東大門購物、18:30自理晚餐，約19:30離開首爾、預留約一個半小時到安山，21:00入住。車程未經路線API或即時交通驗證；咖啡廳位置、商場營業與塞車均可能影響安排，晚到需由領隊調整，不保證店家仍營業。",
+      "mealArticles": {
+        "lunch": [
+          {
+            "url": "https://alinalife.tw/ggupdang/",
+            "title": "首爾烤黨：炭火烤豬肉用餐食記",
+            "siteName": "Alina 愛琳娜",
+            "scope": "related",
+            "note": "未找到可確認身份的「丹陽花園」中文部落格；以韓式炭火烤豬肉、生菜小菜與大醬湯點餐參考替代。文中烤黨在首爾，不是丹陽花園；烤盤、肉品與烤法不代表本團直火燒肉配置。"
+          }
+        ],
+        "dinner": [
+          {
+            "url": "https://alinalife.tw/seoul-food/",
+            "title": "首爾分區美食：東大門晚餐與宵夜參考",
+            "siteName": "Alina 愛琳娜",
+            "scope": "related",
+            "note": "自理晚餐未指定店家；閱讀文章「東大門美食」段落，了解東大門周邊用餐種類與晚間覓食方向。僅供自由選擇，未替旅客選定餐廳或確認營業時間。"
+          }
+        ]
+      }
     },
     {
       "day": 4,
@@ -329,7 +497,16 @@
           "imageAlt": "首爾景福宮建築實景",
           "imageType": "actual",
           "imageNote": "景福宮實景照片，非承諾特定韓服活動內容。",
-          "photoKey": "gyeongbokgung"
+          "photoKey": "gyeongbokgung",
+          "articles": [
+            {
+              "url": "https://lizzzstyle.tw/%E9%9F%93%E6%9C%8D%E7%94%B7/",
+              "title": "【首爾景福宮韓服推薦】韓服男含髮型，首爾轉轉卡免費體驗 ! 4大人氣店家比較 – 一起去巴黎 avec Liz.",
+              "siteName": "一起去巴黎 avec Liz.",
+              "scope": "exact",
+              "note": "景福宮韓服體驗分享；文中租借店與價格不代表本團安排。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -342,7 +519,16 @@
           "imageAlt": "韓國藥妝店保養彩粧貨架示意，非行程指定分店",
           "imageType": "illustrative",
           "imageNote": "韓國藥妝店男性保養品貨架照片；店名與行程彩粧店未確認，僅為韓國美妝購物示意。",
-          "photoKey": "d4-i1"
+          "photoKey": "d4-i1",
+          "articles": [
+            {
+              "url": "https://wandou.tw/olive-young/",
+              "title": "2026 2026 Olive Young必買排行榜｜韓國藥妝必買清單與退稅攻略(美妝保養篇) - 豌豆自遊自在美食趣",
+              "siteName": "豌豆自遊自在美食趣",
+              "scope": "related",
+              "note": "韓國美妝購物參考，並非本團已確認彩妝店。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -355,7 +541,16 @@
           "imageAlt": "韓國雲峴宮韓服體驗示意，非行程指定文化體驗營",
           "imageType": "illustrative",
           "imageNote": "來源為 2012 年雲峴宮韓服體驗，攝影 Jeon Han／Korea.net；文化體驗營名稱未提供，非確認的本團場地或活動。",
-          "photoKey": "d4-i2"
+          "photoKey": "d4-i2",
+          "articles": [
+            {
+              "url": "https://alwa1919.pixnet.net/blog/posts/7122579027",
+              "title": "【首爾旅遊分享】韓國文化之旅：海苔飯捲 DIY＋海苔博物館＋親子韓服體驗，探索傳統與美味",
+              "siteName": "A小姐的迷你世界",
+              "scope": "related",
+              "note": "海苔博物館與韓服體驗參考；非本團已確認場館，也非水果大福DIY或大頭貼介紹。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -369,7 +564,16 @@
           "imageAlt": "HERO塗鴉秀官方光雕繪畫演出照片",
           "imageType": "actual",
           "imageNote": "HERO／The Painters 官方演出照片；劇院、演員與場次依實際安排。",
-          "photoKey": "d4-i3"
+          "photoKey": "d4-i3",
+          "articles": [
+            {
+              "url": "https://bobbytravel.tw/the-painters/",
+              "title": "【韓國首爾】The Painters塗鴉秀：門票優惠＆帥氣演員人氣爆棚必看表演 - 波比看世界",
+              "siteName": "波比看世界",
+              "scope": "exact",
+              "note": "The Painters塗鴉秀心得；劇院、場次與票價不代表本團安排。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -382,7 +586,16 @@
           "imageAlt": "首爾超市零食貨架示意，非行程指定超市分店",
           "imageType": "illustrative",
           "imageNote": "使用 2001 年首爾超市照片，僅為韓國超市購物示意；未確認行程超市店名或分店，陳列非現況。",
-          "photoKey": "d4-i4"
+          "photoKey": "d4-i4",
+          "articles": [
+            {
+              "url": "https://gototravel.tw/lotte-mart-seoul-station/",
+              "title": "首爾車站樂天超市購買伴手禮餅乾零食泡麵、不專業開箱",
+              "siteName": "來一球叭噗",
+              "scope": "related",
+              "note": "韓國超市購物參考，並非本團已確認超市品牌或分店。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -397,7 +610,16 @@
           "imageAlt": "首爾明洞商店街實景",
           "imageType": "actual",
           "imageNote": "2011年10月歷史照片，不代表本次街景或商店營業情況。",
-          "photoKey": "myeongdong"
+          "photoKey": "myeongdong",
+          "articles": [
+            {
+              "url": "https://alinalife.tw/myeongdong/",
+              "title": "【首爾明洞攻略】明洞 美食購物逛街推薦地圖,必訪景點明洞聖堂 @Alina 愛琳娜",
+              "siteName": "Alina 愛琳娜",
+              "scope": "exact",
+              "note": "明洞逛街分享；文中店家不代表本團會逐一造訪。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -432,7 +654,27 @@
         "lunch": "12:15",
         "dinner": "19:00"
       },
-      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 安山約07:00出發，預留約兩小時到首爾；09:00～11:00景福宮及韓服，11:30～12:00彩粧店，12:15～13:15午餐，13:30～15:00文化體驗，15:30僅為塗鴉秀規劃占位、非確認場次或預約，先暫留約80分鐘與轉場；17:15超市、18:30明洞，19:00自理晚餐，約20:00離開首爾、預留約兩小時返回安山，22:00入住。場地、分店與場次未定，安排緊湊可能需縮短購物或調整；車程為預估、未經路線API驗證。"
+      "planningNotes": "手冊行程順序；除原手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；mealTimes 三餐時間亦為預估，非餐廳訂位或用餐預約，自理晚餐僅為建議時段。實際集合、用餐、順序依領隊通知，可能因交通、天候或場地調整。 午餐以12:00～13:00為規劃錨點，預留約一小時用餐，餐廳位置與實際安排待確認。 安山約07:00出發，預留約兩小時到首爾；09:00～11:00景福宮及韓服，11:30～12:00彩粧店，12:15～13:15午餐，13:30～15:00文化體驗，15:30僅為塗鴉秀規劃占位、非確認場次或預約，先暫留約80分鐘與轉場；17:15超市、18:30明洞，19:00自理晚餐，約20:00離開首爾、預留約兩小時返回安山，22:00入住。場地、分店與場次未定，安排緊湊可能需縮短購物或調整；車程為預估、未經路線API驗證。",
+      "mealArticles": {
+        "lunch": [
+          {
+            "url": "https://itainan.com.tw/samseonghyeol-haemultang-dodu/",
+            "title": "濟州三姓穴海鮮湯：活章魚、鮑魚與蟹海鮮鍋",
+            "siteName": "台南好Food遊",
+            "scope": "related",
+            "note": "未找到可確認身份的「寶寶廚房」中文部落格；改用活章魚、鮑魚、蟹海鮮鍋食記作料理參考。文中三姓穴海鮮湯道頭店在濟州，不是本團首爾行程店家；鍋料、份量與加點不代表團餐。"
+          }
+        ],
+        "dinner": [
+          {
+            "url": "https://alinalife.tw/myeongdong/",
+            "title": "【首爾明洞攻略】明洞 美食購物逛街推薦地圖,必訪景點明洞聖堂",
+            "siteName": "Alina 愛琳娜",
+            "scope": "related",
+            "note": "明洞商圈美食與逛街參考；自理晚餐未指定店家，文章中的餐廳與小吃不代表本團已安排，營業與菜單依現場確認。"
+          }
+        ]
+      }
     },
     {
       "day": 5,
@@ -454,7 +696,16 @@
           "imageAlt": "INSPIRE迎仕柏奧羅拉LED海洋數位長廊",
           "imageType": "actual",
           "imageNote": "迎仕柏奧羅拉長廊實景；LED節目及展示時段依現場安排。",
-          "photoKey": "d5-i0"
+          "photoKey": "d5-i0",
+          "articles": [
+            {
+              "url": "https://wendychangblog.com/korea-incheon-inspire-le-space/",
+              "title": "韓國仁川必玩景點｜Le Space超震撼沉浸式光影展，18個展區玩到忘我！ – 溫蒂's blog",
+              "siteName": "溫蒂’s blog",
+              "scope": "exact",
+              "note": "請參考文中LED數位大道段落；Le Space為另付費展覽，並非本團已列行程。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -468,7 +719,16 @@
           "imageAlt": "仁川國際機場第一航廈外觀",
           "imageType": "actual",
           "imageNote": "2024 年仁川機場第一航廈照片；不表示已確認本次使用的航廈。 已縮圖並轉為 JPEG。",
-          "photoKey": "icn"
+          "photoKey": "icn",
+          "articles": [
+            {
+              "url": "https://gototravel.tw/incheon-airport-departure/",
+              "title": "首爾仁川機場第一航廈出境流程、退稅、出境後免稅店",
+              "siteName": "來一球叭噗",
+              "scope": "exact",
+              "note": "T1航廈流程參考；本團航廈、航班與櫃台安排仍依領隊通知。"
+            }
+          ]
         },
         {
           "type": "spot",
@@ -482,7 +742,16 @@
           "imageAlt": "高雄國際機場國際航廈免稅商店",
           "imageType": "actual",
           "imageNote": "實際高雄國際機場航廈內部照片；歷史照片，不表示本次航班或集合點。 已縮圖並轉為 JPEG。",
-          "photoKey": "khh"
+          "photoKey": "khh",
+          "articles": [
+            {
+              "url": "https://travel.yam.com/article/138847",
+              "title": "2026高雄國際機場攻略！航廈介紹、機場美食、交通方式一次收-輕旅行",
+              "siteName": "輕旅行",
+              "scope": "exact",
+              "note": "機場攻略參考；集合、航班與櫃台安排仍依領隊通知。"
+            }
+          ]
         }
       ],
       "meals": {

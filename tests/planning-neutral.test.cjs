@@ -19,7 +19,15 @@ function render(data, dayIndex, time) {
     vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   }
   const state = vm.runInContext('APP.data=input;recompute();renderDay(dayIndex);APP.state', context);
-  const rows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)">([\s\S]*?)<\/li>/g)];
+  const allRows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)">([\s\S]*?)<\/li>/g)];
+  const meals = allRows.filter(row => row[1].includes('tl-meal'));
+  const expectedMeals = ['lunch', 'dinner'].filter(key => {
+    const text = data.days[dayIndex].meals?.[key];
+    return typeof text === 'string' && text.trim() && !/未安排|XXX/.test(text);
+  }).length;
+  assert.equal(meals.length, expectedMeals);
+  meals.forEach(row => assert.doesNotMatch(row[0], /state-|now-badge|next-badge/));
+  const rows = allRows.filter(row => /\btl-(?:spot|transit)\b/.test(row[1]));
   assert.equal(rows.length, data.days[dayIndex].items.length);
   return { state, rows };
 }
