@@ -361,7 +361,7 @@ function taxiHTML(taxi) {
   return `
           <section class="taxi-card" aria-label="給計程車司機看">
             <h4 class="taxi-title">🚕 給計程車司機看</h4>
-            <p class="taxi-warn">飯店一切以導遊安排為主，請再確認。</p>${unconfirmed ? `
+            <p class="taxi-warn">實際入住飯店以旅行社安排為主，如有變動，請與導遊確認。</p>${unconfirmed ? `
             <p class="taxi-warn">分店待確認：以下僅適用反月島2館，請先向領隊確認再使用。</p>` : ''}
             <p class="taxi-ko" lang="ko">기사님, ${esc(nameKo)}${koDirection(nameKo)} 데려다 주세요.<br>주소는 ${esc(addressKo)}입니다.</p>${unconfirmed ? `
             <p class="taxi-warn-ko" lang="ko">이 주소가 실제 숙소인지 가이드에게 먼저 확인해 주세요.</p>` : ''}
