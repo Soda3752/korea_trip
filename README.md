@@ -42,6 +42,8 @@
 
 每張景點卡使用已下載的網路照片，`data/photo-sources.json`記錄作者、來源頁、原圖、授權與修改；頁尾連至`photo-credits.html`集中呈現。`imageType: actual`表示可確認的實景；`surroundings`／`illustrative`清楚標示「地區示意」／「示意圖」，不冒充未確認店家、飯店或演出。照片可能為歷史或其他季節景況，不代表本次旅行實況。沒有圖片或載入失敗仍可閱讀行程。地圖外開使用 Google Maps 通用 HTTPS 連結（`api=1`），不需要 API key（金鑰）或計費設定。是否開啟已安裝的 App 由作業系統（OS）與瀏覽器設定決定，否則開啟網頁；本站不攔截點擊、不使用安裝彈窗、逾時計時器或商店 intent，亦未宣稱已完成真機驗證。搜尋目標優先採用資料已提供的地址，其次為有效 WGS84 座標（輸入經度、緯度，連結改為緯度、經度），最後為既有關鍵字；無有效目標不顯示地圖按鈕。交通卡使用目的地路線連結，僅傳入已識別的交通方式；不補造位置或保證路線可用。
 
+每晚飯店卡下方有「給計程車司機看」韓文短句，資料在`hotel.taxi`（`nameKo`、`addressKo`、`sourceUrl`、`branchUnconfirmed`），不改動既有`address`與導航。來源為官方網頁：AIR SKY（https://www.hotelairsky.co.kr/，現行영종구）、소노벨 단양（https://www.sonohotelsresorts.com/belle_dy/location）。HOUND實際入住分店未確認，僅以官方相簿來源的반달섬2館地址作條件參考（http://ap73.yncmedia.kr/page/page3），卡片以中韓文警示需先向領隊確認，不代表已預訂分店。最後一天返台不顯示。來源網址不在卡片內做成連結；欄位缺漏或格式不符時整塊不顯示。
+
 ## 預覽與測試
 
 無框架、無 npm 依賴、無建置步驟；JS依序以全域函式載入 `google-maps.js` → `now.js` → `app.js`。

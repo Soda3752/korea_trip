@@ -109,7 +109,13 @@
       },
       "hotel": {
         "name": "AIR SKY HOTEL",
-        "address": "31 Eunhasu-ro 29beon-gil, Yeongjong-gu, Incheon, 南韓 23315"
+        "address": "31 Eunhasu-ro 29beon-gil, Yeongjong-gu, Incheon, 南韓 23315",
+        "taxi": {
+          "nameKo": "에어스카이 호텔",
+          "addressKo": "인천광역시 영종구 은하수로29번길 31",
+          "sourceUrl": "https://www.hotelairsky.co.kr/",
+          "branchUnconfirmed": false
+        }
       },
       "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。落地後預留入境、行李與接駁；入住時間可能延後。實際依領隊通知、交通與天候調整。",
       "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
@@ -300,7 +306,13 @@
       },
       "hotel": {
         "name": "丹陽大明渡假村（二人一戶）",
-        "address": null
+        "address": null,
+        "taxi": {
+          "nameKo": "소노벨 단양",
+          "addressKo": "충청북도 단양군 단양읍 삼봉로 187-17",
+          "sourceUrl": "https://www.sonohotelsresorts.com/belle_dy/location",
+          "branchUnconfirmed": false
+        }
       },
       "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。長途移動日較緊湊，購物與賞楓停留可能調整。實際依領隊通知、交通與天候調整。",
       "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
@@ -475,7 +487,13 @@
       },
       "hotel": {
         "name": "安山HOUND HOTEL",
-        "address": null
+        "address": null,
+        "taxi": {
+          "nameKo": "더 하운드 호텔 반달섬2",
+          "addressKo": "경기도 안산시 단원구 엠티브이17로 23",
+          "sourceUrl": "http://ap73.yncmedia.kr/page/page3",
+          "branchUnconfirmed": true
+        }
       },
       "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。丹陽至首爾為長途移動，行程較緊湊，咖啡廳與購物可能調整。實際依領隊通知、交通與天候調整。",
       "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",
@@ -691,7 +709,13 @@
       },
       "hotel": {
         "name": "安山HOUND HOTEL",
-        "address": null
+        "address": null,
+        "taxi": {
+          "nameKo": "더 하운드 호텔 반달섬2",
+          "addressKo": "경기도 안산시 단원구 엠티브이17로 23",
+          "sourceUrl": "http://ap73.yncmedia.kr/page/page3",
+          "branchUnconfirmed": true
+        }
       },
       "tips": "除手冊集合與航班時刻外，各站時間僅供參考，均為預估、非領隊確認；餐食時間亦為預估，非餐廳訂位，自理晚餐僅供安排參考。午餐暫以12:00～13:00為基準。由安山前往首爾，晚間返回安山；HERO時間為估算，非確認場次。實際依領隊通知、交通與天候調整。",
       "transport": "跟團移動與接駁依領隊安排；手冊未提供車程與各站集合時間。",

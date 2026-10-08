@@ -257,7 +257,7 @@ function renderDay(dayIndex) {
   const displayRows = day.items.map((it, i) => ({
     time: timeToMinutes(it.time),
     html: it.type === 'spot'
-      ? spotRow(it, itemState(i, 'spot'))
+      ? spotRow(it, itemState(i, 'spot'), it.name === day.hotel?.name ? day.hotel.taxi : undefined)
       : transitRow(it, itemState(i, 'transit'))
   }));
   for (const key of ['lunch', 'dinner']) {
@@ -326,7 +326,7 @@ function spotDisplayIntro(it) {
     .reduce((intro, clause) => intro.replace(clause, ''), it.intro);
 }
 
-function spotRow(it, state) {
+function spotRow(it, state, taxi) {
   const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(spotDisplayTime(it)))} ${isTaiwanSpot(it) ? '臺灣時間 UTC+8' : 'KST'}</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
   const url = googleSearchUrl(it.map);
   const nav = url
@@ -346,10 +346,47 @@ function spotRow(it, state) {
             ${nav}
           </div>
           ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
-          ${it.intro ? `<p class="card-intro">${esc(spotDisplayIntro(it))}</p>` : ''}${articlesHTML(it)}
+          ${it.intro ? `<p class="card-intro">${esc(spotDisplayIntro(it))}</p>` : ''}${articlesHTML(it)}${taxiHTML(taxi)}
         </div>
       </article>
     </li>`;
+}
+
+// Taxi card for the nightly hotel: Korean shown to the driver; source URLs stay in data/README only.
+function taxiHTML(taxi) {
+  if (!taxi || typeof taxi !== 'object' || Array.isArray(taxi) || typeof taxi.branchUnconfirmed !== 'boolean') return '';
+  const text = v => typeof v === 'string' && v.trim() && v.length <= 80 && !/[\u0000-\u001f\u007f]/.test(v) ? v.trim() : null;
+  const nameKo = text(taxi.nameKo), addressKo = text(taxi.addressKo), unconfirmed = taxi.branchUnconfirmed;
+  if (!nameKo || !addressKo || !taxiSourceOk(taxi.sourceUrl)) return '';
+  return `
+          <section class="taxi-card" aria-label="給計程車司機看">
+            <h4 class="taxi-title">🚕 給計程車司機看</h4>${unconfirmed ? `
+            <p class="taxi-warn">分店待確認：以下僅適用反月島2館，請先向領隊確認再使用。</p>` : ''}
+            <p class="taxi-ko" lang="ko">기사님, ${esc(nameKo)}${koDirection(nameKo)} 데려다 주세요.<br>주소는 ${esc(addressKo)}입니다.</p>${unconfirmed ? `
+            <p class="taxi-warn-ko" lang="ko">이 주소가 실제 숙소인지 가이드에게 먼저 확인해 주세요.</p>` : ''}
+            <p class="taxi-zh">司機您好，請載我到這間飯店，地址如上。</p>
+          </section>`;
+}
+
+// Required provenance (never rendered): clean HTTPS that the parser leaves unchanged, or the one legacy HOUND HTTP page.
+function taxiSourceOk(src) {
+  if (typeof src !== 'string' || /[\s\u0000-\u001f\u007f\\]/.test(src)) return false;
+  if (src === 'http://ap73.yncmedia.kr/page/page3') return true;
+  let u;
+  try { u = new URL(src); } catch { return false; }
+  return u.protocol === 'https:' && !!u.hostname && !u.username && !u.password && u.href === src;
+}
+
+// 로/으로: ㄹ batchim or no batchim → 로; other batchim → 으로; digits by Korean reading.
+function koDirection(word) {
+  const last = word.at(-1);
+  const code = last.charCodeAt(0) - 0xac00;
+  if (code >= 0 && code < 11172) {
+    const batchim = code % 28;
+    return batchim === 0 || batchim === 8 ? '로' : '으로';
+  }
+  if (/\d/.test(last)) return '036'.includes(last) ? '으로' : '로';
+  return '(으)로';
 }
 
 function articlesHTML(it) {

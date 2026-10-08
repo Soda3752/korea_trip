@@ -45,6 +45,9 @@ test('original source records and itinerary core remain identical to pre-meal ba
   sources.photos = sources.photos.slice(0, 21);
   assert.deepEqual(sources, baseSources);
   const itinerary = JSON.parse(fs.readFileSync('data/itinerary.json', 'utf8'));
-  for (const day of itinerary.days) delete day.mealPhotos;
+  for (const day of itinerary.days) {
+    delete day.mealPhotos;
+    delete day.hotel.taxi; // optional taxi-card metadata only; canonical hotel fields stay compared
+  }
   assert.deepEqual(itinerary, original('data/itinerary.json'));
 });

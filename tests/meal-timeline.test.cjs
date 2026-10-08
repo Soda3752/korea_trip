@@ -2,6 +2,8 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
+// Nightly hotel rows carry the optional taxi card, exactly as renderDay passes it.
+const nightlyTaxi = (day, item) => item.name === day.hotel?.name ? day.hotel.taxi : undefined;
 const itinerary = JSON.parse(fs.readFileSync('data/itinerary.json', 'utf8'));
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g,
   char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
@@ -39,7 +41,7 @@ test('all five days merge exactly seven neutral lunch/dinner cards at their exis
     expectedOrder[dayIndex].forEach((entry, position) => {
       const row = rows[position];
       if (typeof entry === 'number') {
-        assert.equal(row[0], context.spotRow(day.items[entry], '').trim(), 'original spot HTML, time and article links preserved');
+        assert.equal(row[0], context.spotRow(day.items[entry], '', nightlyTaxi(day, day.items[entry])).trim(), 'original spot HTML, time and article links preserved');
       } else {
         assert.match(row[1], /^tl-meal$/);
         assert.match(row[2], /<article class="card card--meal">/);
@@ -111,7 +113,7 @@ for (const [clockDay, time, confirmedIndex] of [[0, '14:40', 0], [0, '17:10', 1]
       assert.equal(spots.length, day.items.length);
       spots.forEach((row, index) => {
         const state = dayIndex === clockDay && index === confirmedIndex ? 'state-current' : '';
-        assert.equal(row[0], atClock.context.spotRow(day.items[index], state).trim());
+        assert.equal(row[0], atClock.context.spotRow(day.items[index], state, nightlyTaxi(day, day.items[index])).trim());
       });
     });
     assert.equal(mealCount, 7);
