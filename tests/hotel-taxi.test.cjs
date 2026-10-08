@@ -157,3 +157,18 @@ test('taxi card CSS is a full-width readable light maple panel that wraps long a
   assert.match(ko, /word-break:\s*keep-all/);
   assert.match(warn, /color:\s*var\(--maple-dark\)/); assert.match(warn, /font-weight:\s*700/);
 });
+
+test('every nightly taxi card D1-D4 shows the guide-arrangement notice above the Korean sentence', () => {
+  const { day } = app();
+  const notice = '<p class="taxi-warn">飯店一切以導遊安排為主，請再確認。</p>';
+  const names = ['AIR SKY HOTEL', '丹陽大明渡假村（二人一戶）', '安山HOUND HOTEL', '安山HOUND HOTEL'];
+  for (let i = 0; i < 4; i++) {
+    const [card] = hotelCard(day(i), names[i]);
+    assert.ok(card, `D${i + 1} hotel card`);
+    const at = card.indexOf(notice);
+    assert.ok(at !== -1, `D${i + 1} notice`);
+    assert.ok(at < card.indexOf('<p class="taxi-ko"'), `D${i + 1} notice above Korean sentence`);
+    assert.equal(card.split(notice).length, 2, `D${i + 1} notice once`);
+  }
+  assert.doesNotMatch(day(4), /飯店一切以導遊安排為主/);
+});
