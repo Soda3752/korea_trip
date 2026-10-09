@@ -278,6 +278,7 @@ function renderDay(dayIndex) {
       <h2 class="day-title">${esc(day.title)}</h2>
     </header>
     <p class="day-time-note">${day.items.some(isTaiwanSpot) ? '各地當地時間，臺灣 UTC+8／韓國 KST UTC+9' : '韓國時間 KST'} · 預估時間僅供參考，實際依領隊、交通及用餐安排調整；時間標示不代表實際所在位置。</p>
+    ${busShadeHTML(day)}
     ${mealHTML(day)}
     <ol class="timeline">${rows}</ol>
     ${notesHTML(day)}
@@ -444,6 +445,16 @@ function mediaHTML(it, illustrativeLabel = '示意圖') {
       <span class="media-ph-name">${esc(it.name)}</span>
       <span class="media-ph-hint">手冊行程</span>
     </div>`;
+}
+
+// 從既有交通說明擷取遊覽車避曬建議，置頂顯示；原交通說明仍保留在頁尾。
+function busShadeHTML(day) {
+  const transport = day && day.transport;
+  if (typeof transport !== 'string') return '';
+  const m = transport.match(/遊覽車避曬：([^。]+)。(.*?)(?:左右以面向車頭為準|$)/);
+  if (!m || !m[1].trim()) return '';
+  const detail = m[2].trim();
+  return `<section class="bus-shade"><div class="bus-shade-head"><strong>☀️ 遊覽車避曬座位</strong></div><p><strong class="bus-shade-pick">${esc(m[1].trim())}</strong></p>${detail ? `<p class="bus-shade-detail">${esc(detail)}</p>` : ''}<p class="bus-shade-caveat">左右以面向車頭為準；依主要路段與參考時段估算，非全日避曬保證，實際依導遊路線安排。</p></section>`;
 }
 
 function mealHTML(day) {
