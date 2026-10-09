@@ -353,7 +353,7 @@ function spotRow(it, state, taxi) {
     </li>`;
 }
 
-// Taxi card for the nightly hotel: Korean shown to the driver; source URLs stay in data/README only.
+// Taxi card for the nightly hotel (native <details>, closed by default): Korean shown to the driver; source URLs stay in data/README only.
 function taxiHTML(taxi) {
   if (!taxi || typeof taxi !== 'object' || Array.isArray(taxi) || typeof taxi.branchUnconfirmed !== 'boolean') return '';
   const text = v => typeof v === 'string' && v.trim() && v.length <= 80 && !/[\u0000-\u001f\u007f]/.test(v) ? v.trim() : null;
@@ -361,12 +361,14 @@ function taxiHTML(taxi) {
   if (!nameKo || !addressKo || !taxiSourceOk(taxi.sourceUrl)) return '';
   return `
           <section class="taxi-card" aria-label="給計程車司機看">
-            <h4 class="taxi-title">🚕 給計程車司機看</h4>
-            <p class="taxi-warn">實際入住飯店以旅行社安排為主，如有變動，請與導遊確認。</p>${unconfirmed ? `
-            <p class="taxi-warn">分店待確認：以下僅適用反月島2館，請先向領隊確認再使用。</p>` : ''}
-            <p class="taxi-ko" lang="ko">기사님, ${esc(nameKo)}${koDirection(nameKo)} 데려다 주세요.<br>주소는 ${esc(addressKo)}입니다.</p>${unconfirmed ? `
-            <p class="taxi-warn-ko" lang="ko">이 주소가 실제 숙소인지 가이드에게 먼저 확인해 주세요.</p>` : ''}
-            <p class="taxi-zh">司機您好，請載我到這間飯店，地址如上。</p>
+            <details class="taxi-details">
+              <summary class="taxi-summary"><span class="taxi-title">🚕 給計程車司機看</span><span class="taxi-hint">點擊展開韓文飯店名稱與地址</span><span class="taxi-summary-warn">搭車前請先向導遊確認入住飯店</span></summary>
+              <p class="taxi-warn">實際入住飯店以旅行社安排為主，如有變動，請與導遊確認。</p>${unconfirmed ? `
+              <p class="taxi-warn">分店待確認：以下僅適用反月島2館，請先向領隊確認再使用。</p>` : ''}
+              <p class="taxi-ko" lang="ko">기사님, ${esc(nameKo)}${koDirection(nameKo)} 데려다 주세요.<br>주소는 ${esc(addressKo)}입니다.</p>${unconfirmed ? `
+              <p class="taxi-warn-ko" lang="ko">이 주소가 실제 숙소인지 가이드에게 먼저 확인해 주세요.</p>` : ''}
+              <p class="taxi-zh">司機您好，請載我到這間飯店，地址如上。</p>
+            </details>
           </section>`;
 }
 

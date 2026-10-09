@@ -156,13 +156,30 @@
   color: var(--maple-dark); text-decoration: underline; text-underline-offset: 3px;
 }
 
-/* Nightly hotel taxi card: always visible, large Korean lines that wrap on narrow phones. */
+/* Nightly hotel taxi card: collapsed <details>, large Korean lines that wrap on narrow phones once opened. */
 .taxi-card {
   display: block; box-sizing: border-box; max-width: 100%; margin-top: 12px; padding: 12px 14px;
   background: var(--paper-2); border: 1px solid var(--line-soft); border-left: 4px solid var(--maple);
   border-radius: var(--radius-sm); overflow-wrap: anywhere;
 }
-.taxi-title { margin: 0 0 6px; font-family: var(--round); font-size: .9rem; color: var(--maple-dark); }
+.taxi-summary {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; box-sizing: border-box;
+  width: 100%; min-height: 44px; padding: 4px 28px 4px 0; position: relative;
+  cursor: pointer; list-style: none; border-radius: var(--radius-sm);
+}
+.taxi-summary::-webkit-details-marker { display: none; }
+.taxi-summary::after {
+  content: ""; position: absolute; right: 6px; top: 50%; width: 9px; height: 9px; margin-top: -7px;
+  border-right: 2px solid var(--maple-dark); border-bottom: 2px solid var(--maple-dark);
+  transform: rotate(45deg); transition: transform .2s ease;
+}
+.taxi-details[open] > .taxi-summary::after { transform: rotate(-135deg); margin-top: -2px; }
+.taxi-summary:focus-visible { outline: 3px solid var(--maple); outline-offset: 2px; }
+.taxi-details[open] > .taxi-summary { margin-bottom: 8px; }
+.taxi-title { margin: 0; font-family: var(--round); font-size: .9rem; font-weight: 700; color: var(--maple-dark); }
+.taxi-hint { font-size: .78rem; color: var(--ink-soft); }
+.taxi-details[open] .taxi-hint { display: none; }
+.taxi-summary-warn { display: block; flex-basis: 100%; font-size: .78rem; color: var(--maple-dark); font-weight: 700; }
 .taxi-warn { margin: 0 0 8px; font-size: .9rem; color: var(--maple-dark); font-weight: 700; }
 .taxi-ko { margin: 0; font-size: 1.3rem; line-height: 1.5; color: var(--ink); font-weight: 700; word-break: keep-all; overflow-wrap: anywhere; }
 .taxi-warn-ko { margin: 8px 0 0; font-size: 1rem; color: var(--maple-dark); font-weight: 700; word-break: keep-all; }
