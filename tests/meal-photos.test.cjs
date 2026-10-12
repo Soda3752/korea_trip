@@ -14,14 +14,17 @@ function app(data = structuredClone(itinerary)) {
   vm.runInContext('APP.data=input;recompute()', context);
   return { context, content, listeners, data };
 }
-function mealRows(html) { return [...html.matchAll(/<li class="tl-item tl-meal">[\s\S]*?<\/li>/g)].map(match => match[0]); }
+function mealRows(html) { return [...html.matchAll(/<li class="tl-item tl-meal[^"]*"[^>]*>[\s\S]*?<\/li>/g)].map(match => match[0]); }
 test('renderDay adds optional reference photos to meal cards only with stable day/meal keys', () => {
   const { context, content, data } = app();
   data.days[1].mealPhotos = { lunch: photo, dinner: { ...photo, image: 'images/korea/dinner-reference.jpg' } };
   const before = JSON.stringify(data);
   context.renderDay(1);
-  const rows = mealRows(content.innerHTML);
+  // User change: the arranged breakfast is now a text-only card before lunch/dinner.
+  const [breakfast, ...rows] = mealRows(content.innerHTML);
   assert.equal(rows.length, 2);
+  assert.match(breakfast, /🍽 早餐/);
+  assert.doesNotMatch(breakfast, /<img|meal-media|data-meal-photo/);
   for (const [index, key] of ['lunch', 'dinner'].entries()) {
     assert.match(rows[index], /class="meal-media"/);
     assert.ok(rows[index].includes(`data-meal-photo="day-2-${key}"`));
@@ -30,7 +33,8 @@ test('renderDay adds optional reference photos to meal cards only with stable da
     assert.match(rows[index], /class="photo-badge"[^>]*>餐食示意<\/span>/);
     assert.match(rows[index], /餐食示意，非本團實際餐點/);
     assert.match(rows[index], /預估.*KST/);
-    assert.doesNotMatch(rows[index], /spot-time|state-|data-map|onerror=/);
+    // Lunch at 12:00 may be the planned inference; never confirmed state classes.
+    assert.doesNotMatch(rows[index], /spot-time|state-(?:past|upcoming|current|next)\b|data-map|onerror=/);
   }
   const summary = content.innerHTML.match(/<section class="notes daily-meals">[\s\S]*?<\/section>/)[0];
   assert.doesNotMatch(summary, /<img|meal-media|餐食示意/);

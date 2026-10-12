@@ -1,5 +1,5 @@
 'use strict';
-// 「回到現在」按鈕：點擊後回到今天，有已知目前／下一站才捲到該節點，否則捲回今天開頭；不捏造位置。
+// 「回到現在」按鈕：點擊後回到今天並將依預定時間推估的卡片置中；只有無任何有效時刻才捲回今天開頭。
 const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -43,22 +43,22 @@ function setup(data, now) {
   return { run, flush, click, log, frames, content, nowBtn };
 }
 
-test('estimated D2: already on today and scrolled down → click returns to today heading/start', () => {
+test('estimated D2: already on today and scrolled down → click centres the inferred lunch card', () => {
   const t = setup(itinerary, '2026-10-12T12:00');
   t.run('selectTab(1,{scroll:false})');
   assert.equal(t.nowBtn.hidden, false);
   t.click();
   t.flush();
   assert.equal(t.run('APP.activeDay'), 1);
-  assert.deepEqual(t.log.map(e => e.el), ['window'], 'scrolls the viewport once');
-  assert.equal(t.log[0].opts.top, 0);
-  // 中性狀態：不得產生目前／下一站
+  // User change: scroll once to the planned inference instead of the day start.
+  assert.deepEqual(t.log, [{ el: 'state-inferred', opts: { behavior: 'smooth', block: 'center' } }]);
+  // 確認狀態仍不捏造：沒有手冊目前／下一站
   assert.doesNotMatch(t.content.innerHTML, /state-current|state-next|now-badge|next-badge/);
-  assert.match(t.content.innerHTML, /class="day-head"/);
+  assert.match(t.content.innerHTML, /data-tl-id="d2-meal-lunch">/);
 });
 
 for (const [label, from] of [['info tab', "'info'"], ['another day tab', '3']]) {
-  test(`estimated D2: from ${label} → click renders today and scrolls to its start`, () => {
+  test(`estimated D2: from ${label} → click renders today and centres the inferred card`, () => {
     const t = setup(itinerary, '2026-10-12T12:00');
     t.run(`selectTab(${from},{scroll:false})`);
     t.click();
@@ -66,31 +66,33 @@ for (const [label, from] of [['info tab', "'info'"], ['another day tab', '3']]) 
     assert.match(t.content.innerHTML, /Day 2 · 10\/12/);
     assert.equal(t.log.length, 0, 'scroll waits for the next animation frame');
     t.flush();
-    assert.deepEqual(t.log, [{ el: 'window', opts: { top: 0, behavior: 'smooth' } }]);
+    assert.deepEqual(t.log, [{ el: 'state-inferred', opts: { behavior: 'smooth', block: 'center' } }]);
     assert.doesNotMatch(t.content.innerHTML, /state-current|state-next/);
   });
 }
 
-test('known confirmed minute D1 14:40 → scrolls the current card into the viewport centre', () => {
+test('known confirmed minute D1 14:40 → centres the confirmed card, which is also the single inferred card', () => {
   const t = setup(itinerary, '2026-10-11T14:40');
   t.run("selectTab('info',{scroll:false})");
   t.click();
   assert.equal(t.log.length, 0);
   t.flush();
   assert.equal(t.run('APP.activeDay'), 0);
-  assert.deepEqual(t.log, [{ el: 'state-current', opts: { behavior: 'smooth', block: 'center' } }]);
+  assert.deepEqual(t.log, [{ el: 'state-inferred', opts: { behavior: 'smooth', block: 'center' } }]);
+  assert.match(t.content.innerHTML, /class="tl-item tl-spot state-current state-inferred[^"]*" data-tl-id="d1-spot-0"/);
 });
 
-test('D1 between known minutes (15:00) stays neutral and falls back to today start', () => {
+test('D1 between known minutes (15:00) has no confirmed state but centres the inferred assembly card', () => {
   const t = setup(itinerary, '2026-10-11T15:00');
   t.run('selectTab(0,{scroll:false})');
   t.click();
   t.flush();
   assert.doesNotMatch(t.content.innerHTML, /state-current|state-next/);
-  assert.deepEqual(t.log, [{ el: 'window', opts: { top: 0, behavior: 'smooth' } }]);
+  assert.deepEqual(t.log, [{ el: 'state-inferred', opts: { behavior: 'smooth', block: 'center' } }]);
+  assert.match(t.content.innerHTML, /state-inferred--current" data-tl-id="d1-spot-0"/);
 });
 
-test('fully known day with only a next stop → scrolls to the next card', () => {
+test('fully known day with only a next stop → centres that next card (inferred 推估下一行程)', () => {
   const data = JSON.parse(JSON.stringify(itinerary));
   data.days[0].items = [
     { type: 'spot', name: '一', time: '09:00' },
@@ -99,7 +101,8 @@ test('fully known day with only a next stop → scrolls to the next card', () =>
   const t = setup(data, '2026-10-11T08:00');
   t.click();
   t.flush();
-  assert.deepEqual(t.log, [{ el: 'state-next', opts: { behavior: 'smooth', block: 'center' } }]);
+  assert.deepEqual(t.log, [{ el: 'state-inferred', opts: { behavior: 'smooth', block: 'center' } }]);
+  assert.match(t.content.innerHTML, /class="tl-item tl-spot state-next state-inferred state-inferred--before" data-tl-id="d1-spot-0"/);
 });
 
 for (const now of ['2026-10-10T12:00', '2026-10-16T12:00']) {

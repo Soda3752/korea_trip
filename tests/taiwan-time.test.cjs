@@ -15,7 +15,7 @@ function render(dayIndex, time = '12:00', data = structuredClone(itinerary)) {
   for (const file of ['js/google-maps.js', 'js/now.js', 'js/app.js']) vm.runInContext(fs.readFileSync(file, 'utf8'), ctx);
   const state = vm.runInContext('APP.data=input;recompute();renderDay(dayIndex);APP.state', ctx);
   assert.equal(JSON.stringify(data), before, 'render leaves all source fields immutable');
-  const rows = [...content.innerHTML.matchAll(/<li class="tl-item tl-spot [^"]*">([\s\S]*?)<\/li>/g)].map(m => m[1]);
+  const rows = [...content.innerHTML.matchAll(/<li class="tl-item tl-spot [^"]*"[^>]*>([\s\S]*?)<\/li>/g)].map(m => m[1]);
   return { ctx, rows, html: content.innerHTML, state };
 }
 test('actual three KHH cards display Taiwan local time and only remove obsolete conversion sentences', () => {
@@ -44,7 +44,7 @@ test('intro clock retains canonical Korean digits and clearly labels KST UTC+9',
   assert.equal(['[data-h10]', '[data-h1]', '[data-m10]', '[data-m1]'].map(key => fields[key].textContent).join(''), '1440');
   assert.match(fields['.deco-loader-eyebrow'].textContent, /韓國時間 KST UTC\+9/);
 });
-test('all Korean badges, photos, maps, 29 articles, seven neutral meals and original notes survive rendering', () => {
+test('all Korean badges, photos, maps, 29 articles, eleven meal cards and original notes survive rendering', () => {
   let spots = 0, photos = 0, articles = 0, meals = 0;
   for (let dayIndex = 0; dayIndex < 5; dayIndex++) {
     const day = itinerary.days[dayIndex];
@@ -66,14 +66,15 @@ test('all Korean badges, photos, maps, 29 articles, seven neutral meals and orig
     assert.ok(html.includes(ctx.notesHTML(day)), 'original reminders/hotel');
     photos += [...html.matchAll(/<img class="media-img/g)].length;
     articles += [...html.matchAll(/class="article-link"/g)].length;
-    const mealRows = [...html.matchAll(/<li class="tl-item tl-meal">([\s\S]*?)<\/li>/g)];
+    const mealRows = [...html.matchAll(/<li class="tl-item tl-meal[^"]*"[^>]*>([\s\S]*?)<\/li>/g)];
     meals += mealRows.length;
-    mealRows.forEach(row => assert.doesNotMatch(row[1], /state-|now-badge|next-badge/));
+    // Meals may be the planned inference (user change), never confirmed state or now/next badges.
+    mealRows.forEach(row => assert.doesNotMatch(row[0], /state-(?:past|upcoming|current|next)\b|now-badge|next-badge/));
   }
   assert.equal(spots, 25);
   assert.equal(photos, 32);
   assert.equal(articles, 29);
-  assert.equal(meals, 7);
+  assert.equal(meals, 11); // 7 lunch/dinner + 4 arranged breakfasts
   assert.deepEqual(itinerary.days.flatMap(d => d.items.filter(it => !it.timeEstimated).map(it => it.time)), ['14:40', '17:10', '20:00', '13:05', '16:10']);
   assert.equal(itinerary.meta.timezone, '+09:00');
   assert.equal(fs.readFileSync('data/itinerary.json', 'utf8'), source);

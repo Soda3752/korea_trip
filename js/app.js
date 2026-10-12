@@ -48,11 +48,14 @@ async function init() {
   scrollToCurrent();
   playIntro(); // 一次性：時間軸依序浮現 → 翻牌時鐘淡出
   // 每分鐘更新一次高亮（覆寫模式下不自動跳動）
-  APP.refreshTimer = setInterval(() => {
-    if (APP.state && APP.state.today && APP.state.today.isOverride) return;
-    recompute();
-    if (typeof APP.activeDay === 'number') selectTab(APP.activeDay, { scroll: false, keep: true });
-  }, 60 * 1000);
+  APP.refreshTimer = setInterval(minuteRefresh, 60 * 1000);
+}
+
+// 只重算狀態並重繪目前分頁；不切換使用者選取的日期。
+function minuteRefresh() {
+  if (APP.state && APP.state.today && APP.state.today.isOverride) return;
+  recompute();
+  if (typeof APP.activeDay === 'number') selectTab(APP.activeDay, { scroll: false, keep: true });
 }
 
 // ---- 入場：翻牌時鐘 ----
@@ -238,6 +241,9 @@ function renderDay(dayIndex) {
   const nextIdx = isToday ? APP.state.nextItemIndex : -1;
   const hasUnknown = day.items.some(it => it.type === 'spot' &&
     (timeToMinutes(it.time) === null || it.timeEstimated === true));
+  // 今天唯一的推估卡片；有推估時不再另出「現在／即將」徽章，避免重複標示。
+  const inferred = isToday && APP.state.inferred ? APP.state.inferred : null;
+  const marker = id => (inferred ? (id === inferred.id ? inferred : null) : undefined);
 
   const itemState = (i, type) => {
     if (!isToday || day.items[i].timeEstimated === true || (type === 'spot' && !day.items[i].time) || (curIdx === -1 && nextIdx === -1)) return '';
@@ -253,23 +259,17 @@ function renderDay(dayIndex) {
     return i <= curIdx ? 'state-past' : 'state-upcoming';
   };
 
-  // Derived meal rows are display-only: original item indices remain the state keys.
-  const displayRows = day.items.map((it, i) => ({
-    time: timeToMinutes(it.time),
-    html: it.type === 'spot'
-      ? spotRow(it, itemState(i, 'spot'), it.name === day.hotel?.name ? day.hotel.taxi : undefined)
-      : transitRow(it, itemState(i, 'transit'))
-  }));
-  for (const key of ['lunch', 'dinner']) {
-    const description = day.meals && day.meals[key];
-    if (typeof description !== 'string' || !description.trim() || /未安排|XXX/.test(description)) continue;
-    const time = day.mealTimes && day.mealTimes[key];
-    const minutes = timeToMinutes(time);
-    const before = minutes === null ? -1 : displayRows.findIndex(row => row.time !== null && row.time > minutes);
-    displayRows.splice(before === -1 ? displayRows.length : before, 0,
-      { time: minutes, html: mealRow(key, description, time, day.mealArticles && day.mealArticles[key], day.mealPhotos && day.mealPhotos[key], `day-${day.day}-${key}`) });
-  }
-  const rows = displayRows.map(row => row.html).join('');
+  // 與推估共用同一份顯示順序；原 item 索引仍是確認狀態的鍵。
+  const rows = plannedTimeline(day).map(row => {
+    if (row.kind === 'meal') {
+      const key = row.mealKey;
+      return mealRow(key, day.meals[key], row.time, day.mealArticles && day.mealArticles[key], day.mealPhotos && day.mealPhotos[key], `day-${day.day}-${key}`, row.id, marker(row.id));
+    }
+    const it = day.items[row.itemIndex];
+    return row.kind === 'spot'
+      ? spotRow(it, itemState(row.itemIndex, 'spot'), it.name === day.hotel?.name ? day.hotel.taxi : undefined, row.id, marker(row.id))
+      : transitRow(it, itemState(row.itemIndex, 'transit'), row.id);
+  }).join('');
 
   const html = `
     ${bannerHTML()}
@@ -286,19 +286,33 @@ function renderDay(dayIndex) {
   document.getElementById('content').innerHTML = html;
 }
 
-function mealRow(key, description, time, articles, mealPhoto, mealId) {
-  const label = key === 'lunch' ? '午餐' : description.includes('自理') ? '晚餐(自理)' : '晚餐';
+// 推估標示：徽章＋簡短聲明；marker 為 null／undefined 時不輸出。
+function inferredClass(marker) {
+  return marker ? ` state-inferred state-inferred--${marker.phase}` : '';
+}
+function inferredBadge(marker) {
+  return marker ? ` <span class="inferred-badge">${esc(marker.label)}</span>` : '';
+}
+function inferredNote(marker) {
+  return marker ? '<p class="inferred-note">推估依預定時間，非實際定位，實際依領隊安排。</p>' : '';
+}
+function rowIdAttr(rowId) {
+  return rowId ? ` data-tl-id="${esc(rowId)}"` : '';
+}
+
+function mealRow(key, description, time, articles, mealPhoto, mealId, rowId, marker) {
+  const label = key === 'breakfast' ? '早餐' : key === 'lunch' ? '午餐' : description.includes('自理') ? '晚餐(自理)' : '晚餐';
   const validPhoto = mealPhoto && typeof mealPhoto === 'object' && !Array.isArray(mealPhoto) &&
     typeof mealPhoto.image === 'string' && /^images\/korea\/[a-z0-9-]+\.jpg$/.test(mealPhoto.image) &&
     !/[\s\u0000-\u001f\u007f]/.test(mealPhoto.image) &&
     typeof mealPhoto.imageAlt === 'string' && mealPhoto.imageAlt.trim();
   const media = validPhoto ? `<div class="meal-media" data-meal-photo="${esc(mealId || key)}">${mediaHTML({ ...mealPhoto, imageType: 'illustrative' }, '餐食示意')}</div>` : '';
   return `
-    <li class="tl-item tl-meal">
+    <li class="tl-item tl-meal${inferredClass(marker)}"${rowIdAttr(rowId)}>
       <div class="tl-rail"><span class="tl-node"></span></div>
       <article class="card card--meal">
         ${media}${media ? '\n        ' : ''}<div class="card-body">
-          <h3 class="card-title">🍽 ${label}</h3>
+          <h3 class="card-title">🍽 ${label}${inferredBadge(marker)}</h3>${inferredNote(marker)}
           <p class="card-intro">${timeToMinutes(time) === null ? '行程順序・時間待通知，待領隊通知' : `預估 ${esc(fmt12(time))} KST`}</p>
           <p class="card-intro">${esc(description)}</p>
           <p class="card-intro">餐食時間僅供參考，實際依領隊安排；非餐廳訂位，自理餐僅供安排參考。</p>
@@ -327,17 +341,18 @@ function spotDisplayIntro(it) {
     .reduce((intro, clause) => intro.replace(clause, ''), it.intro);
 }
 
-function spotRow(it, state, taxi) {
+// marker：undefined＝沿用確認狀態徽章；null＝今天已有其他推估卡片，不出徽章；物件＝本卡為推估卡片。
+function spotRow(it, state, taxi, rowId, marker) {
   const time = it.time ? `<time class="spot-time">${it.timeEstimated ? '預估 ' : ''}${esc(fmt12(spotDisplayTime(it)))} ${isTaiwanSpot(it) ? '臺灣時間 UTC+8' : 'KST'}</time>` : '<span class="spot-time">行程順序・時間待通知</span>';
   const url = googleSearchUrl(it.map);
   const nav = url
     ? `<a class="btn-nav" data-map href="${esc(url)}" target="_blank" rel="noopener noreferrer">導航 ↗</a>`
     : '';
-  const badge = state === 'state-current'
+  const badge = marker !== undefined ? inferredBadge(marker).trim() : state === 'state-current'
     ? '<span class="now-badge">現在</span>'
     : state === 'state-next' ? '<span class="next-badge">即將</span>' : '';
   return `
-    <li class="tl-item tl-spot ${state}">
+    <li class="tl-item tl-spot ${state}${inferredClass(marker)}"${rowIdAttr(rowId)}>
       <div class="tl-rail"><span class="tl-node"></span></div>
       <article class="card">
         <div class="card-media">${mediaHTML(it)}${time}</div>
@@ -346,7 +361,7 @@ function spotRow(it, state, taxi) {
             <h3 class="card-title">${esc(it.name)} ${badge}</h3>
             ${nav}
           </div>
-          ${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
+          ${inferredNote(marker)}${it.stay ? `<p class="spot-stay">⏱ 預計停留 <b>${esc(it.stay)}</b></p>` : ''}
           ${it.intro ? `<p class="card-intro">${esc(spotDisplayIntro(it))}</p>` : ''}${articlesHTML(it)}${taxiHTML(taxi)}
         </div>
       </article>
@@ -413,7 +428,7 @@ function articlesHTML(it) {
   return rows.length ? `<div class="spot-articles">${rows.join('')}</div>` : '';
 }
 
-function transitRow(it, state) {
+function transitRow(it, state, rowId) {
   const url = googleNavUrl(it.to, it.mode);
   const icon = MODE_ICON[it.mode] || '➡️';
   const dest = it.to && it.to.keyword
@@ -429,7 +444,7 @@ function transitRow(it, state) {
     ? `<a class="transit-chip" data-map href="${esc(url)}" target="_blank" rel="noopener noreferrer">${inner}</a>`
     : `<div class="transit-chip transit-chip--static">${inner}</div>`;
   return `
-    <li class="tl-item tl-transit ${state}">
+    <li class="tl-item tl-transit ${state}"${rowIdAttr(rowId)}>
       <div class="tl-rail tl-rail--dashed"></div>
       ${body}
     </li>`;
@@ -564,9 +579,9 @@ function bindHeaderCollapse() {
 function scrollToCurrent() {
   if (APP.state.mode !== 'during' || APP.activeDay !== APP.state.dayIndex) return;
   requestAnimationFrame(() => {
-    const el = document.querySelector('.state-current') || document.querySelector('.state-next');
+    // 依預定時間推估的唯一卡片置中；今天沒有任何有效時刻時回到今天開頭，不捏造目標。
+    const el = document.querySelector('.state-inferred');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // 預估／未知時刻不推測位置 → 回到今天開頭（Day 標題）
     else window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }

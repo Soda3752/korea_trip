@@ -17,7 +17,7 @@ function render(data, dayIndex, time = '12:00') {
   const state = vm.runInContext('APP.data=input;recompute();renderDay(dayIndex);APP.state', context);
   assert.equal(JSON.stringify(data), before, 'render must not mutate source data');
   assert.equal(vm.runInContext('APP.data === input', context), true);
-  const rows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)">([\s\S]*?)<\/li>/g)];
+  const rows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)"[^>]*>([\s\S]*?)<\/li>/g)];
   return { context, state, rows, meals: rows.filter(row => row[1].includes('tl-meal')) };
 }
 test('meal reading uses safe related article links without naming a confirmed restaurant or changing source',()=>{

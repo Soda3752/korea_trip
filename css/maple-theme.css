@@ -223,3 +223,8 @@ button, .btn-nav, a.transit-chip, .footer a, .checklist label {
   .card-head { gap: 8px; flex-wrap: wrap; }
   .spot-time { max-width: calc(100% - 24px); font-size: .75rem; }
 }
+/* 推估卡片：依預定時間的唯一標示，非實際定位；不加動畫，徽章可換行避免手機溢出。 */
+.state-inferred .card { box-shadow: 0 0 0 2px var(--maple), 0 6px 18px rgba(146, 47, 39, .16); }
+.state-inferred .tl-node { box-shadow: 0 0 0 3px var(--maple-soft); }
+.inferred-badge { display: inline-block; max-width: 100%; white-space: normal; margin-left: 6px; padding: 2px 10px; border-radius: var(--pill); background: var(--maple); color: var(--paper-2); font-family: var(--round); font-size: .66rem; letter-spacing: .04em; vertical-align: middle; overflow-wrap: anywhere; }
+.inferred-note { margin: 6px 0 0; color: var(--rust); font-size: .78rem; line-height: 1.5; }

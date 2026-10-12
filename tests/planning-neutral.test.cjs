@@ -19,14 +19,16 @@ function render(data, dayIndex, time) {
     vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   }
   const state = vm.runInContext('APP.data=input;recompute();renderDay(dayIndex);APP.state', context);
-  const allRows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)">([\s\S]*?)<\/li>/g)];
+  const allRows = [...content.innerHTML.matchAll(/<li class="tl-item ([^"]*)"[^>]*>([\s\S]*?)<\/li>/g)];
   const meals = allRows.filter(row => row[1].includes('tl-meal'));
-  const expectedMeals = ['lunch', 'dinner'].filter(key => {
+  // User change: arranged breakfasts are timeline cards too.
+  const expectedMeals = ['breakfast', 'lunch', 'dinner'].filter(key => {
     const text = data.days[dayIndex].meals?.[key];
     return typeof text === 'string' && text.trim() && !/未安排|XXX/.test(text);
   }).length;
   assert.equal(meals.length, expectedMeals);
-  meals.forEach(row => assert.doesNotMatch(row[0], /state-|now-badge|next-badge/));
+  // Meals may carry the separate planned inference, never confirmed state classes or now/next badges.
+  meals.forEach(row => assert.doesNotMatch(row[0], /state-(?:past|upcoming|current|next)\b|now-badge|next-badge/));
   const rows = allRows.filter(row => /\btl-(?:spot|transit)\b/.test(row[1]));
   assert.equal(rows.length, data.days[dayIndex].items.length);
   return { state, rows };
@@ -49,12 +51,14 @@ for (const [dayIndex, time, exactIndex] of [
       const item = itinerary.days[dayIndex].items[index];
       assert.equal(row[1].match(/state-(?:past|upcoming|current|next)/g)?.join('') || '',
         index === exactIndex ? 'state-current' : '', `${item.name}: estimated=${item.timeEstimated === true}`);
-      assert.equal(/(?:now|next)-badge/.test(row[2]), index === exactIndex);
+      // The one inferred badge replaces the old 現在 badge on the same confirmed card.
+      assert.equal(/inferred-badge/.test(row[2]), index === exactIndex);
+      assert.doesNotMatch(row[2], /(?:now|next)-badge/);
     });
   });
 }
 
-test('mixed unknown and estimated days stay neutral except at confirmed exact minutes', () => {
+test('mixed unknown and estimated days keep confirmed classes only at exact minutes (inference is separate)', () => {
   const data = { days: [{ day: 1, date: '2026-10-11', weekday: '日', title: '測試', items: [
     { type: 'spot', name: '已知一', time: '09:00' },
     { type: 'transit', desc: '未定交通', time: null },
@@ -67,8 +71,9 @@ test('mixed unknown and estimated days stay neutral except at confirmed exact mi
     rows.forEach((row, index) => {
       const item = data.days[0].items[index];
       const exact = item.type === 'spot' && !item.timeEstimated && item.time === time;
-      assert.equal(row[1].match(/state-\w+/)?.[0] || '', exact ? 'state-current' : '', `${time} ${item.name || item.desc}`);
-      assert.equal(/(?:now|next)-badge/.test(row[2]), exact);
+      assert.equal(row[1].match(/state-(?:past|upcoming|current|next)\b/)?.[0] || '', exact ? 'state-current' : '', `${time} ${item.name || item.desc}`);
+      assert.doesNotMatch(row[2], /(?:now|next)-badge/);
+      if (exact) assert.match(row[2], /inferred-badge/, 'confirmed minute is also the inferred card');
     });
   }
 });
