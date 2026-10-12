@@ -566,6 +566,8 @@ function scrollToCurrent() {
   requestAnimationFrame(() => {
     const el = document.querySelector('.state-current') || document.querySelector('.state-next');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // 預估／未知時刻不推測位置 → 回到今天開頭（Day 標題）
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
 
